@@ -35,7 +35,7 @@ const makeClean = () => {
   isHalt = true;
 };
 function makeShort(num) {
-  if (`${num}`.split('.')[1].split('').length < 7) {
+  if (`${(num - Math.floor(num))}`.length < 8) {
     return num;
   } else {
     const beforePoint = (`${num}`).split('.')[0];
