@@ -1,3 +1,5 @@
+
+
 const device = document.querySelector('.calculator-grid');
 const screenPrevOperand = document.querySelector('.previous-operand');
 const screenCurrentOperand = document.querySelector('.current-operand');
@@ -32,7 +34,17 @@ const makeClean = () => {
   screenCurrentOperand.textContent = 'Press AC.';
   isHalt = true;
 };
+function makeShort(num) {
+  if (`${num}`.split('.')[1].split('').length < 7) {
+    return num;
+  } else {
+    const beforePoint = (`${num}`).split('.')[0];
+    let afterPoint = (`${num}`).split('.')[1].split('');
+    afterPoint = afterPoint.length > 6 ? `${Math.round(parseInt(afterPoint.join('')) / 1000000)}` : Math.round(parseInt(afterPoint.join('')));
+    return parseFloat([beforePoint, '.', `${afterPoint}`].join(''));
+  }
 
+}
 device.addEventListener('click', (e) => {
   const bottomType = e.toElement.attributes[0].name;
   const bottomValue = e.target.textContent;
@@ -75,7 +87,7 @@ device.addEventListener('click', (e) => {
         makeClean();
       } else {
         screenPrevOperand.textContent = '';
-        screenCurrentOperand.textContent = (result === 0 && lastOperation === '') ? parseFloat(screenCurrentOperand.textContent) : result;
+        screenCurrentOperand.textContent = (result === 0 && lastOperation === '') ? parseFloat(screenCurrentOperand.textContent) : makeShort(result);
         result = 0;
         lastOperation = '';
       }
@@ -83,14 +95,11 @@ device.addEventListener('click', (e) => {
 
     if (bottomType === 'data-operation') {
       if (operationAvailable === true) {
-        console.log(result);
-        result = (typeof result === 'function') ? result(parseFloat(screenCurrentValue)) : result;
-        console.log(result);
+        result = (typeof result === 'function') ? makeShort(result(parseFloat(screenCurrentValue))) : result;
         if (isNaN(result) || !Number.isFinite(result)) {
           makeClean();
         } else {
           const preResult = (result === 0 && lastOperation === '') ? operations[bottomValue](parseFloat(screenCurrentValue)) : operations[bottomValue](result);
-          console.log(preResult);
           screenPrevOperand.textContent = (result === 0 && lastOperation === '') ? `${screenCurrentValue} ${bottomValue}` : `${result}  ${bottomValue}`;
           screenCurrentOperand.textContent = '';
           result = preResult;
