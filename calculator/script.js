@@ -32,10 +32,14 @@ const makeClean = () => {
   screenCurrentOperand.textContent = 'Press AC.';
   isHalt = true;
 };
+<<<<<<< HEAD
 const makeShort = (num) => {
   const returnNum = num === 0.30000000000000004 ? 0.3 : num;
   return returnNum;
 }
+=======
+
+>>>>>>> ce97216625ed3d56b2d935f621a882a5e260f252
 device.addEventListener('click', (e) => {
   const bottomType = e.toElement.attributes[0].name;
   const bottomValue = e.target.textContent;
@@ -78,7 +82,11 @@ device.addEventListener('click', (e) => {
         makeClean();
       } else {
         screenPrevOperand.textContent = '';
+<<<<<<< HEAD
         screenCurrentOperand.textContent = (result === 0 && lastOperation === '') ? parseFloat(screenCurrentOperand.textContent) : makeShort(result);
+=======
+        screenCurrentOperand.textContent = (result === 0 && lastOperation === '') ? parseFloat(screenCurrentOperand.textContent) : result;
+>>>>>>> ce97216625ed3d56b2d935f621a882a5e260f252
         result = 0;
         lastOperation = '';
       }
@@ -86,11 +94,21 @@ device.addEventListener('click', (e) => {
 
     if (bottomType === 'data-operation') {
       if (operationAvailable === true) {
+<<<<<<< HEAD
         result = (typeof result === 'function') ? result(parseFloat(screenCurrentValue)) : result;
+=======
+        console.log(result);
+        result = (typeof result === 'function') ? result(parseFloat(screenCurrentValue)) : result;
+        console.log(result);
+>>>>>>> ce97216625ed3d56b2d935f621a882a5e260f252
         if (isNaN(result) || !Number.isFinite(result)) {
           makeClean();
         } else {
           const preResult = (result === 0 && lastOperation === '') ? operations[bottomValue](parseFloat(screenCurrentValue)) : operations[bottomValue](result);
+<<<<<<< HEAD
+=======
+          console.log(preResult);
+>>>>>>> ce97216625ed3d56b2d935f621a882a5e260f252
           screenPrevOperand.textContent = (result === 0 && lastOperation === '') ? `${screenCurrentValue} ${bottomValue}` : `${result}  ${bottomValue}`;
           screenCurrentOperand.textContent = '';
           result = preResult;
