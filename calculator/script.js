@@ -1,3 +1,5 @@
+
+
 const device = document.querySelector('.calculator-grid');
 const screenPrevOperand = document.querySelector('.previous-operand');
 const screenCurrentOperand = document.querySelector('.current-operand');
@@ -32,9 +34,16 @@ const makeClean = () => {
   screenCurrentOperand.textContent = 'Press AC.';
   isHalt = true;
 };
-const makeShort = (num) => {
-  const returnNum = num === 0.30000000000000004 ? 0.3 : num;
-  return returnNum;
+function makeShort(num) {
+  if (`${num}`.split('.')[1].split('').length < 7) {
+    return num;
+  } else {
+    const beforePoint = (`${num}`).split('.')[0];
+    let afterPoint = (`${num}`).split('.')[1].split('');
+    afterPoint = afterPoint.length > 6 ? `${Math.round(parseInt(afterPoint.join('')) / 1000000)}` : Math.round(parseInt(afterPoint.join('')));
+    return parseFloat([beforePoint, '.', `${afterPoint}`].join(''));
+  }
+
 }
 device.addEventListener('click', (e) => {
   const bottomType = e.toElement.attributes[0].name;
@@ -86,7 +95,7 @@ device.addEventListener('click', (e) => {
 
     if (bottomType === 'data-operation') {
       if (operationAvailable === true) {
-        result = (typeof result === 'function') ? result(parseFloat(screenCurrentValue)) : result;
+        result = (typeof result === 'function') ? makeShort(result(parseFloat(screenCurrentValue))) : result;
         if (isNaN(result) || !Number.isFinite(result)) {
           makeClean();
         } else {
