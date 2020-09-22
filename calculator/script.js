@@ -46,7 +46,7 @@ function makeShort(num) {
 
 }
 device.addEventListener('click', (e) => {
-  const bottomType = e.toElement.attributes[0].name;
+  const bottomType = e.target.attributes[0].nodeName;
   const bottomValue = e.target.textContent;
   const screenCurrentValue = screenCurrentOperand.textContent;
   const screenPreviousValue = screenPrevOperand.textContent;
