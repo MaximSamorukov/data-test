@@ -4,6 +4,7 @@ const device = document.querySelector('.calculator-grid');
 const screenPrevOperand = document.querySelector('.previous-operand');
 const screenCurrentOperand = document.querySelector('.current-operand');
 let operationAvailable = false;
+let equalPressed = false;
 let isHalt = false;
 let lastOperation = '';
 let prevVelue = '';
@@ -31,16 +32,19 @@ const makeClean = () => {
   screenPrevOperand.textContent = '';
   operationAvailable = false;
   lastOperation = '';
-  screenCurrentOperand.textContent = 'Press AC.';
+  screenCurrentOperand.textContent = 'Error! Press AC.';
   isHalt = true;
 };
 function makeShort(num) {
-  if (`${(num - Math.floor(num))}`.length < 8) {
+  if (num >= 0 && (`${(num - Math.floor(num))}`.length < 8)) {
+    return num;
+  }
+  else if (num < 0 && (`${(num + Math.ceil(num))}`.length < 8)) {
     return num;
   } else {
     const beforePoint = (`${num}`).split('.')[0];
     let afterPoint = (`${num}`).split('.')[1].split('');
-    afterPoint = afterPoint.length > 6 ? `${Math.round(parseInt(afterPoint.join('')) / 1000000)}` : Math.round(parseInt(afterPoint.join('')));
+    afterPoint = afterPoint.length >= 10 ? afterPoint.reverse().slice(afterPoint.findIndex((i) => i === '0')).slice(afterPoint.findIndex((i) => i !== '0')).reverse().join('') : afterPoint.join('');
     return parseFloat([beforePoint, '.', `${afterPoint}`].join(''));
   }
 
@@ -48,11 +52,11 @@ function makeShort(num) {
 device.addEventListener('click', (e) => {
   const bottomType = e.target.attributes[0].nodeName;
   const bottomValue = e.target.textContent;
-  const screenCurrentValue = screenCurrentOperand.textContent;
+  let screenCurrentValue = screenCurrentOperand.textContent;
   const screenPreviousValue = screenPrevOperand.textContent;
 
   if (isHalt && bottomType !== 'data-all-clear') {
-    screenCurrentOperand.textContent = 'Press AC.';
+    screenCurrentOperand.textContent = 'Error! Press AC.';
   } else {
     if (bottomType === 'plus-minus') {
       const textContent = screenCurrentValue;
@@ -66,6 +70,11 @@ device.addEventListener('click', (e) => {
     }
 
     if (bottomType === 'data-number') {
+      if (equalPressed === true) {
+        screenCurrentOperand.textContent = '';
+        screenCurrentValue = '';
+        equalPressed = false;
+      }
       if ((screenCurrentValue[0] === '-' && screenCurrentValue[1] === '0' && screenCurrentValue.length <= 2) || (screenCurrentValue[0] === '0' && screenCurrentValue.length <= 1)) {
         screenCurrentOperand.textContent += `.${bottomValue}`;
         operationAvailable = true;
@@ -76,12 +85,18 @@ device.addEventListener('click', (e) => {
     }
 
     if (bottomType === 'data-number-point') {
+      if (equalPressed === true) {
+        screenCurrentOperand.textContent = '';
+        screenCurrentValue = '';
+        equalPressed = false;
+      }
       if (!screenCurrentValue.includes('.')) {
         screenCurrentOperand.textContent += bottomValue;
       }
     }
 
     if (bottomType === 'data-equals') {
+      equalPressed = true;
       result = (typeof result !== 'function') ? result : screenCurrentValue === '' ? result(valueToEnd[lastOperation]) : result(parseFloat(screenCurrentValue));
       if (isNaN(result) || !Number.isFinite(result)) {
         makeClean();
@@ -110,8 +125,14 @@ device.addEventListener('click', (e) => {
     }
 
     if (bottomType === 'data-operation-pow') {
+      equalPressed = true;
       const funct = operations[bottomValue];
-      screenCurrentOperand.textContent = funct(screenCurrentValue);
+      const resultPow = funct(screenCurrentValue);
+      if (isNaN(resultPow) || !Number.isFinite(resultPow)) {
+        makeClean();
+      } else {
+        screenCurrentOperand.textContent = resultPow;
+      }
     }
 
     if (bottomType === 'data-all-clear') {
