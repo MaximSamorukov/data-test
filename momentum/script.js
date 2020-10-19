@@ -1,3 +1,4 @@
+// const fs = require('fs');
 // DOM Elements
 const time = document.querySelector('.time'),
   greeting = document.querySelector('.greeting'),
@@ -35,9 +36,18 @@ function addZero(n) {
 
 // Set Background and Greeting
 function setBgGreet() {
+  const phrases = {
+    morning: 'Good Morning, ',
+    day: 'Good Afternoon, ',
+    evening: 'Good Evening, ',
+    night: 'Good night, '
+  };
+  let phaseOfTheDay = 'nigth';
   let today = new Date(),
     hour = today.getHours();
-
+  phaseOfTheDay = hour >= 6 ? hour >= 12 ? hour >= 18 ? 'evening' : 'day' : 'morning' : phaseOfTheDay;
+  let greetingAccordingToThephase = phrases[phaseOfTheDay];
+  let imgPath = `../assets/images/${phaseOfTheDay}/`
   if (hour < 12) {
     // Morning
     document.body.style.backgroundImage =
