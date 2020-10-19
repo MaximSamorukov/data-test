@@ -5,7 +5,8 @@ const
   name = document.querySelector('.name'),
   focus = document.querySelector('.focus'),
   joke = document.querySelector('.joke'),
-  change = document.querySelector('.changeImg');
+  change = document.querySelector('.changeImg'),
+  weather = document.querySelector('.weather');
 
 localStorage.setItem('currentImageBg', '01.jpg');
 
@@ -21,6 +22,69 @@ function getPhrase() {
   setTimeout(getPhrase, 100000);
 }
 
+// Show Wheather
+function getWeather() {
+  const queryData = localStorage.getItem('weather');
+  const options = {
+    method: 'GET',
+    url: 'http://api.weatherapi.com/v1/current.json?key=ed1d44b5c91c4c268ec191324201910',
+    params: { q: queryData },
+  };
+
+  axios.request(options).then(function (response) {
+    const { country, name } = response.data.location;
+    const { temp_c, humidity, wind_kph } = response.data.current;
+    const { status } = response;
+    if (status > 300) {
+      throw new Error();
+    }
+    const apiResponse = `${country}, ${name}: ${temp_c}T, ${humidity}, ${wind_kph}`;
+    localStorage.setItem('apiResponse', apiResponse);
+    showWeather(apiResponse);
+  }).catch(function (error) {
+    localStorage.setItem('apiResponse', '[data Unavailable]');
+    localStorage.setItem('weather', '');
+    showWeather('[data Unavailable]');
+  });
+  setTimeout(getWeather, 50000);
+}
+
+
+// show weather
+function showWeather(str = '') {
+  if (str !== '') {
+    weather.innerText = str;
+  } else {
+    if (localStorage.getItem('weather') === null || localStorage.getItem('weather') === '') {
+      weather.innerText = '[Input city name]';
+    } else {
+      let data = localStorage.getItem('weather');
+      weather.innerText = data;
+    }
+
+  }
+}
+// set weather options
+function setWeatherOptions(e) {
+  if (e.target.textContent === '' && (e.type === 'keydown' || e.type === 'blur')) {
+    e.target.innerText = '[Input city name]';
+  }
+  if (e.type === 'keypress') {
+    // Make sure enter is pressed
+    if (e.which == 13 || e.keyCode == 13) {
+      if (e.target.innerText.trim() === '') {
+        localStorage.setItem('weather', '');
+        weather.innerText = '[Input city name]';
+      } else {
+        localStorage.setItem('weather', e.target.innerText);
+        getWeather()
+      }
+      weather.blur();
+    }
+  } else {
+    localStorage.setItem('weather', e.target.innerText);
+  }
+}
 // Show Time
 function showTime() {
   let today = new Date(),
@@ -151,11 +215,13 @@ focus.addEventListener('keydown', setFocus);
 focus.addEventListener('blur', setFocus);
 joke.addEventListener('click', getPhrase);
 change.addEventListener('click', setBgGreet('once'));
-
-
-
+weather.addEventListener('keypress', setWeatherOptions);
+weather.addEventListener('keydown', setWeatherOptions);
+weather.addEventListener('blur', setWeatherOptions);
 
 // Run
+getWeather();
+showWeather();
 getPhrase();
 showTime();
 setBgGreet()();
