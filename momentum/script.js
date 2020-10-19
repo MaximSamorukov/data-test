@@ -6,7 +6,9 @@ const
   focus = document.querySelector('.focus'),
   joke = document.querySelector('.joke'),
   change = document.querySelector('.changeImg');
-let currentImage = '01.jpg';
+
+localStorage.setItem('currentImageBg', '01.jpg');
+
 // Show Phrase
 function getPhrase() {
   axios.get('https://geek-jokes.sameerkumar.website/api')
@@ -53,7 +55,7 @@ const setBgGreet = (arg = 'notOnce') => () => {
     });
     const nextIndex = array.indexOf(curImage) === 19 ? 0 : array.indexOf(curImage) + 1;
     image = `${array[nextIndex]}.jpg`;
-    currentImage = image;
+    localStorage.setItem('currentImageBg', image);
     return image;
   }
 
@@ -74,7 +76,7 @@ const setBgGreet = (arg = 'notOnce') => () => {
   const imgPath = (path) => `url(./assets/images/${phaseOfTheDay}/${path})`;
 
   function imgRotate() {
-    document.body.style.backgroundImage = imgPath(imgChange(currentImage));
+    document.body.style.backgroundImage = imgPath(imgChange(localStorage.getItem('currentImageBg')));
     if (arg !== 'once') {
       setTimeout(imgRotate, 5000);
     }
