@@ -27,7 +27,7 @@ function getWeather() {
   const queryData = localStorage.getItem('weather');
   const options = {
     method: 'GET',
-    url: 'http://api.weatherapi.com/v1/current.json?key=ed1d44b5c91c4c268ec191324201910',
+    url: 'https://api.weatherapi.com/v1/current.json?key=ed1d44b5c91c4c268ec191324201910',
     params: { q: queryData },
   };
 
