@@ -54,6 +54,7 @@ function getWeather() {
     localStorage.setItem('weather', '');
     showWeather('[data Unavailable]');
     console.log(error);
+    clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
   });
   const key = setTimeout(getWeather, 5000);
   localStorage.setItem('keyToWeatherTimeout', key);
@@ -76,7 +77,8 @@ function showWeather(str = '') {
 }
 // set weather options
 function setWeatherOptions(e) {
-  const key = localStorage.getItem('key');
+  console.log('1');
+  const key = localStorage.getItem('keyToWeatherTimeout');
   if (e.target.textContent.trim() === '' && (e.type === 'keydown' && (e.which == 13 || e.keyCode == 13) || e.type === 'blur')) {
     e.target.innerText = '[Input city name]';
   }
@@ -88,7 +90,7 @@ function setWeatherOptions(e) {
         weather.innerText = '[Input city name]';
       } else {
         localStorage.setItem('weather', e.target.innerText);
-        clearTimeout('keyToWeatherTimeout');
+        clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
         getWeather();
       }
       weather.blur();
@@ -202,10 +204,12 @@ function setName(e) {
 
 // setNameOnClick
 function setOnClick(e) {
+
   const text = e.target.innerText;
   e.target.innerText = '';
   if (e.target.className.includes('weather')) {
-    clearTimeout(localStorage.getItem('key'));
+    console.log('2');
+    clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
   };
 }
 // Get Focus
