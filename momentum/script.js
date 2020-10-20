@@ -21,19 +21,24 @@ function getPhrase() {
     })
   setTimeout(getPhrase, 100000);
 }
-
-// Show Wheather_
+// Get weather from OpenWeather
 function getWeather() {
   const queryData = localStorage.getItem('weather');
   const options = {
     method: 'GET',
-    url: 'https://api.weatherapi.com/v1/current.json?key=ed1d44b5c91c4c268ec191324201910',
-    params: { q: queryData },
+    url: 'https://api.openweathermap.org/data/2.5/weather',
+    params: {
+      q: queryData,
+      appid: 'c789ee24c4cf31d66f1c1551735f9ab3',
+      units: 'metric',
+    },
   };
 
   axios.request(options).then(function (response) {
-    const { country, name } = response.data.location;
-    const { temp_c, humidity, wind_kph } = response.data.current;
+    const { name, wind, main, } = response.data;
+    const { country } = response.data.sys;
+    const { humidity, temp } = main;
+    const { speed } = wind;
     const { status } = response;
     const tempString = String.fromCharCode(176) + 'C';
     const humString = `g/m<sup>3</sup>`;
@@ -41,18 +46,20 @@ function getWeather() {
     if (status > 300) {
       throw new Error();
     }
-    const apiResponse = `${country}, ${name}: ${temp_c} ${tempString}, ${humidity} ${humString}, ${wind_kph} ${windString}`;
+    const apiResponse = `${country}, ${name}: ${temp} ${tempString}, ${humidity} ${humString}, ${speed} ${windString}`;
     localStorage.setItem('apiResponse', apiResponse);
     showWeather(apiResponse);
   }).catch(function (error) {
     localStorage.setItem('apiResponse', '[data Unavailable]');
     localStorage.setItem('weather', '');
     showWeather('[data Unavailable]');
+    console.log(error);
+    clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
   });
-  const key = setTimeout(getWeather, 50000);
+  const key = setTimeout(getWeather, 5000);
   localStorage.setItem('keyToWeatherTimeout', key);
 }
-
+//
 
 // show weather
 function showWeather(str = '') {
@@ -70,7 +77,8 @@ function showWeather(str = '') {
 }
 // set weather options
 function setWeatherOptions(e) {
-  const key = localStorage.getItem('key');
+  console.log('1');
+  const key = localStorage.getItem('keyToWeatherTimeout');
   if (e.target.textContent.trim() === '' && (e.type === 'keydown' && (e.which == 13 || e.keyCode == 13) || e.type === 'blur')) {
     e.target.innerText = '[Input city name]';
   }
@@ -82,7 +90,7 @@ function setWeatherOptions(e) {
         weather.innerText = '[Input city name]';
       } else {
         localStorage.setItem('weather', e.target.innerText);
-        clearTimeout('keyToWeatherTimeout');
+        clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
         getWeather();
       }
       weather.blur();
@@ -105,8 +113,6 @@ function showTime() {
     hour = today.getHours(),
     min = today.getMinutes(),
     sec = today.getSeconds();
-  console.log(Intl.DateTimeFormat('en-US', { month: 'short' }).format(today));
-
 
   // Output Time
   time.innerHTML = `${month}<span> </span>${day}.<br>${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(
@@ -198,10 +204,12 @@ function setName(e) {
 
 // setNameOnClick
 function setOnClick(e) {
+
   const text = e.target.innerText;
   e.target.innerText = '';
   if (e.target.className.includes('weather')) {
-    clearTimeout(localStorage.getItem('key'));
+    console.log('2');
+    clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
   };
 }
 // Get Focus
@@ -259,3 +267,4 @@ showTime();
 setBgGreet()();
 getName();
 getFocus();
+
