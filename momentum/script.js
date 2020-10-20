@@ -22,7 +22,7 @@ function getPhrase() {
   setTimeout(getPhrase, 100000);
 }
 
-// Show Wheather
+// Show Wheather_
 function getWeather() {
   const queryData = localStorage.getItem('weather');
   const options = {
