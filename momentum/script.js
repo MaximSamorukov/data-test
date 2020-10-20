@@ -35,10 +35,13 @@ function getWeather() {
     const { country, name } = response.data.location;
     const { temp_c, humidity, wind_kph } = response.data.current;
     const { status } = response;
+    const tempString = String.fromCharCode(176) + 'C';
+    const humString = `g/m<sup>3</sup>`;
+    const windString = 'kph';
     if (status > 300) {
       throw new Error();
     }
-    const apiResponse = `${country}, ${name}: ${temp_c}T, ${humidity}, ${wind_kph}`;
+    const apiResponse = `${country}, ${name}: ${temp_c} ${tempString}, ${humidity} ${humString}, ${wind_kph} ${windString}`;
     localStorage.setItem('apiResponse', apiResponse);
     showWeather(apiResponse);
   }).catch(function (error) {
@@ -46,27 +49,29 @@ function getWeather() {
     localStorage.setItem('weather', '');
     showWeather('[data Unavailable]');
   });
-  setTimeout(getWeather, 50000);
+  const key = setTimeout(getWeather, 50000);
+  localStorage.setItem('keyToWeatherTimeout', key);
 }
 
 
 // show weather
 function showWeather(str = '') {
   if (str !== '') {
-    weather.innerText = str;
+    weather.innerHTML = str;
   } else {
     if (localStorage.getItem('weather') === null || localStorage.getItem('weather') === '') {
-      weather.innerText = '[Input city name]';
+      weather.innerHTML = '[Input city name]';
     } else {
       let data = localStorage.getItem('weather');
-      weather.innerText = data;
+      weather.innerHTML = data;
     }
 
   }
 }
 // set weather options
 function setWeatherOptions(e) {
-  if (e.target.textContent === '' && (e.type === 'keydown' || e.type === 'blur')) {
+  const key = localStorage.getItem('key');
+  if (e.target.textContent.trim() === '' && (e.type === 'keydown' && (e.which == 13 || e.keyCode == 13) || e.type === 'blur')) {
     e.target.innerText = '[Input city name]';
   }
   if (e.type === 'keypress') {
@@ -77,23 +82,30 @@ function setWeatherOptions(e) {
         weather.innerText = '[Input city name]';
       } else {
         localStorage.setItem('weather', e.target.innerText);
-        getWeather()
+        clearTimeout('keyToWeatherTimeout');
+        getWeather();
       }
       weather.blur();
     }
-  } else {
+  }
+  if (e.type === 'blur' && e.target.textContent.trim() !== '') {
+    localStorage.setItem('weather', e.target.innerText);
+    clearTimeout('keyToWeatherTimeout');
+    getWeather();
+  }
+  else {
     localStorage.setItem('weather', e.target.innerText);
   }
 }
 // Show Time
 function showTime() {
   let today = new Date(),
-    month = `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(today.getMonth())}.`,
-    day = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(today.getDay()),
+    month = `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(today)}.`,
+    day = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(today),
     hour = today.getHours(),
     min = today.getMinutes(),
     sec = today.getSeconds();
-
+  console.log(Intl.DateTimeFormat('en-US', { month: 'short' }).format(today));
 
 
   // Output Time
@@ -142,7 +154,8 @@ const setBgGreet = (arg = 'notOnce') => () => {
   function imgRotate() {
     document.body.style.backgroundImage = imgPath(imgChange(localStorage.getItem('currentImageBg')));
     if (arg !== 'once') {
-      setTimeout(imgRotate, 5000);
+      let key = setTimeout(imgRotate, 10000);
+      localStorage.setItem('keyToImageRotate', key);
     }
   }
   imgRotate();
@@ -160,8 +173,13 @@ function getName() {
 // Set Name
 function setName(e) {
   // console.log(e);
-  if (e.target.textContent === '' && (e.type === 'keydown' || e.type === 'blur')) {
-    e.target.innerText = '[Enter Name]';
+  if (e.target.textContent === '' && ((e.type === 'keydown' && (e.which == 13 || e.keyCode == 13)) || e.type === 'blur')) {
+    if (localStorage.getItem('name') === null || localStorage.getItem('name').trim() === '') {
+      e.target.innerText = '[Enter Name]';
+    } else {
+      e.target.innerText = localStorage.getItem('name').trim();
+    }
+
   }
   if (e.type === 'keypress') {
     // Make sure enter is pressed
@@ -178,6 +196,14 @@ function setName(e) {
   }
 }
 
+// setNameOnClick
+function setOnClick(e) {
+  const text = e.target.innerText;
+  e.target.innerText = '';
+  if (e.target.className.includes('weather')) {
+    clearTimeout(localStorage.getItem('key'));
+  };
+}
 // Get Focus
 function getFocus() {
   if (localStorage.getItem('focus') === null) {
@@ -189,8 +215,12 @@ function getFocus() {
 
 // Set Focus
 function setFocus(e) {
-  if (e.target.textContent === '' && (e.type === 'keydown' || e.type === 'blur')) {
-    e.target.innerText = '[Enter Focus]';
+  if (e.target.textContent.trim() === '' && (e.type === 'keydown' && (e.which == 13 || e.keyCode == 13) || e.type === 'blur')) {
+    if (localStorage.getItem('focus') === null || localStorage.getItem('focus').trim() === '') {
+      e.target.innerText = '[Enter Focus]';
+    } else {
+      e.target.innerText = localStorage.getItem('focus').trim();
+    }
   }
   if (e.type === 'keypress') {
     // Make sure enter is pressed
@@ -208,17 +238,19 @@ function setFocus(e) {
 }
 
 name.addEventListener('keypress', setName);
+name.addEventListener('click', setOnClick);
 name.addEventListener('keydown', setName);
 name.addEventListener('blur', setName);
 focus.addEventListener('keypress', setFocus);
 focus.addEventListener('keydown', setFocus);
 focus.addEventListener('blur', setFocus);
+focus.addEventListener('click', setOnClick);
 joke.addEventListener('click', getPhrase);
 change.addEventListener('click', setBgGreet('once'));
 weather.addEventListener('keypress', setWeatherOptions);
 weather.addEventListener('keydown', setWeatherOptions);
 weather.addEventListener('blur', setWeatherOptions);
-
+weather.addEventListener('click', setOnClick);
 // Run
 getWeather();
 showWeather();

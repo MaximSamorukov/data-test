@@ -13,18 +13,21 @@ body {
   text-align: center;
   height: 100vh;
   background-size: cover;
-  color: #201e1e;
-
+  color: #d3781c;
+  transition-property: background-image;
+  transition-duration: 3s;
 }
 
 .time {
   font-size: 10rem;
-  text-shadow: 0px 0px 5px white;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
-
+.changeImg:hover {
+  cursor: pointer;
+}
 h1 {
   margin-bottom: 3rem;
-  text-shadow: 0px 0px 5px white;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
 .h2 {
   font-size: 1.5rem;
@@ -32,25 +35,34 @@ h1 {
 h2, .h2 {
   margin-bottom: 0.5rem;
   opacity: 0.8;
-  text-shadow: 0px 0px 5px white;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
 
 h3 {
   font-size: 3rem;
-  text-shadow: 0px 0px 5px white;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
 
-h3:hover {
+.changeImg:hover, .focus:hover, .name:hover, .weather:hover, .joke:hover {
+  cursor: pointer;
   text-shadow: 0px 0px 15px rgb(125, 233, 147);
 }
-
 @media (max-width: 700px) {
   .time {
     font-size: 6rem;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 380px) {
   .time {
-    font-size: 4rem;
+    font-size: 3rem;
+  }
+  .weather {
+    margin-top: 10px;
+  }
+  .joke {
+    font-size: 0.7rem;
+  }
+  .name, .focus, .changeImg, h1 {
+    line-height: 2rem;
   }
 }
