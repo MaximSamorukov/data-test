@@ -26,7 +26,7 @@ body {
 
 .weather-icon {
   background-color: rgb(70, 189, 216);
-  background-image: url(/momentum/assets/images/Rain_Light_Sun.svg);
+  background-image: url(../momentum/assets/images/Rain_Light_Sun.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 80% 80%;
