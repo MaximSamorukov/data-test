@@ -115,12 +115,13 @@ function showTime() {
   let today = new Date(),
     month = `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(today)}.`,
     day = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(today),
+    date = today.getDate(),
     hour = today.getHours(),
     min = today.getMinutes(),
     sec = today.getSeconds();
 
   // Output Time
-  time.innerHTML = `${month}<span> </span>${day}.<br>${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(
+  time.innerHTML = `${date},<span> </span>${month}<span> </span>${day}.<br>${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(
     sec
   )}`;
 
