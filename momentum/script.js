@@ -7,6 +7,7 @@ const
   joke = document.querySelector('.joke'),
   change = document.querySelector('.changeImg'),
   weather = document.querySelector('.weather');
+icon = document.querySelector('.weather-icon');
 
 localStorage.setItem('currentImageBg', '01.jpg');
 
@@ -20,6 +21,11 @@ function getPhrase() {
       joke.innerHTML = "I'll get it as soon as possible.";
     })
   setTimeout(getPhrase, 100000);
+}
+// click on weather icon
+
+function clickOnicon() {
+  getWeather();
 }
 // Get weather from OpenWeather
 function getWeather() {
@@ -35,6 +41,7 @@ function getWeather() {
   };
 
   axios.request(options).then(function (response) {
+    console.log(response);
     const { name, wind, main, } = response.data;
     const { country } = response.data.sys;
     const { humidity, temp } = main;
@@ -53,11 +60,15 @@ function getWeather() {
     localStorage.setItem('apiResponse', '[data Unavailable]');
     localStorage.setItem('weather', '');
     showWeather('[data Unavailable]');
+    setTimeout(() => {
+      localStorage.setItem('weather', '');
+      showWeather();
+    }, 5000)
     console.log(error);
-    clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
+    // clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
   });
-  const key = setTimeout(getWeather, 5000);
-  localStorage.setItem('keyToWeatherTimeout', key);
+  // const key = setTimeout(getWeather, 5000);
+  // localStorage.setItem('keyToWeatherTimeout', key);
 }
 //
 
@@ -78,7 +89,7 @@ function showWeather(str = '') {
 // set weather options
 function setWeatherOptions(e) {
   console.log('1');
-  const key = localStorage.getItem('keyToWeatherTimeout');
+  // const key = localStorage.getItem('keyToWeatherTimeout');
   if (e.target.textContent.trim() === '' && (e.type === 'keydown' && (e.which == 13 || e.keyCode == 13) || e.type === 'blur')) {
     e.target.innerText = '[Input city name]';
   }
@@ -90,7 +101,7 @@ function setWeatherOptions(e) {
         weather.innerText = '[Input city name]';
       } else {
         localStorage.setItem('weather', e.target.innerText);
-        clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
+        // clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
         getWeather();
       }
       weather.blur();
@@ -98,7 +109,7 @@ function setWeatherOptions(e) {
   }
   if (e.type === 'blur' && e.target.textContent.trim() !== '') {
     localStorage.setItem('weather', e.target.innerText);
-    clearTimeout('keyToWeatherTimeout');
+    // clearTimeout('keyToWeatherTimeout');
     getWeather();
   }
   else {
@@ -148,10 +159,11 @@ const setBgGreet = (arg = 'notOnce') => () => {
     night: 'Good Night, '
   };
 
-  let phaseOfTheDay = 'nigth';
+  let phaseOfTheDay = 'night';
   let today = new Date(),
     hour = today.getHours();
   phaseOfTheDay = hour >= 6 ? hour >= 12 ? hour >= 18 ? 'evening' : 'day' : 'morning' : phaseOfTheDay;
+  localStorage.setItem('phase', phaseOfTheDay);
   let greetingAccordingToThephase = phrases[phaseOfTheDay];
   greeting.textContent = greetingAccordingToThephase;
 
@@ -167,6 +179,26 @@ const setBgGreet = (arg = 'notOnce') => () => {
   imgRotate();
 }
 
+// image rotate on click
+function imageRotateOnClick() {
+  const key = localStorage.getItem('keyToImageRotate');
+  clearTimeout(key);
+  const imageObject = localStorage.getItem('imgPathsObj');
+  const paths = Object.keys(imageObject);
+  const current = localStorage.getItem('current') === null ? localStorage.getItem('currentImageBg') : localStorage.getItem('current');
+  const curentIndex = paths
+}
+// get all img paths
+function getImgPaths() {
+  const array = ['night', 'morning', 'day', 'evening'];
+  let imgPathsObj = {};
+  array.map((item) => {
+    for (let i = 1; i <= 20; i += 1) {
+      imgPathsObj[`${item}-${i}.jpg`] = `url(./assets/images/${item}/${i}.jpg)`;
+    }
+  });
+  localStorage.setItem('imgPathsObj', imgPathsObj);
+}
 // Get Name
 function getName() {
   if (localStorage.getItem('name') === null || localStorage.getItem('name') === '') {
@@ -259,6 +291,7 @@ weather.addEventListener('keypress', setWeatherOptions);
 weather.addEventListener('keydown', setWeatherOptions);
 weather.addEventListener('blur', setWeatherOptions);
 weather.addEventListener('click', setOnClick);
+icon.addEventListener('click', clickOnicon);
 // Run
 getWeather();
 showWeather();
@@ -268,3 +301,4 @@ setBgGreet()();
 getName();
 getFocus();
 
+getImgPaths();

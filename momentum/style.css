@@ -17,7 +17,23 @@ body {
   transition-property: background-image;
   transition-duration: 3s;
 }
-
+.weather-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.weather-icon {
+  background-color: rgb(70, 189, 216);
+  width: 45px;
+  height: 45px;
+  margin-left: 15px;
+  border-radius: 50%;
+}
+.weather-icon img {
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
+}
 .time {
   font-size: 10rem;
   text-shadow: 0px 0px 5px rgb(0, 0, 0);
@@ -43,7 +59,7 @@ h3 {
   text-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
 
-.changeImg:hover, .focus:hover, .name:hover, .weather:hover, .joke:hover {
+.changeImg:hover, .focus:hover, .name:hover, .weather:hover, .joke:hover, .weather-icon:hover {
   cursor: pointer;
   text-shadow: 0px 0px 15px rgb(125, 233, 147);
 }
