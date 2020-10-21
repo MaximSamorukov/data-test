@@ -41,7 +41,6 @@ function getWeather() {
   };
 
   axios.request(options).then(function (response) {
-    console.log(response);
     const { name, wind, main, } = response.data;
     const { country } = response.data.sys;
     const { humidity, temp } = main;
@@ -64,11 +63,7 @@ function getWeather() {
       localStorage.setItem('weather', '');
       showWeather();
     }, 5000)
-    console.log(error);
-    // clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
   });
-  // const key = setTimeout(getWeather, 5000);
-  // localStorage.setItem('keyToWeatherTimeout', key);
 }
 //
 
@@ -88,7 +83,6 @@ function showWeather(str = '') {
 }
 // set weather options
 function setWeatherOptions(e) {
-  console.log('1');
   // const key = localStorage.getItem('keyToWeatherTimeout');
   if (e.target.textContent.trim() === '' && (e.type === 'keydown' && (e.which == 13 || e.keyCode == 13) || e.type === 'blur')) {
     e.target.innerText = '[Input city name]';
@@ -181,20 +175,36 @@ const setBgGreet = (arg = 'notOnce') => () => {
 
 // image rotate on click
 function imageRotateOnClick() {
+  const keyOnClick = localStorage.getItem('keyOnClick');
+  if (keyOnClick !== null) {
+    clearTimeout(keyOnClick);
+  }
   const key = localStorage.getItem('keyToImageRotate');
   clearTimeout(key);
-  const imageObject = localStorage.getItem('imgPathsObj');
-  const paths = Object.keys(imageObject);
+  const paths = localStorage.getItem('imgPathsObj').split(',');
+  const phase = localStorage.getItem('phase');
+  const pathsLength = paths.length;
   const current = localStorage.getItem('current') === null ? localStorage.getItem('currentImageBg') : localStorage.getItem('current');
-  const curentIndex = paths
+  const currentIndex = paths.indexOf(`${phase}-${current}`);
+  const nextIndex = currentIndex === (pathsLength - 1) ? 0 : currentIndex + 1;
+  const nextPath = paths[nextIndex];
+  const nextFullPath = `url(./assets/images/${nextPath.split('-')[0]}/${nextPath.split('-')[1]}`
+  document.body.style.backgroundImage = nextFullPath;
+  localStorage.setItem('current', nextPath.split('-')[1]);
+  const keyToChangeImageOnClick = setTimeout(() => {
+    localStorage.removeItem('current')
+    setBgGreet()();
+  }, 5000)
+  localStorage.setItem('keyOnClick', keyToChangeImageOnClick)
 }
 // get all img paths
 function getImgPaths() {
   const array = ['night', 'morning', 'day', 'evening'];
-  let imgPathsObj = {};
+  let imgPathsObj = [];
   array.map((item) => {
     for (let i = 1; i <= 20; i += 1) {
-      imgPathsObj[`${item}-${i}.jpg`] = `url(./assets/images/${item}/${i}.jpg)`;
+      const y = i < 10 ? `0${i}` : i;
+      imgPathsObj.push(`${item}-${y}.jpg`);// = `url(./assets/images/${item}/${i}.jpg)`;
     }
   });
   localStorage.setItem('imgPathsObj', imgPathsObj);
@@ -210,7 +220,6 @@ function getName() {
 
 // Set Name
 function setName(e) {
-  // console.log(e);
   if (e.target.textContent === '' && ((e.type === 'keydown' && (e.which == 13 || e.keyCode == 13)) || e.type === 'blur')) {
     if (localStorage.getItem('name') === null || localStorage.getItem('name').trim() === '') {
       e.target.innerText = '[Enter Name]';
@@ -240,7 +249,6 @@ function setOnClick(e) {
   const text = e.target.innerText;
   e.target.innerText = '';
   if (e.target.className.includes('weather')) {
-    console.log('2');
     clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
   };
 }
@@ -286,7 +294,7 @@ focus.addEventListener('keydown', setFocus);
 focus.addEventListener('blur', setFocus);
 focus.addEventListener('click', setOnClick);
 joke.addEventListener('click', getPhrase);
-change.addEventListener('click', setBgGreet('once'));
+change.addEventListener('click', imageRotateOnClick);
 weather.addEventListener('keypress', setWeatherOptions);
 weather.addEventListener('keydown', setWeatherOptions);
 weather.addEventListener('blur', setWeatherOptions);
@@ -300,5 +308,6 @@ showTime();
 setBgGreet()();
 getName();
 getFocus();
+
 
 getImgPaths();
