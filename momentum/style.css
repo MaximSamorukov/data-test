@@ -21,6 +21,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .weather-icon {
@@ -33,7 +34,7 @@ body {
   height: 35px;
   min-width: 35px;
   min-height: 35px;
-  margin-left: 5px;
+  margin-bottom: 10px;
   border-radius: 50%;
 }
 
