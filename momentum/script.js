@@ -200,7 +200,7 @@ function getImgPaths() {
   array.map((item) => {
     for (let i = 1; i <= 20; i += 1) {
       const y = i < 10 ? `0${i}` : i;
-      imgPathsObj.push(`${item}-${y}.jpg`);// = `url(./assets/images/${item}/${i}.jpg)`;
+      imgPathsObj.push(`${item}-${y}.jpg`);
     }
   });
   localStorage.setItem('imgPathsObj', imgPathsObj);
@@ -243,9 +243,6 @@ function setName(e) {
 function setOnClick(e) {
   const text = e.target.textContent;
   e.target.textContent = '';
-  // if (e.target.className.includes('weather')) {
-  //   clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
-  // };
 }
 // Get Focus
 function getFocus() {
@@ -291,19 +288,16 @@ focus.addEventListener('click', setOnClick);
 joke.addEventListener('click', getPhrase);
 change.addEventListener('click', imageRotateOnClick);
 weather.addEventListener('keypress', setWeatherOptions);
-// weather.addEventListener('keydown', setWeatherOptions);
 weather.addEventListener('blur', setWeatherOptions);
 weather.addEventListener('click', setOnClick);
 icon.addEventListener('click', clickOnicon);
 
 // Run
-// getWeather();
+
 showWeather();
 getPhrase();
 showTime();
 setBgGreet()();
 getName();
 getFocus();
-
-
 getImgPaths();
