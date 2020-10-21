@@ -6,8 +6,8 @@ const
   focus = document.querySelector('.focus'),
   joke = document.querySelector('.joke'),
   change = document.querySelector('.changeImg'),
-  weather = document.querySelector('.weather');
-icon = document.querySelector('.weather-icon');
+  weather = document.querySelector('.weather'),
+  icon = document.querySelector('.weather-icon');
 
 localStorage.setItem('currentImageBg', '01.jpg');
 
@@ -54,62 +54,57 @@ function getWeather() {
     }
     const apiResponse = `${country}, ${name}: ${temp} ${tempString}, ${humidity} ${humString}, ${speed} ${windString}`;
     localStorage.setItem('apiResponse', apiResponse);
-    showWeather(apiResponse);
+    showWeather();
   }).catch(function (error) {
     localStorage.setItem('apiResponse', '[data Unavailable]');
     localStorage.setItem('weather', '');
-    showWeather('[data Unavailable]');
-    setTimeout(() => {
-      localStorage.setItem('weather', '');
+    weather.textContent = '[data Unavailable]';
+    const key = setTimeout(() => {
       showWeather();
-    }, 5000)
+    }, 2000);
+    localStorage.setItem('keyToWeatherTimeout', key);
   });
 }
 //
 
 // show weather
-function showWeather(str = '') {
-  if (str !== '') {
-    weather.innerHTML = str;
+function showWeather() {
+  if (localStorage.getItem('apiResponse') === null || localStorage.getItem('apiResponse') === '' || localStorage.getItem('apiResponse') === '[data Unavailable]') {
+    weather.textContent = '[Input city name]';
   } else {
-    if (localStorage.getItem('weather') === null || localStorage.getItem('weather') === '') {
-      weather.innerHTML = '[Input city name]';
-    } else {
-      let data = localStorage.getItem('weather');
-      weather.innerHTML = data;
-    }
-
+    let data = localStorage.getItem('apiResponse');
+    weather.innerHTML = data;
   }
 }
+
 // set weather options
 function setWeatherOptions(e) {
-  // const key = localStorage.getItem('keyToWeatherTimeout');
-  if (e.target.textContent.trim() === '' && (e.type === 'keydown' && (e.which == 13 || e.keyCode == 13) || e.type === 'blur')) {
-    e.target.innerText = '[Input city name]';
+  const key = localStorage.getItem('keyToWeatherTimeout');
+  if (e.which === 13 || e.keyCode === 13) {
+    weather.blur();
   }
-  if (e.type === 'keypress') {
-    // Make sure enter is pressed
-    if (e.which == 13 || e.keyCode == 13) {
-      if (e.target.innerText.trim() === '') {
-        localStorage.setItem('weather', '');
-        weather.innerText = '[Input city name]';
+  if ((e.type === 'keypress' && (e.which !== 13 || e.keyCode !== 13))) {
+    clearTimeout(key);
+  };
+  if ((e.type === 'keypress' && (e.which === 13 || e.keyCode === 13)) && (localStorage.getItem('apiResponse') !== null && localStorage.getItem('apiResponse') !== '[data Unavailable]')) {
+    e.preventDefault();
+    return;
+
+  };
+  if ((e.type === 'keypress' && (e.which === 13 || e.keyCode === 13)) || e.type === 'blur') {
+    if (e.target.innerText.trim() === '') {
+      if (localStorage.getItem('apiResponse') === null || localStorage.getItem('apiResponse') === '[data Unavailable]') {
+        weather.textContent = '[Input city name]';
       } else {
-        localStorage.setItem('weather', e.target.innerText);
-        // clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
-        getWeather();
+        weather.innerHTML = localStorage.getItem('apiResponse');
       }
-      weather.blur();
+    } else {
+      localStorage.setItem('weather', e.target.innerText.trim());
+      getWeather();
     }
   }
-  if (e.type === 'blur' && e.target.textContent.trim() !== '') {
-    localStorage.setItem('weather', e.target.innerText);
-    // clearTimeout('keyToWeatherTimeout');
-    getWeather();
-  }
-  else {
-    localStorage.setItem('weather', e.target.innerText);
-  }
 }
+
 // Show Time
 function showTime() {
   let today = new Date(),
@@ -246,12 +241,11 @@ function setName(e) {
 
 // setNameOnClick
 function setOnClick(e) {
-
-  const text = e.target.innerText;
-  e.target.innerText = '';
-  if (e.target.className.includes('weather')) {
-    clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
-  };
+  const text = e.target.textContent;
+  e.target.textContent = '';
+  // if (e.target.className.includes('weather')) {
+  //   clearTimeout(localStorage.getItem('keyToWeatherTimeout'));
+  // };
 }
 // Get Focus
 function getFocus() {
@@ -297,12 +291,13 @@ focus.addEventListener('click', setOnClick);
 joke.addEventListener('click', getPhrase);
 change.addEventListener('click', imageRotateOnClick);
 weather.addEventListener('keypress', setWeatherOptions);
-weather.addEventListener('keydown', setWeatherOptions);
+// weather.addEventListener('keydown', setWeatherOptions);
 weather.addEventListener('blur', setWeatherOptions);
 weather.addEventListener('click', setOnClick);
 icon.addEventListener('click', clickOnicon);
+
 // Run
-getWeather();
+// getWeather();
 showWeather();
 getPhrase();
 showTime();
