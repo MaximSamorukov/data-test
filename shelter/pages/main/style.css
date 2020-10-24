@@ -33,6 +33,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: start;
+    
 }
 .header-wrapper {
     padding: 0;
@@ -42,6 +43,7 @@ header {
     min-width: 100%;
     max-width: 100%;
     padding-top: 60px;
+    
 }
 
 .top-wrapper {
@@ -1738,47 +1740,52 @@ footer {
     letter-spacing: 0.075rem;
 
 }
+}
 
 @media (max-width: 768px) {
-    .body-wrapper{
+    .body-wrapper {
         width: 320px;
-        max-width: 320px;
+        /* max-width: 320px; */
         min-width: 320px;
         /* background-color: gray; */
         margin-right: auto;
         margin-left: auto;
-        /* display: flex;
-        justify-content: space-between; */
-        /* border: 1px solid greenyellow; */
+        /* /* display: flex; */
+        justify-content: start;
+        flex-direction: column;
+        /* border: 3px solid greenyellow; */
     }
     
     header {
-        padding: 0;
+        
         margin-left: auto;
         margin-right: auto;
         width: 320px;
-        height: 823px;
-        min-height: 320px;
-        min-width: 100%;
-        max-width: 100%;
-        background-image: url(/shelter/assets/images/start-screen-gradient-background.png);
+        max-height: 823px;
+        min-height: 823px;
+        height: 826px;
+        min-width: 320px;
+        /* max-width: 320px; */
+        background-image: url(/shelter/assets/images/start-screen-gradient-background-320.png);
         /* background: url(noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20; */
-        /* border: 1px solid yellow; */
+        /* border: 2px solid yellow; */
+        background-repeat: no-repeat;
+        background-position: 0 0;
     }
     .header-wrapper-wr {
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: start;
-        /* border: 1px solid greenyellow; */
+        /* border: 1px solid springgreen; */
     }
     .header-wrapper {
         padding: 0;
         margin-left: auto;
         margin-right: auto;
         width: 320px;
-        min-width: 100%;
-        max-width: 100%;
+        /* min-width: 100%;
+        max-width: 100%; */
         /* padding-top: 30px; */
         display: flex;
         justify-content: center;
@@ -1788,11 +1795,11 @@ footer {
     }
     
     .top-wrapper {
-       width: 320px;
+       width: 257px;
        height: 60px;
-       margin-right:auto;
-       margin-left: auto;
-       /* margin-top: 60px; */
+       /* margin-right:0px; */
+       margin-left: 10px;
+       margin-top: 30px;
        /* background-color: indigo; */
        display: flex;
        flex-direction: column;
@@ -1815,6 +1822,7 @@ footer {
         font-weight: 400;
         letter-spacing: 2px;
         margin-left: -2px;
+        line-height: 35.2px;
     
     }
     
@@ -1823,7 +1831,7 @@ footer {
         font-size: 13px;
         font-weight: 400;
         font-family: Arial, sans-serif;
-        margin-top: 8px;
+        margin-top: 10px;
         letter-spacing: 0.1em;
         word-spacing: 0px;
         margin-left: 4px;
@@ -1851,6 +1859,7 @@ footer {
         height: 27px;
         margin-right: 1px;
         display: none;
+        
     }
     
     .item {
@@ -1867,6 +1876,10 @@ footer {
         padding-bottom: 3px;
     }
     .header-message-wrapper {
+        width: 300px;
+        min-width: 300px;
+        max-width: 300px;
+        /*  */
         display: flex;
         justify-content: start;
         /* margin-top: 60px; */
@@ -1875,6 +1888,7 @@ footer {
         flex-direction: column;
         align-items: center;
         /* border: 1px solid aqua; */
+        margin-top: 50px;
         
     }
     .message-wrapper {
@@ -1896,29 +1910,31 @@ footer {
         font-weight: 400;
         font-family: Georgia, serif;
         color: #fff;
-        line-height: 32.5px;
+        line-height: 34px;
         opacity: 0.44;
         width: 300px;
         height: 64px;
         text-align: center;
-        
-        
+        margin-top: 4px;
+        margin-left: auto;
+        margin-right: auto;
+        letter-spacing: 1.5px;
     }
     
     .message-wrapper-text {
-        margin-top: 42px;
+        margin-top: 40px;
         width: 300px;
         height: 96px;
         font-family: Arial, sans-serif;
         font-size: 15px;
         font-weight: 400;
         color: #cdcdcd;
-        line-height: 24px;
+        line-height: 25px;
         text-align: center;
     }
     
     .message-button {
-        /* margin-top: 40px; */
+        margin-top: 45px;
         margin-left: auto;
         margin-right: auto;
         width: 207px;
@@ -1936,7 +1952,7 @@ footer {
     }
     .dog-picture {
         margin-left: 42px;
-        /* margin-top: 100px; */
+        margin-top: 115px;
     
     }
 
@@ -1954,7 +1970,7 @@ footer {
         flex-direction: column;
         align-items: center;
         /* margin-top: 200px; */
-        /* border: 1px solid yellowgreen; */
+        border: 1px solid yellowgreen;
         /* padding: 1px; */
     
         
@@ -1979,11 +1995,12 @@ footer {
     
     .dog-cat-photo {
         /* margin-left: 175px; */
-        /* margin-top: 80px; */
+        margin-bottom: 40px;
         /* margin-bottom: 100px; */
         border: 1px solid red;
         margin-left: auto;
         margin-right: auto;
+        
     }
     
     .section-about-content {
@@ -2007,7 +2024,7 @@ footer {
     
     }
     .about-h1 {
-        margin-top: 100px;
+        margin-top: 40px;
         margin-left: -2.3px;
         line-height: 32.5px;
         letter-spacing: 2px;
@@ -2021,10 +2038,13 @@ footer {
         margin-top: 9px;
         line-height: 24px;
         margin-left: -1.7px;
+        box-sizing: border-box;
+        padding-left: 14px;
+        padding-right: 14px;
     }
     
     .about-text p:last-child {
-        margin-top: 25px;
+        /* margin-top: 25px; */
     }
    
     /* ================= Look for house ============== */
@@ -2033,6 +2053,9 @@ footer {
         width: 320px;
         min-width: 320px;
         max-width: 320px;
+        height: 791px;
+        max-height: 791px;
+        min-height: 791px;
         background-color: #f6f6f6;
         opacity: 1;
         display: flex;
@@ -2040,18 +2063,18 @@ footer {
         justify-content: start;
         align-items: center;
         height: 791px;
-    
+        border: 3px solid tomato;
     }
     
     .look-for-house-h1 {
-        margin-top: 50px;
+        margin-top: 40px;
         width: 400px;
         height: 90px;
         text-align: center;
         color: #545454;
         margin-left: 0px;
         letter-spacing: 2px;
-        line-height: 44px;
+        line-height: 35px;
        
     }
     
@@ -2147,16 +2170,16 @@ footer {
         border: 2px solid #F1CDB3;
         border-radius: 100%;
         position: absolute;
-        top: 2430px;
+        top: 2410px;
     }
     
     .right-arrow {
         background-image: url(/shelter/assets/icons/Arrow.svg);
         background-position: center center;
         background-repeat: no-repeat;
-        margin-left: 54px;
-        margin-top: -7px;
-        left: 170px;
+        /* margin-left: 140px; */
+        /* margin-top: -7px; */
+        left: 250px;
     }
     
     .left-arrow {
@@ -2164,12 +2187,12 @@ footer {
         background-position: center center;
         background-repeat: no-repeat;
         transform: rotate(180deg);
-        margin-top: -6px;
-        left: 90px;
+        /* margin-top: -6px; */
+        left: 175px;
     }
     .look-for-house-btn {
         box-sizing: border-box;
-        margin-top: 50px;
+        margin-top: 30px;
         width: 187px;
         height: 52px;
         border: 2px solid #f1cdb3;
@@ -2180,6 +2203,8 @@ footer {
         letter-spacing: 0.06em;
         line-height: 25px;
         padding-top: 13px;
+        margin-left: auto;
+        margin-right: auto;
         
     }
     
@@ -2194,7 +2219,7 @@ footer {
         text-align: center;
         line-height: 53px;
         color: #292929;
-        margin-top: 56px;
+        margin-top: 72px;
         margin-left: -0.6px;
         letter-spacing: 1px;
     }
@@ -2202,18 +2227,20 @@ footer {
 /* ================= Help shelter ================== */
 .help-shelter {
     width: 320px;
-    min-height: 745px;
-    height: 745px;
+    /* min-height: 745px; */
+    /* max-height: 745px; */
+    /* height: 745px; */
     min-width: 320px;
     max-width: 320px;
     background-color: #fff;
-    /* border: 1px solid yellowgreen; */
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+    border: 3px solid yellowgreen;
+    padding: 0;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: flex-start; */
+    /* align-items: center; */
     /* box-sizing: border-box; */
-    padding-top: 73px;
+    /* padding-top: 73px; */
 }
 
 
@@ -2225,16 +2252,20 @@ footer {
     width: 320px;
     max-width: 320px;
     min-width: 320px;
-    /* border: 1px solid red; */
+    min-height: 745px;
+    max-height: 745px;
+    height: 745px;
+    border: 1px solid red;
     
 
 }
 .help-shelter-h1 {
     text-align: center;
-    line-height: 45px;
+    line-height: 32px;
     letter-spacing: 2px;
-    margin-top: 8px;
-    margin-left: -2px;
+    margin-top: 33px;
+    margin-left: auto;
+    margin-right: auto;
     
 }
 
@@ -2242,12 +2273,12 @@ footer {
     width: 290px;
     min-width: 290px;
     max-width: 290px;
-    height: 755px;
+    /* height: 755px; */
     /* display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap; */
-    margin-top: 59px;
+    margin-top: 20px;
     /* border: 1px solid indigo; */
     /* padding: 0; */
     display: grid;
@@ -2255,10 +2286,11 @@ footer {
     grid-template-rows: [f_row320] 87px [s_row320] 87px [t_row320] 87px [fo_row320] 87px [fv_row320] 87px;
     /* justify-items: center;  */
     justify-content: center;
-    /* border: 1px solid black; */
-    row-gap: 50px;
-    column-gap: 10px;
+    row-gap: 30px;
+    column-gap: 25px;
     border: 1px solid fuchsia;
+    margin-right: 15px;
+    
 }
 
 
@@ -2276,9 +2308,17 @@ footer {
     line-height: 16.5px;
 }
 
+.hsfl::after {
+    font-size: 15px;
+    letter-spacing: 1.1px;
+    position: relative;
+    top: 92px;
+    left: 0px;
+}
+
 .hs-pet-food {
-    background-image: url(/shelter/assets/icons/icon-pet-food.svg);
-    background-position: top center;
+    background-image: url(/shelter/assets/icons/icon-pet-food-320.svg);
+    background-position: center center;
     background-repeat: no-repeat;
     /* width: 82px; */
     /* width: 170px; */
@@ -2287,34 +2327,40 @@ footer {
 }
 
 .hs-transportation {
-    background-image: url(/shelter/assets/icons/icon-transportation.svg);
-    background-position: top center;
+    background-image: url(/shelter/assets/icons/icon-transportation-320.svg);
+    background-position: center center;
     background-repeat: no-repeat;
     /* width: 150px; */
     /* width: 170px; */
 
 }
+.hs-transportation::after {
+    left: 4px;
+    letter-spacing: 0.05em;
+}
 .hs-toys {
-    background-image: url(/shelter/assets/icons/icon-toys.svg);
-    background-position: top center;
+    background-image: url(/shelter/assets/icons/icon-toys-320.svg);
+    background-position: center center;
     background-repeat: no-repeat;
     /* width: 60px; */
     /* width: 170px; */
-
 }
 
 .hs-bows-caps {
-    background-image: url(/shelter/assets/icons/icon-bowls-and-cups.svg);
-    background-position: top center;
+    background-image: url(/shelter/assets/icons/icon-bowls-and-cups-320.svg);
+    background-position: center center;
     background-repeat: no-repeat;
     /* width: 153px; */
     /* width: 170px; */
 
 }
-
+.hs-bows-caps::after {
+    left: 4px;
+    letter-spacing: 0.05em;
+}
 .hs-shampoos {
-    background-image: url(/shelter/assets/icons/icon-shampoos.svg);
-    background-position: top center;
+    background-image: url(/shelter/assets/icons/icon-shampoos-320.svg);
+    background-position: center center;
     background-repeat: no-repeat;
     /* width: 101px; */
     /* margin-right: 0; */
@@ -2323,7 +2369,7 @@ footer {
 }
 
 .hs-vitamins {
-    background-image: url(/shelter/assets/icons/icon-vitamins.svg);
+    background-image: url(/shelter/assets/icons/icon-vitamins-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 89px; */
@@ -2331,8 +2377,11 @@ footer {
     
 }
 
+.hs-vitamins::after {
+    left: 6px;
+}
 .hs-meds {
-    background-image: url(/shelter/assets/icons/icon-medicines.svg);
+    background-image: url(/shelter/assets/icons/icon-medicines-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 101px; */
@@ -2340,16 +2389,19 @@ footer {
 }
 
 .hs-collars {
-    background-image: url(/shelter/assets/icons/icon-collars-leashes.svg);
+    background-image: url(/shelter/assets/icons/icon-collars-leashes-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 165px; */
     /* width: 170px; */
 
 }
-
+.hs-collars::after {
+    left: 4px;
+    letter-spacing: 0.05em;
+}
 .hs-sleeping-areas {
-    background-image: url(/shelter/assets/icons/icon-sleeping-area.svg);
+    background-image: url(/shelter/assets/icons/icon-sleeping-area-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 143px; */
@@ -2407,10 +2459,13 @@ footer {
     width: 320px;
     max-width: 320px;
     min-width: 320px;
-    /* min-height: 464px; */
-    height: 542.5px;
+    height: 500px;
+    max-height: 450px;
+    min-height: 500px;
+    height: 543px;
     background-color: #f6f6f6;
-    border: 1px solid gold;
+    /* border: 3px solid gold; */
+    padding: 0;
    
 }
 
@@ -2420,31 +2475,38 @@ footer {
     flex-direction: column-reverse;
     align-items: center;
     width: 320px;
-    height: 320px;
-    margin-top: 80px;
+    /* height: 320px; */
+    margin-top: 0px;
     margin-left: auto;
     margin-right: auto;
+    /* border: 1px solid slategrey; */
 }
 .donats-picture {
     width: 320px;
-    height: 135px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 60px;
+    /* height: 135px; */
+    margin-left: 40px;
+    /* margin-right: auto; */
+    margin-top: 40px;
 }
 
 .donats-text {
     width: 320px;
     height: 282px;
     /* margin-left: 30px; */
-    margin-top: 80px;
+    /* margin-top: 80px; */
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .donats-h1 {
-    line-height: 45px;
+    line-height: 32.5px;
     margin-top: 0px;
-    letter-spacing: 0.09rem;
-    word-spacing: 3.0px;
+    letter-spacing: 0.11em;
+    /* word-spacing: .0px; */
+    text-align: center;
+    /* border: 1px solid red; */
+    
 }
 
 .donats-card-number {
@@ -2457,7 +2519,8 @@ footer {
     background-color: #f1cdb3;
     margin-top: 1px;
     position: relative;
-    top: -1px;
+    top: 5px;
+    left: 9px;
 }
 .donats-card-icon {
     background-image: url(/shelter/assets/icons/credit-card.svg);
@@ -2466,7 +2529,7 @@ footer {
     width: 30px;
     height: 23px;
     /* margin-left: 15px; */
-    margin-top: 12px;
+    /* margin-top: 12px; */
     
     
 }
@@ -2476,7 +2539,7 @@ footer {
     font-family: Georgia, 'Times New Roman', Times, serif;
     line-height: 24px;
     letter-spacing: 0.075rem;
-    margin-top: 12px;
+    /* margin-top: 12px; */
 
 }
 
@@ -2484,11 +2547,14 @@ footer {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 400;
     font-size: 15px;
-    line-height: 25px;
+    line-height: 20px;
     color: #545454;
-    letter-spacing: 0.055rem;
+    letter-spacing: 0.0045rem;
     word-spacing: 0;
-    margin-top: 19px;
+    /* border: 1px solid darkcyan; */
+    text-align: left;
+    padding-left: 12px;
+    /* margin-top: 19px; */
 }
 .donats-paragraps > p:last-child {
     font-family: Arial, Helvetica, sans-serif;
@@ -2497,17 +2563,17 @@ footer {
     font-style: italic;
     line-height: 18px;
     color: #b2b2b2;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 /* ================== End donuts ================== */
-
+/* ================== Footer ==================== */
 footer {
-    width: 768px;
-    
-    min-width: 768px;
-    max-width: 768px;
-    min-height: 639px;
-    height: 639px;
+    width: 320px;
+    border: 2px solid slateblue;
+    min-width: 320px;
+    max-width: 320px;
+    min-height: 809px;
+    height: 809px;
     background-image: url(/shelter/assets/images/footer-gradient-background.png);
  
 }
@@ -2521,30 +2587,33 @@ footer {
     display: flex;
     justify-content: start;
     align-items: flex-start;
-    width: 768px;
+    width: 320px;
     
-    min-width: 768px;
-    max-width: 768px;
-    min-height: 639px;
-    height: 639px;
+    min-width: 320px;
+    max-width: 320px;
+    min-height: 809px;
+    height: 809px;
 }
 .footer-wrapper {
     display: flex;
     justify-content: start;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-    width: 768px;
-    height: 639px;
-    min-height: 639px;
+    /* flex-wrap: no-wrap; */
+    width: 320px;
+    height: 809px;
+    /* min-height: 809px; */
     margin-right: auto;
     margin-left: auto;
     margin-top: 12px;
+    border: 1px solid hotpink;
 }
 
 .footer-first-column {
     width: 278px;
-    height: 234px;
-    margin-left: 64px;
+    height: 208px;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 .footer-first-column .h1 {
@@ -2554,19 +2623,23 @@ footer {
 
 .footer-second-column {
     width: 302px;
-    height: 234px;
-    margin-left: 60px;
+    height: 222px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 0px;
+    /* border: 1px solid rgb(113, 135, 71); */
 }
 .footer-second-column > .h1 {
     letter-spacing: 0.14rem;
-    line-height: 128%;
+    /* line-height: 128%; */
 }
 .footer-third-column {
-    width: 300px;
-    height: 315px;
-    margin-left: 234px;
-    margin-top: 40px;
+    width: 260px;
+    height: 269px;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 40px; */
+    /* border: 1px solid yellowgreen; */
 }
 .footer-email {
     vertical-align: middle;
@@ -2656,5 +2729,4 @@ footer {
 
 }
 
-}
 }
