@@ -1757,6 +1757,7 @@ footer {
         justify-content: start;
         flex-direction: column;
         /* border: 3px solid greenyellow; */
+        
     }
     
     header {
@@ -1774,6 +1775,9 @@ footer {
         /* border: 2px solid yellow; */
         background-repeat: no-repeat;
         background-position: 0 0;
+        position: relative;
+        overflow: hidden;
+
     }
     .header-wrapper-wr {
         display: flex;
@@ -1866,13 +1870,13 @@ footer {
     .nav-mobile {
         /* overflow: hidden; */
         
-        position: absolute;
+        position: relative;
         background-color: purple;
         /* display: block; */
         width: 320px;
         height: 823px;
-        top: 0px;
-        right: -115px;
+        top: -827px;
+        right: -321px;
         z-index: 100;
         display: flex;
         flex-direction: column;
@@ -1885,7 +1889,7 @@ footer {
 
     .nav-mobile-active {
        
-        right: 200px;
+        right: 0px;
        
         transition: right 0.4s ease-in-out;
         /* overflow: hidden; */
