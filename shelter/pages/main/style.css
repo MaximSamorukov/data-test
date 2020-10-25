@@ -321,7 +321,7 @@ header {
     /* background-color: aqua; */
 }
 .left-card {
-    background-image: url(/shelter/assets/images/photo-cat.png);
+    /* background-image: url(/shelter/assets/images/photo-cat.png); */
     background-position: center center;
     background-repeat: no-repeat;
     
@@ -343,7 +343,7 @@ header {
 
 
 .middle-card {
-    background-image: url(/shelter/assets/images/photo-little-dog.png);
+    /* background-image: url(/shelter/assets/images/photo-little-dog.png); */
     background-position: center center;
     background-repeat: no-repeat;
 }
@@ -862,6 +862,12 @@ footer {
     letter-spacing: 0.075rem;
 
 }
+
+.jennifer {
+    background-image: url(../../assets/images/jennifer.png);
+}
+
+
 /* =================== End footer === Begin  media ================== */
 @media (max-width: 1280px) {
     .body-wrapper{
@@ -1198,7 +1204,7 @@ footer {
         /* background-color: aqua; */
     }
     .left-card {
-        background-image: url(/shelter/assets/images/photo-cat.png);
+        /* background-image: url(/shelter/assets/images/photo-cat.png); */
         background-position: center center;
         background-repeat: no-repeat;
         
@@ -1221,13 +1227,13 @@ footer {
     
     
     .middle-card {
-        background-image: url(/shelter/assets/images/photo-little-dog.png);
+        /* background-image: url(/shelter/assets/images/photo-little-dog.png); */
         background-position: center center;
         background-repeat: no-repeat;
     }
     
     .right-card {
-        background-image: url(/shelter/assets/images/photo-big-dog.png);
+        /* background-image: url(/shelter/assets/images/photo-big-dog.png); */
         background-position: center center;
         background-repeat: no-repeat;
     }
@@ -2216,7 +2222,7 @@ footer {
         margin-right: auto;
     }
     .left-card {
-        background-image: url(/shelter/assets/images/photo-cat.png);
+        /* background-image: url(/shelter/assets/images/photo-cat.png); */
         background-position: center center;
         background-repeat: no-repeat;
         
