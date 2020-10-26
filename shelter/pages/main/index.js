@@ -4,6 +4,9 @@ document.querySelector('.burger-wrapper').onclick = function () {
 };
 const rightArrow = document.querySelector('.right-arrow');
 const leftArrow = document.querySelector('.left-arrow');
+const btn = document.querySelectorAll('.look-for-house-btn');
+const popup = document.querySelector('.pap');
+const popupContainer = document.querySelector('.pap-container');
 
 const cardsArray = document.querySelectorAll('.card-wrapper');
 // console.log(cardsArray);
@@ -213,6 +216,54 @@ function leftArrowClick(e) {
     showCards();
 }
 
+
+function firstLetterUpperCase(str) {
+    return str.split('').map((i, index) => {
+        if (index === 0) {
+            return i.toUpperCase();
+        }
+        return i;
+    }).join('');
+}
+
+
+function func(e) {
+    let popUpDivClass = popup.classList;
+    if (e.target.classList.value.includes('pap-container') || e.target.classList.value.includes('pap')) {
+        popupContainer.classList.toggle('popup-container-active');
+        popUpDivClass.toggle(`popup`);
+        return;
+    }
+    // console.log(e.path[1].children[1]);
+    const name = (e.path[1].children[1].textContent);
+    const info = petsArray.filter((i) => i.name === name)[0];
+    const popupChildren = Object.keys(popup.children[1].children).map((i) => popup.children[1].children[i]);
+    popupChildren.map((i) => {
+        console.log(info.breed);
+        if (i.classList.value === 'type') {
+            const s = `${info[i.classList.value]} - ${info.breed}`;
+            console.log(s);
+            i.textContent = s;
+        }
+        else if (i.classList.value === 'age' || i.classList.value === 'inoculations' || i.classList.value === 'diseases' || i.classList.value === 'parasites') {
+            i.innerHTML = `<b>${firstLetterUpperCase(i.classList.value)}:</b> ${info[i.classList.value]}`;
+        } else {
+            i.textContent = info[i.classList.value];
+        }
+        // console.log(i.classList.value);
+    })
+    popup.children[0].innerHTML = `<img src=${info.img} alt=${info.name}>`
+    popupContainer.classList.toggle('popup-container-active');
+    popUpDivClass.toggle(`popup`);
+    // console.log(popupChildren);
+}
+
+popupContainer.addEventListener('click', func);
+
+Object.keys(btn).map((i) => btn[i]).map((ii) => {
+    ii.addEventListener('click', func);
+    // console.log(ii);
+})
 
 // window.onload = createRoot;
 window.onresize = screenResize;
