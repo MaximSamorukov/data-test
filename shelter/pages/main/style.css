@@ -25,7 +25,7 @@ header {
     height: 908px;
     min-width: 100%;
     max-width: 100%;
-    background-image: url(./shelter/assets/images/start-screen-gradient-background.png);
+    background-image: url(../shelter/assets/images/start-screen-gradient-background.png);
     /* background: url(noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20; */
     /* border: 1px solid black; */
 }
@@ -324,7 +324,7 @@ header {
     /* background-color: aqua; */
 }
 .left-card {
-    /* background-image: url(/shelter/assets/images/photo-cat.png); */
+    /* background-image: url(../shelter/assets/images/photo-cat.png); */
     background-position: center center;
     background-repeat: no-repeat;
     
@@ -346,13 +346,13 @@ header {
 
 
 .middle-card {
-    /* background-image: url(/shelter/assets/images/photo-little-dog.png); */
+    /* background-image: url(../shelter/assets/images/photo-little-dog.png); */
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 .right-card {
-    background-image: url(./shelter/assets/images/photo-big-dog.png);
+    background-image: url(../shelter/assets/images/photo-big-dog.png);
     background-position: center center;
     background-repeat: no-repeat;
 }
@@ -373,7 +373,7 @@ header {
 }
 
 .right-arrow {
-    background-image: url(./shelter/assets/icons/Arrow.svg);
+    background-image: url(../shelter/assets/icons/Arrow.svg);
     background-position: center center;
     background-repeat: no-repeat;
     margin-left: 54px;
@@ -381,7 +381,7 @@ header {
 }
 
 .left-arrow {
-    background-image: url(./shelter/assets/icons/Arrow.svg);
+    background-image: url(../shelter/assets/icons/Arrow.svg);
     background-position: center center;
     background-repeat: no-repeat;
     transform: rotate(180deg);
@@ -605,7 +605,7 @@ align-self: flex-center;
 }
 
 .hs-pet-food {
-    background-image: url(./shelter/assets/icons/icon-pet-food.svg);
+    background-image: url(../shelter/assets/icons/icon-pet-food.svg);
     background-position: top center;
     background-repeat: no-repeat;
     width: 82px;
@@ -620,7 +620,7 @@ align-self: flex-center;
     top: 90px;
 }
 .hs-transportation {
-    background-image: url(./shelter/assets/icons/icon-transportation.svg);
+    background-image: url(../shelter/assets/icons/icon-transportation.svg);
     background-position: top center;
     background-repeat: no-repeat;
     width: 150px;
@@ -635,7 +635,7 @@ align-self: flex-center;
     top: 90px;
 }
 .hs-toys {
-    background-image: url(./shelter/assets/icons/icon-toys.svg);
+    background-image: url(../shelter/assets/icons/icon-toys.svg);
     background-position: top center;
     background-repeat: no-repeat;
     width: 60px;
@@ -651,7 +651,7 @@ align-self: flex-center;
     left: 7px;
 }
 .hs-bows-caps {
-    background-image: url(./shelter/assets/icons/icon-bowls-and-cups.svg);
+    background-image: url(../shelter/assets/icons/icon-bowls-and-cups.svg);
     background-position: top center;
     background-repeat: no-repeat;
     width: 153px;
@@ -666,7 +666,7 @@ align-self: flex-center;
     top: 90px;
 }
 .hs-shampoos {
-    background-image: url(./shelter/assets/icons/icon-shampoos.svg);
+    background-image: url(../shelter/assets/icons/icon-shampoos.svg);
     background-position: top center;
     background-repeat: no-repeat;
     width: 101px;
@@ -682,7 +682,7 @@ align-self: flex-center;
     top: 90px;
 }
 .hs-vitamins {
-    background-image: url(./shelter/assets/icons/icon-vitamins.svg);
+    background-image: url(../shelter/assets/icons/icon-vitamins.svg);
     background-position: center center;
     background-repeat: no-repeat;
     width: 89px;
@@ -697,7 +697,7 @@ align-self: flex-center;
     top: 116px;
 }
 .hs-meds {
-    background-image: url(./shelter/assets/icons/icon-medicines.svg);
+    background-image: url(../shelter/assets/icons/icon-medicines.svg);
     background-position: center center;
     background-repeat: no-repeat;
     width: 101px;
@@ -711,7 +711,7 @@ align-self: flex-center;
     top: 116px;
 }
 .hs-collars {
-    background-image: url(./shelter/assets/icons/icon-collars-leashes.svg);
+    background-image: url(../shelter/assets/icons/icon-collars-leashes.svg);
     background-position: center center;
     background-repeat: no-repeat;
     width: 165px;
@@ -726,7 +726,7 @@ align-self: flex-center;
     top: 116px;
 }
 .hs-sleeping-areas {
-    background-image: url(./shelter/assets/icons/icon-sleeping-area.svg);
+    background-image: url(../shelter/assets/icons/icon-sleeping-area.svg);
     background-position: center center;
     background-repeat: no-repeat;
     width: 143px;
@@ -795,7 +795,7 @@ align-self: flex-center;
     top: -1px;
 }
 .donats-card-icon {
-    background-image: url(./shelter/assets/icons/credit-card.svg);
+    background-image: url(../shelter/assets/icons/credit-card.svg);
     background-repeat: no-repeat;
     background-position: center center;
     width: 30px;
@@ -842,7 +842,7 @@ footer {
     max-width: 1280px;
     min-height: 355px;
     height: 355px;
-    background-image: url(./shelter/assets/images/footer-gradient-background.png);
+    background-image: url(../shelter/assets/images/footer-gradient-background.png);
  
 }
 
@@ -912,7 +912,7 @@ footer {
 
 .footer-email span:first-child {
     display: inline-block;
-    background-image: url(./shelter/assets/icons/icon-email.svg);
+    background-image: url(../shelter/assets/icons/icon-email.svg);
     width: 40px;
     height: 32px;
     vertical-align: top;
@@ -939,7 +939,7 @@ footer {
 
 .footer-phone span:first-child {
     display: inline-block;
-    background-image: url(./shelter/assets/icons/icon-phone.svg);
+    background-image: url(../shelter/assets/icons/icon-phone.svg);
     width: 40px;
     height: 32px;
 }
@@ -960,7 +960,7 @@ footer {
 .fad {
     width: 22px;
     height: 32px;
-    background-image: url(./shelter/assets/icons/icon-marker.svg);
+    background-image: url(../shelter/assets/icons/icon-marker.svg);
     margin-top: 40px;
     width: 255px;
     background-repeat: no-repeat;
@@ -1021,7 +1021,7 @@ footer {
         min-height: 1165px;
         min-width: 100%;
         max-width: 100%;
-        background-image: url(./shelter/assets/images/start-screen-gradient-background.png);
+        background-image: url(../shelter/assets/images/start-screen-gradient-background.png);
         /* background: url(noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20; */
         /* border: 1px solid yellow; */
     }
@@ -1505,7 +1505,7 @@ footer {
 }
 
 .hs-pet-food {
-    background-image: url(./shelter/assets/icons/icon-pet-food.svg);
+    background-image: url(../shelter/assets/icons/icon-pet-food.svg);
     background-position: top center;
     background-repeat: no-repeat;
     /* width: 82px; */
@@ -1515,7 +1515,7 @@ footer {
 }
 
 .hs-transportation {
-    background-image: url(./shelter/assets/icons/icon-transportation.svg);
+    background-image: url(../shelter/assets/icons/icon-transportation.svg);
     background-position: top center;
     background-repeat: no-repeat;
     /* width: 150px; */
@@ -1523,7 +1523,7 @@ footer {
 
 }
 .hs-toys {
-    background-image: url(./shelter/assets/icons/icon-toys.svg);
+    background-image: url(../shelter/assets/icons/icon-toys.svg);
     background-position: top center;
     background-repeat: no-repeat;
     /* width: 60px; */
@@ -1532,7 +1532,7 @@ footer {
 }
 
 .hs-bows-caps {
-    background-image: url(/shelter/assets/icons/icon-bowls-and-cups.svg);
+    background-image: url(../shelter/assets/icons/icon-bowls-and-cups.svg);
     background-position: top center;
     background-repeat: no-repeat;
     /* width: 153px; */
@@ -1541,7 +1541,7 @@ footer {
 }
 
 .hs-shampoos {
-    background-image: url(./shelter/assets/icons/icon-shampoos.svg);
+    background-image: url(../shelter/assets/icons/icon-shampoos.svg);
     background-position: top center;
     background-repeat: no-repeat;
     /* width: 101px; */
@@ -1551,7 +1551,7 @@ footer {
 }
 
 .hs-vitamins {
-    background-image: url(./shelter/assets/icons/icon-vitamins.svg);
+    background-image: url(../shelter/assets/icons/icon-vitamins.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 89px; */
@@ -1560,7 +1560,7 @@ footer {
 }
 
 .hs-meds {
-    background-image: url(./shelter/assets/icons/icon-medicines.svg);
+    background-image: url(../shelter/assets/icons/icon-medicines.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 101px; */
@@ -1568,7 +1568,7 @@ footer {
 }
 
 .hs-collars {
-    background-image: url(./shelter/assets/icons/icon-collars-leashes.svg);
+    background-image: url(../shelter/assets/icons/icon-collars-leashes.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 165px; */
@@ -1577,7 +1577,7 @@ footer {
 }
 
 .hs-sleeping-areas {
-    background-image: url(./shelter/assets/icons/icon-sleeping-area.svg);
+    background-image: url(../shelter/assets/icons/icon-sleeping-area.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 143px; */
@@ -1679,7 +1679,7 @@ footer {
     top: -1px;
 }
 .donats-card-icon {
-    background-image: url(./shelter/assets/icons/credit-card.svg);
+    background-image: url(../shelter/assets/icons/credit-card.svg);
     background-repeat: no-repeat;
     background-position: center center;
     width: 30px;
@@ -1727,7 +1727,7 @@ footer {
     max-width: 768px;
     min-height: 639px;
     height: 639px;
-    background-image: url(./shelter/assets/images/footer-gradient-background.png);
+    background-image: url(../shelter/assets/images/footer-gradient-background.png);
  
 }
 
@@ -1799,7 +1799,7 @@ footer {
 
 .footer-email span:first-child {
     display: inline-block;
-    background-image: url(./shelter/assets/icons/icon-email.svg);
+    background-image: url(../shelter/assets/icons/icon-email.svg);
     width: 40px;
     height: 32px;
     vertical-align: top;
@@ -1826,7 +1826,7 @@ footer {
 
 .footer-phone span:first-child {
     display: inline-block;
-    background-image: url(./shelter/assets/icons/icon-phone.svg);
+    background-image: url(../shelter/assets/icons/icon-phone.svg);
     width: 40px;
     height: 32px;
 }
@@ -1847,7 +1847,7 @@ footer {
 .fad {
     width: 22px;
     height: 32px;
-    background-image: url(./shelter/assets/icons/icon-marker.svg);
+    background-image: url(../shelter/assets/icons/icon-marker.svg);
     margin-top: 40px;
     width: 255px;
     background-repeat: no-repeat;
@@ -1906,7 +1906,7 @@ footer {
         height: 826px;
         min-width: 320px;
         /* max-width: 320px; */
-        background-image: url(./shelter/assets/images/start-screen-gradient-background-320.png);
+        background-image: url(../shelter/assets/images/start-screen-gradient-background-320.png);
         /* background: url(noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20; */
         /* border: 2px solid yellow; */
         background-repeat: no-repeat;
@@ -2376,13 +2376,13 @@ footer {
     
     
     .middle-card {
-        background-image: url(./shelter/assets/images/photo-little-dog.png);
+        background-image: url(../shelter/assets/images/photo-little-dog.png);
         background-position: center center;
         background-repeat: no-repeat;
     }
     
     .right-card {
-        background-image: url(./shelter/assets/images/photo-big-dog.png);
+        background-image: url(../shelter/assets/images/photo-big-dog.png);
         background-position: center center;
         background-repeat: no-repeat;
     }
@@ -2405,7 +2405,7 @@ footer {
     }
     
     .right-arrow {
-        background-image: url(./shelter/assets/icons/Arrow.svg);
+        background-image: url(../shelter/assets/icons/Arrow.svg);
         background-position: center center;
         background-repeat: no-repeat;
         /* margin-left: 140px; */
@@ -2414,7 +2414,7 @@ footer {
     }
     
     .left-arrow {
-        background-image: url(./shelter/assets/icons/Arrow.svg);
+        background-image: url(../shelter/assets/icons/Arrow.svg);
         background-position: center center;
         background-repeat: no-repeat;
         transform: rotate(180deg);
@@ -2548,7 +2548,7 @@ footer {
 }
 
 .hs-pet-food {
-    background-image: url(./shelter/assets/icons/icon-pet-food-320.svg);
+    background-image: url(../shelter/assets/icons/icon-pet-food-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 82px; */
@@ -2558,7 +2558,7 @@ footer {
 }
 
 .hs-transportation {
-    background-image: url(./shelter/assets/icons/icon-transportation-320.svg);
+    background-image: url(../shelter/assets/icons/icon-transportation-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 150px; */
@@ -2570,7 +2570,7 @@ footer {
     letter-spacing: 0.05em;
 }
 .hs-toys {
-    background-image: url(./shelter/assets/icons/icon-toys-320.svg);
+    background-image: url(../shelter/assets/icons/icon-toys-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 60px; */
@@ -2578,7 +2578,7 @@ footer {
 }
 
 .hs-bows-caps {
-    background-image: url(./shelter/assets/icons/icon-bowls-and-cups-320.svg);
+    background-image: url(../shelter/assets/icons/icon-bowls-and-cups-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 153px; */
@@ -2590,7 +2590,7 @@ footer {
     letter-spacing: 0.05em;
 }
 .hs-shampoos {
-    background-image: url(./shelter/assets/icons/icon-shampoos-320.svg);
+    background-image: url(../shelter/assets/icons/icon-shampoos-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 101px; */
@@ -2600,7 +2600,7 @@ footer {
 }
 
 .hs-vitamins {
-    background-image: url(./shelter/assets/icons/icon-vitamins-320.svg);
+    background-image: url(../shelter/assets/icons/icon-vitamins-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 89px; */
@@ -2612,7 +2612,7 @@ footer {
     left: 6px;
 }
 .hs-meds {
-    background-image: url(./shelter/assets/icons/icon-medicines-320.svg);
+    background-image: url(../shelter/assets/icons/icon-medicines-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 101px; */
@@ -2620,7 +2620,7 @@ footer {
 }
 
 .hs-collars {
-    background-image: url(./shelter/assets/icons/icon-collars-leashes-320.svg);
+    background-image: url(../shelter/assets/icons/icon-collars-leashes-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 165px; */
@@ -2632,7 +2632,7 @@ footer {
     letter-spacing: 0.05em;
 }
 .hs-sleeping-areas {
-    background-image: url(./shelter/assets/icons/icon-sleeping-area-320.svg);
+    background-image: url(../shelter/assets/icons/icon-sleeping-area-320.svg);
     background-position: center center;
     background-repeat: no-repeat;
     /* width: 143px; */
@@ -2754,7 +2754,7 @@ footer {
     left: 9px;
 }
 .donats-card-icon {
-    background-image: url(./shelter/assets/icons/credit-card.svg);
+    background-image: url(../shelter/assets/icons/credit-card.svg);
     background-repeat: no-repeat;
     background-position: center center;
     width: 30px;
@@ -2805,7 +2805,7 @@ footer {
     max-width: 320px;
     min-height: 809px;
     height: 809px;
-    background-image: url(./shelter/assets/images/footer-gradient-background.png);
+    background-image: url(../shelter/assets/images/footer-gradient-background.png);
  
 }
 
@@ -2901,7 +2901,7 @@ footer {
 
 .footer-email span:first-child {
     display: inline-block;
-    background-image: url(./shelter/assets/icons/icon-email.svg);
+    background-image: url(../shelter/assets/icons/icon-email.svg);
     width: 40px;
     height: 32px;
     vertical-align: top;
@@ -2932,7 +2932,7 @@ footer {
 
 .footer-phone span:first-child {
     display: inline-block;
-    background-image: url(./shelter/assets/icons/icon-phone.svg);
+    background-image: url(../shelter/assets/icons/icon-phone.svg);
     width: 40px;
     height: 32px;
 }
@@ -2953,7 +2953,7 @@ footer {
 .fad {
     width: 22px;
     height: 32px;
-    background-image: url(./shelter/assets/icons/icon-marker.svg);
+    background-image: url(../shelter/assets/icons/icon-marker.svg);
     margin-top: 45px;
     width: 255px;
     background-repeat: no-repeat;
@@ -2990,5 +2990,7 @@ footer {
     /* border: 1px solid rebeccapurple; */
     margin-top: 50px;
 }
-
+.tag-tag {
+    display: none;
+}
 }
