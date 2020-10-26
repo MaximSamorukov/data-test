@@ -1,4 +1,4 @@
-let a = [
+const petsArray = [
     {
         "name": "Jennifer",
         "img": "../../assets/images/jennifer.png",
