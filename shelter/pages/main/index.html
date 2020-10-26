@@ -21,12 +21,18 @@
                             <div class="logo-brand">Cozy House</div>
                             <div class="logo-text">Shelter for pets in Boston</div>
                         </div>
-                        <div class="nav">
-                            <div class="item about-sec">About the shelter</div>
-                            <div class="item pets">Our pets</div>
-                            <div class="item help">Help the shelter</div>
-                            <div class="item contacts">Contacts</div>
+                        <div class="burger-wrapper">
+                            <div class="nav burger">
+                                <div class="item about-sec">About the shelter</div>
+                                <a href="../pets/index.html">
+                                    <div class="item pets">Our pets</div>
+
+                                </a>
+                                <div class="item help">Help the shelter</div>
+                                <div class="item contacts">Contacts</div>
+                            </div>
                         </div>
+
                     </div>
                     <div class="header-message-wrapper">
                         <div class="message-wrapper">
@@ -43,16 +49,25 @@
                             </div>
                         </div>
                         <div class="dog-picture">
-                            <img src="/shelter/assets/images/start-screen-puppy.png" alt="dog">
+                            <img src="/shelter/assets/images/small_puppy_23102020.png" alt="dog">
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="nav-mobile">
+                <div class="item-mobile about-sec-mobile">About the shelter</div>
+                <a href="../pets/index.html">
+                    <div class="item-mobile pets-mobile">Our pets</div>
+
+                </a>
+                <div class="item-mobile help-mobile">Help the shelter</div>
+                <div class="item-mobile contacts-mobile">Contacts</div>
             </div>
         </header>
         <section class="about">
             <div class="about-section-wrapper">
                 <div class="dog-cat-photo">
-                    <img src="/shelter/assets/images/about-pets.png" alt="about-pets">
+                    <img src="/shelter/assets/images/small_about-pets.png" alt="about-pets">
                 </div>
                 <div class="section-about-content">
                     <div class="about-h1 h1">
@@ -79,6 +94,23 @@
             </div>
         </section>
         <section class="look-for-house">
+            <div class="pap-container">
+                <div class="pap">
+                    <div class="pop_first">
+
+                    </div>
+                    <div class="pop_second">
+                        <div class="name"></div>
+                        <div class="type"></div>
+                        <div class="description"></div>
+                        <div class="age"></div>
+                        <div class="inoculations"></div>
+                        <div class="diseases"></div>
+                        <div class="parasites"></div>
+
+                    </div>
+                </div>
+            </div>
             <div class="look-for-house-h1 h1">
                 Our friends who<br>are looking for a house
             </div>
@@ -123,9 +155,11 @@
 
                 </div>
             </div>
-            <div class="look-for-house-button">
-                Get to know the rest
-            </div>
+            <a href="../pets/index.html">
+                <div class="look-for-house-button">
+                    Get to know the rest
+                </div>
+            </a>
         </section>
         <section class="help-shelter">
             <div class="help-shelter-wrapper">
@@ -133,31 +167,31 @@
                     How you can help<br>our shelter
                 </div>
                 <div class="help-shelter-first-line-icons">
-                    <div class="hsfl hs-pet-food">
+                    <div class="hsfl fc fr fc320 fr320 hs-pet-food">
 
                     </div>
-                    <div class="hsfl hs-transportation">
+                    <div class="hsfl sc fr sc320 fr320 hs-transportation">
 
                     </div>
-                    <div class="hsfl hs-toys">
+                    <div class="hsfl tc fr fc320 sr320 hs-toys">
 
                     </div>
-                    <div class="hsfl hs-bows-caps">
+                    <div class="hsfl fc sr sc320 sr320 hs-bows-caps">
 
                     </div>
-                    <div class="hsfl hs-shampoos">
+                    <div class="hsfl sc sr fc320 tr320 hs-shampoos">
 
                     </div>
-                    <div class="hsfl hs-vitamins">
+                    <div class="hsfl tc sr sc320 tr320 hs-vitamins">
 
                     </div>
-                    <div class="hsfl hs-meds">
+                    <div class="hsfl fc tr fc320 for320 hs-meds">
 
                     </div>
-                    <div class="hsfl hs-collars">
+                    <div class="hsfl sc tr sc320 for320 hs-collars">
 
                     </div>
-                    <div class="hsfl hs-9 hs-sleeping-areas">
+                    <div class="hsfl tc tr hs-9 fc320 fvr320 hs-sleeping-areas">
 
                     </div>
                 </div>
@@ -166,7 +200,7 @@
         <section class="donats">
             <div class="donats-wrapper">
                 <div class="donats-picture">
-                    <img src="/shelter/assets/images/donation-dog.png" alt="donation-dog">
+                    <img src="/shelter/assets/images/small_donat_pesik.png" alt="donation-dog">
                 </div>
                 <div class="donats-text">
                     <div class="donats-h1 h1">
@@ -190,7 +224,7 @@
             <div class="footer-wrapper">
                 <div class="footer-first-column">
                     <div class="h1 white">
-                        For questions<br>and suggestions
+                        For questions <br>and suggestions
                     </div>
                     <div class="footer-email">
                         <span></span>
@@ -203,7 +237,7 @@
                 </div>
                 <div class="footer-second-column">
                     <div class="h1 white">
-                        We are waiting<br>for your visit
+                        We are waiting <br>for your visit
                     </div>
                     <div class="fad footer-address-1">
 
@@ -213,11 +247,13 @@
                     </div>
                 </div>
                 <div class="footer-third-column">
-                    <img src="/shelter/assets/images/footer-puppy.png" alt="footer-puppy">
+                    <img src="/shelter/assets/images/footer-puppy small.png" alt="footer-puppy">
                 </div>
             </div>
         </footer>
     </div>
+    <script src="../../assets/pets.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
