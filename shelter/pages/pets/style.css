@@ -379,7 +379,7 @@ footer {
     max-width: 1280px;
     /* min-height: 355px; */
     /* height: 370px; */
-    background-image: url(/shelter/assets/images/footer-gradient-background.png);
+    background-image: url(./shelter/assets/images/footer-gradient-background.png);
  
 }
 
@@ -449,7 +449,7 @@ footer {
 
 .footer-email span:first-child {
     display: inline-block;
-    background-image: url(/shelter/assets/icons/icon-email.svg);
+    background-image: url(./shelter/assets/icons/icon-email.svg);
     width: 40px;
     height: 32px;
     vertical-align: top;
@@ -476,7 +476,7 @@ footer {
 
 .footer-phone span:first-child {
     display: inline-block;
-    background-image: url(/shelter/assets/icons/icon-phone.svg);
+    background-image: url(./shelter/assets/icons/icon-phone.svg);
     width: 40px;
     height: 32px;
 }
@@ -497,7 +497,7 @@ footer {
 .fad {
     width: 22px;
     height: 32px;
-    background-image: url(/shelter/assets/icons/icon-marker.svg);
+    background-image: url(./shelter/assets/icons/icon-marker.svg);
     margin-top: 40px;
     width: 255px;
     background-repeat: no-repeat;
@@ -741,7 +741,7 @@ footer {
     max-width: 768px;
     /* min-height: 355px; */
     /* height: 370px; */
-    background-image: url(/shelter/assets/images/footer-gradient-background.png);
+    background-image: url(./shelter/assets/images/footer-gradient-background.png);
  
 }
 
@@ -825,7 +825,7 @@ footer {
 
 .footer-email span:first-child {
     display: inline-block;
-    background-image: url(/shelter/assets/icons/icon-email.svg);
+    background-image: url(./shelter/assets/icons/icon-email.svg);
     width: 40px;
     height: 32px;
     vertical-align: top;
@@ -852,7 +852,7 @@ footer {
 
 .footer-phone span:first-child {
     display: inline-block;
-    background-image: url(/shelter/assets/icons/icon-phone.svg);
+    background-image: url(./shelter/assets/icons/icon-phone.svg);
     width: 40px;
     height: 32px;
 }
@@ -873,7 +873,7 @@ footer {
 .fad {
     width: 22px;
     height: 32px;
-    background-image: url(/shelter/assets/icons/icon-marker.svg);
+    background-image: url(./shelter/assets/icons/icon-marker.svg);
     margin-top: 40px;
     width: 255px;
     background-repeat: no-repeat;
@@ -1250,7 +1250,7 @@ footer {
     max-width: 320px;
     min-height: 809px;
     height: 809px;
-    background-image: url(/shelter/assets/images/footer-gradient-background.png);
+    background-image: url(./shelter/assets/images/footer-gradient-background.png);
  
 }
 
@@ -1335,7 +1335,7 @@ footer {
 
 .footer-email span:first-child {
     display: inline-block;
-    background-image: url(/shelter/assets/icons/icon-email.svg);
+    background-image: url(./shelter/assets/icons/icon-email.svg);
     width: 40px;
     height: 32px;
     vertical-align: top;
@@ -1362,7 +1362,7 @@ footer {
 
 .footer-phone span:first-child {
     display: inline-block;
-    background-image: url(/shelter/assets/icons/icon-phone.svg);
+    background-image: url(./shelter/assets/icons/icon-phone.svg);
     width: 40px;
     height: 32px;
 }
@@ -1383,7 +1383,7 @@ footer {
 .fad {
     width: 22px;
     height: 32px;
-    background-image: url(/shelter/assets/icons/icon-marker.svg);
+    background-image: url(./shelter/assets/icons/icon-marker.svg);
     margin-top: 40px;
     width: 255px;
     background-repeat: no-repeat;
