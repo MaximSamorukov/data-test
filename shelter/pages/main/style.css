@@ -324,7 +324,7 @@ header {
     /* background-color: aqua; */
 }
 .left-card {
-    /* background-image: url(../shelter/assets/images/photo-cat.png); */
+    /* background-image: url(../../assets/images/photo-cat.png); */
     background-position: center center;
     background-repeat: no-repeat;
     
@@ -373,7 +373,7 @@ header {
 }
 
 .right-arrow {
-    background-image: url(../../assets/icons/Arrow.svg);
+    background-image: url("../../assets/icons/Arrow.svg");
     background-position: center center;
     background-repeat: no-repeat;
     margin-left: 54px;
@@ -605,7 +605,7 @@ align-self: flex-center;
 }
 
 .hs-pet-food {
-    background-image: url(../../assets/icons/icon-pet-food.svg);
+    background-image: url("../../assets/icons/icon-pet-food.svg");
     background-position: top center;
     background-repeat: no-repeat;
     width: 82px;
@@ -620,7 +620,7 @@ align-self: flex-center;
     top: 90px;
 }
 .hs-transportation {
-    background-image: url(../../assets/icons/icon-transportation.svg);
+    background-image: url("../../assets/icons/icon-transportation.svg");
     background-position: top center;
     background-repeat: no-repeat;
     width: 150px;
