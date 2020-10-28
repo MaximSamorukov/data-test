@@ -75,6 +75,7 @@ const Keyboard = {
   },
 
   toggleKeyboardLanguage(language) {
+    this.alphabet.current = language; //this.alphabet.current === 'russian' ? 'english' : 'russian';
     const fragment = this._createKeys(language);
     // this.elements.keys = fragment;
     const container = document.querySelector('.keyboard__keys');
@@ -83,7 +84,6 @@ const Keyboard = {
     const newKeys = container.querySelectorAll(".keyboard__key");
     this.elements.keys = newKeys;
     this.elements.keysContainer = container;
-    this.alphabet.current = this.alphabet.current === 'russian' ? 'english' : 'russian';
   },
 
   getCurrentLanguage(key) {
@@ -246,12 +246,16 @@ const Keyboard = {
           break;
 
         case "shift":
-          keyElement.classList.add("keyboard__key--wide");
+          keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
           keyElement.textContent = key.toLowerCase();
+          if (this.properties.shift) {
+            keyElement.classList.add("keyboard__key--active");
+          }
 
           keyElement.addEventListener("click", () => {
             this.makeSound(key);
             this._toggleShift();
+            keyElement.classList.toggle("keyboard__key--active", this.properties.shift);
           });
 
           break;
@@ -259,23 +263,15 @@ const Keyboard = {
         case "en / ru":
           keyElement.classList.add("keyboard__key--wide");
           keyElement.textContent = key.toLowerCase();
+          if (this.alphabet.current === 'english') {
+            keyElement.classList.add("english");
+          } else {
+            keyElement.classList.add("russian");
+          }
           keyElement.addEventListener('click', () => {
-            const caps = document.querySelector('.keyboard_capslock');
-            console.log(caps)
-
-
             const currentLanguage = this.alphabet.current;
             const newLanguage = currentLanguage === 'russian' ? 'english' : 'russian';
             this.toggleKeyboardLanguage(newLanguage);
-
-            if (newLanguage === 'english') {
-
-              keyElement.classList.add('english')
-              // console.log(keyElement);
-            } else {
-              keyElement.classList.remove('english');
-              // console.log(keyElement);
-            };
             this.makeSound('en_ru');
           })
           break;
@@ -320,8 +316,7 @@ const Keyboard = {
           break;
 
         default:
-          keyElement.textContent = this.properties.capsLock ? key.toUpperCase() : key.toLowerCase();
-
+          keyElement.textContent = this.properties.capsLock !== this.properties.shift ? key.toUpperCase() : key.toLowerCase();
           keyElement.addEventListener("click", (e) => {
             this.makeSound();
             this.properties.value += this.properties.capsLock ? e.target.textContent.toUpperCase() : e.target.textContent.toLowerCase();
@@ -349,10 +344,13 @@ const Keyboard = {
 
   _toggleCapsLock() {
     this.properties.capsLock = !this.properties.capsLock;
-
     for (const key of this.elements.keys) {
       if (key.childElementCount === 0) {
-        key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+        // key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+        key.textContent = this.properties.capsLock !== this.properties.shift ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+        if (key.textContent.toLowerCase() === "en / ru") {
+          key.textContent = "en / ru";
+        }
       }
     }
   },
@@ -363,7 +361,12 @@ const Keyboard = {
       for (const key of this.elements.keys) {
         if (key.childElementCount === 0) {
           if (this.specialKeys.originalKeys.includes(key.textContent)) {
-            key.textContent = this.specialKeys.shiftKeys[this.specialKeys.originalKeys.indexOf(key.textContent)]
+            key.textContent = this.specialKeys.shiftKeys[this.specialKeys.originalKeys.indexOf(key.textContent)];
+          } else {
+            key.textContent = this.properties.capsLock !== this.properties.shift ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+            if (key.textContent.toLowerCase() === "en / ru") {
+              key.textContent = "en / ru";
+            }
           }
         }
       }
@@ -371,7 +374,12 @@ const Keyboard = {
       for (const key of this.elements.keys) {
         if (key.childElementCount === 0) {
           if (this.specialKeys.shiftKeys.includes(key.textContent)) {
-            key.textContent = this.specialKeys.originalKeys[this.specialKeys.shiftKeys.indexOf(key.textContent)]
+            key.textContent = this.specialKeys.originalKeys[this.specialKeys.shiftKeys.indexOf(key.textContent)];
+          } else {
+            key.textContent = this.properties.capsLock !== this.properties.shift ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+            if (key.textContent.toLowerCase() === "en / ru") {
+              key.textContent = "en / ru";
+            }
           }
         }
       }
