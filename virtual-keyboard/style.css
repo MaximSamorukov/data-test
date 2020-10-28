@@ -85,3 +85,15 @@
   background: rgba(22, 225, 62, 0.796);
 }
 
+.english::before {
+  content: "";
+  width: 500px;
+  height: 1000px;
+  background-color: rgba(22, 225, 62, 1);
+  top: 10px;
+  left: 10px;
+  position: absolute;
+  border: 25px solid red;
+  /* font-size: 50px; */
+  
+}
