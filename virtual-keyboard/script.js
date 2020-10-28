@@ -68,6 +68,24 @@ const Keyboard = {
     sound.play();
 
   },
+  // Creates HTML for an icon
+  createIconHTML(icon_name) {
+    return `<i class="material-icons">${icon_name}</i>`;
+  },
+
+  capsLockClick(keyElement, key) {
+    keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
+    if (this.properties.capsLock) {
+      keyElement.classList.add("keyboard__key--active");
+    }
+    keyElement.innerHTML = this.createIconHTML("keyboard_capslock");
+
+    keyElement.addEventListener("click", () => {
+      this._toggleCapsLock();
+      keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
+      this.makeSound(key);
+    });
+  },
 
   getKeyName(name) {
     const returnValue = Object.keys(this.keyNamesLib).includes(name) ? this.keyNamesLib[name] : name;
@@ -113,6 +131,13 @@ const Keyboard = {
     document.querySelectorAll(".use-keyboard-input").forEach(element => {
       element.addEventListener('keydown', (e) => {
         const { key } = e;
+        // console.log(e);
+        for (let item of this.elements.keys.entries()) {
+          if (item[1].innerText === "keyboard_capslock" && key === "CapsLock") {
+            this.capsLockClick(item[1], "caps");
+          }
+        }
+
         let currentLanguage = this.getCurrentLanguage(e.key);
         if (currentLanguage !== this.alphabet.current) {
           this.toggleKeyboardLanguage(currentLanguage);
@@ -168,10 +193,6 @@ const Keyboard = {
       keyLayout = keyLayoutRus;
       currentBrackePointMatrix = brackePointsRu;
     }
-    // Creates HTML for an icon
-    const createIconHTML = (icon_name) => {
-      return `<i class="material-icons">${icon_name}</i>`;
-    };
 
     keyLayout.forEach(key => {
       const keyElement = document.createElement("button");
@@ -184,7 +205,7 @@ const Keyboard = {
       switch (key) {
         case "backspace":
           keyElement.classList.add("keyboard__key--wide");
-          keyElement.innerHTML = createIconHTML("backspace");
+          keyElement.innerHTML = this.createIconHTML("backspace");
 
           keyElement.addEventListener("click", () => {
             this.makeSound('backspace');
@@ -195,23 +216,25 @@ const Keyboard = {
           break;
 
         case "caps":
-          keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
-          if (this.properties.capsLock) {
-            keyElement.classList.add("keyboard__key--active");
-          }
-          keyElement.innerHTML = createIconHTML("keyboard_capslock");
+          this.capsLockClick(keyElement, key);
+          console.log(keyElement);
+          // keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
+          // if (this.properties.capsLock) {
+          //   keyElement.classList.add("keyboard__key--active");
+          // }
+          // keyElement.innerHTML = createIconHTML("keyboard_capslock");
 
-          keyElement.addEventListener("click", () => {
-            this._toggleCapsLock();
-            keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
-            this.makeSound(key);
-          });
+          // keyElement.addEventListener("click", () => {
+          //   this._toggleCapsLock();
+          //   keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
+          //   this.makeSound(key);
+          // });
 
           break;
 
         case "enter":
           keyElement.classList.add("keyboard__key--wide");
-          keyElement.innerHTML = createIconHTML("keyboard_return");
+          keyElement.innerHTML = this.createIconHTML("keyboard_return");
 
           keyElement.addEventListener("click", () => {
             this.makeSound(key);
@@ -223,7 +246,7 @@ const Keyboard = {
 
         case "space":
           keyElement.classList.add("keyboard__key--extra-wide");
-          keyElement.innerHTML = createIconHTML("space_bar");
+          keyElement.innerHTML = this.createIconHTML("space_bar");
 
           keyElement.addEventListener("click", () => {
             this.properties.value += " ";
@@ -235,7 +258,7 @@ const Keyboard = {
 
         case "done":
           keyElement.classList.add("keyboard__key--dark");
-          keyElement.innerHTML = createIconHTML("check_circle");
+          keyElement.innerHTML = this.createIconHTML("check_circle");
 
           keyElement.addEventListener("click", () => {
             this.close();
