@@ -5,4 +5,4 @@ https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/shelter/pages/ma
 https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/shelter/pages/pets/
 https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/calculator
 https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/momentum
-https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/virtual
+https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/virtual-keyboard
