@@ -324,22 +324,14 @@ const Keyboard = {
           keyElement.addEventListener("click", () => {
             document.querySelector(".use-keyboard-input").focus();
             this.makeSound('backspace');
-
             const textArea = document.querySelector(".use-keyboard-input");
-            // console.log(textArea.value);
             const startPosition = this.properties.cursor.start;
             const endPosition = this.properties.cursor.end;
             this.properties.cursor.start = startPosition - 1 > 0 ? startPosition - 1 : 0;
             this.properties.cursor.end = endPosition - 1 > 0 ? endPosition - 1 : 0;
-
             const stringBefore = this.properties.value.slice(0, startPosition - 1);
             const stringAfter = this.properties.value.slice(startPosition, this.properties.value.length);
-            // console.log(stringBefore);
-            // console.log(stringAfter);
             this.properties.value = `${stringBefore}${stringAfter}`;
-
-            // this.properties.value = this.properties.value.substring(0, this.properties.value.length - 1);
-            // this._triggerEvent("oninput");
             textArea.value = this.properties.value;
             textArea.selectionStart = this.properties.cursor.start;
             textArea.selectionEnd = this.properties.cursor.end;
@@ -350,30 +342,6 @@ const Keyboard = {
           keyElement.classList.add("keyboard__key--wide");
 
           this.properties.recognition = new webkitSpeechRecognition() || new SpeechRecognition();
-          // this.properties.recognition.onresult = function (event) {
-          //   console.log("event");
-          //   console.log(event);
-          // };
-          // this.properties.recognition.onsoundstart = function () {
-          //   console.log('Some sound is being received');
-          // };
-          // this.properties.recognition.onaudioend = function (e) {
-          //   console.log(e);
-          //   console.log('Speech ends');
-          // };
-          // this.properties.recognition.onend = function (e) {
-          //   console.log(e);
-          //   console.log('Just ends');
-          //   if (document.querySelector(".voice-off") !== null) {
-          //     const element = document.querySelector(".voice-off");
-          //     element.classList.add("voice-on");
-          //     element.classList.remove("voice-off");
-          //     console.log(this);
-          //     this.properties.voice = false;
-
-          //   }
-          // };
-          // this.properties.recognition.lang = this.alphabet.current === 'english' ? "en-US" : "ru-RU";
           if (this.properties.voice) {
             keyElement.classList.remove("voice-on");
             keyElement.classList.add("voice-off")
@@ -389,8 +357,6 @@ const Keyboard = {
             e.target.classList.remove(className);
             e.target.classList.add(newClassName);
             this._toggleVoiceRecognition(this);
-
-            // this._triggerEvent("oninput");
           });
           break;
 
@@ -411,27 +377,12 @@ const Keyboard = {
             e.target.classList.remove(className);
             e.target.classList.add(newClassName);
             this._toggleSoundPlay();
-
-            // this._triggerEvent("oninput");
           });
           break;
 
 
         case "caps":
           this.capsLockClick(keyElement, key);
-          // console.log(keyElement);
-          // keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
-          // if (this.properties.capsLock) {
-          //   keyElement.classList.add("keyboard__key--active");
-          // }
-          // keyElement.innerHTML = createIconHTML("keyboard_capslock");
-
-          // keyElement.addEventListener("click", () => {
-          //   this._toggleCapsLock();
-          //   keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
-          //   this.makeSound(key);
-          // });
-
           break;
 
         case "enter":
@@ -441,54 +392,38 @@ const Keyboard = {
           keyElement.addEventListener("click", () => {
             document.querySelector(".use-keyboard-input").focus();
             const textArea = document.querySelector(".use-keyboard-input");
-            // console.log(textArea.value);
             const startPosition = this.properties.cursor.start;
             const endPosition = this.properties.cursor.end;
             this.properties.cursor.start += 1;
             this.properties.cursor.end += 1;
-            // console.log(startPosition);
-            // console.log(endPosition);
-            // console.log(this.properties.value.length);
-
             const stringBefore = this.properties.value.slice(0, startPosition);
             const stringAfter = this.properties.value.slice(startPosition, this.properties.value.length);
             const str = "\n";
-            // console.log(stringBefore);
-            // console.log(stringAfter);
             this.properties.value = `${stringBefore}${str}${stringAfter}`;
-
             this.makeSound(key);
             this._triggerEvent("oninput");
+            textArea.selectionStart = this.properties.cursor.start;
+            textArea.selectionEnd = this.properties.cursor.end;
           });
-
           break;
 
         case "space":
           keyElement.classList.add("keyboard__key--extra-wide");
           keyElement.innerHTML = this.createIconHTML("space_bar");
-
           keyElement.addEventListener("click", () => {
             document.querySelector(".use-keyboard-input").focus();
             const textArea = document.querySelector(".use-keyboard-input");
-            // console.log(textArea.value);
             const startPosition = this.properties.cursor.start;
             const endPosition = this.properties.cursor.end;
             this.properties.cursor.start += 1;
             this.properties.cursor.end += 1;
-            // console.log(startPosition);
-            // console.log(endPosition);
-            // console.log(this.properties.value.length);
-
             const stringBefore = this.properties.value.slice(0, startPosition);
             const stringAfter = this.properties.value.slice(startPosition, this.properties.value.length);
             const str = " ";
-            // console.log(stringBefore);
-            // console.log(stringAfter);
             this.properties.value = `${stringBefore}${str}${stringAfter}`;
             this._triggerEvent("oninput");
             this.makeSound(key);
           });
-
           break;
 
         case "done":
@@ -496,7 +431,6 @@ const Keyboard = {
           keyElement.innerHTML = this.createIconHTML("check_circle");
 
           keyElement.addEventListener("click", () => {
-            document.querySelector(".use-keyboard-input").focus();
             this.close();
             this._triggerEvent("onclose");
             this.makeSound(key);
@@ -543,11 +477,9 @@ const Keyboard = {
 
           keyElement.addEventListener("click", (e) => {
             document.querySelector(".use-keyboard-input").focus();
-            // console.log(e);
             const textArea = document.querySelector(".use-keyboard-input");
             const startPosition = this.properties.cursor.start;
             const endPosition = this.properties.cursor.end;
-            // console.log(`ss: ${startPosition}; sE: ${endPosition}`);
             textArea.focus();
             textArea.selectionEnd += 1;
             textArea.selectionStart = textArea.selectionEnd;
@@ -555,19 +487,15 @@ const Keyboard = {
             this.properties.cursor.end = textArea.selectionEnd;
             this.makeSound();
           });
-
           break;
 
         case "<-":
           keyElement.textContent = key.toLowerCase();
-
           keyElement.addEventListener("click", (e) => {
             document.querySelector(".use-keyboard-input").focus();
             const textArea = document.querySelector(".use-keyboard-input");
             const startPosition = this.properties.cursor.start;
             const endPosition = this.properties.cursor.end;
-
-            // console.log(`ss: ${startPosition}; sE: ${endPosition}`);
             if (startPosition === 0 || endPosition === 0) {
               this.makeSound();
               textArea.focus();
@@ -580,7 +508,6 @@ const Keyboard = {
             this.properties.cursor.end = textArea.selectionEnd;
             this.makeSound();
           });
-
           break;
 
         default:
@@ -588,33 +515,21 @@ const Keyboard = {
           keyElement.addEventListener("click", (e) => {
             this.makeSound();
             document.querySelector(".use-keyboard-input").focus();
-            // this.properties.value = 
             const textArea = document.querySelector(".use-keyboard-input");
-            console.log(textArea.selectionStart);
             const startPosition = this.properties.cursor.start;
             const endPosition = this.properties.cursor.end;
             this.properties.cursor.start += 1;
             this.properties.cursor.end += 1;
-            // console.log(startPosition);
-            // console.log(endPosition);
-            // console.log(this.properties.value.length);
             const stringBefore = this.properties.value.slice(0, startPosition);
             const stringAfter = this.properties.value.slice(startPosition, this.properties.value.length);
             const str = this.properties.capsLock ? e.target.textContent.toUpperCase() : e.target.textContent.toLowerCase();
-            // console.log(stringBefore);
-            // console.log(stringAfter);
             this.properties.value = `${stringBefore}${str}${stringAfter}`;
-            // this.properties.value += this.properties.capsLock ? e.target.textContent.toUpperCase() : e.target.textContent.toLowerCase();
-
             this._triggerEvent("oninput");
             textArea.selectionStart = this.properties.cursor.start;
             textArea.selectionEnd = this.properties.cursor.end;
-
           });
-
           break;
       }
-
       fragment.appendChild(keyElement);
 
       if (insertLineBreak) {
@@ -632,15 +547,11 @@ const Keyboard = {
   },
 
   _toggleSoundPlay() {
-    // console.log(this.properties.sound);
     this.properties.sound = this.properties.sound ? false : true;
-    // console.log(this.properties.sound);
   },
 
   _toggleVoiceRecognition(context) {
-    // console.log(this.properties.voice);
     this.properties.voice = this.properties.voice ? false : true;
-    // console.log(this.properties.voice);
     if (this.properties.voice) {
       console.log("it's true");
       this.properties.recognition.lang = this.alphabet.current === 'english' ? "en-US" : "ru-RU";
@@ -649,25 +560,16 @@ const Keyboard = {
       this.properties.recognition.continuous = true;
       this.properties.recognition.start();
       this.properties.recognition.onend = function (e) {
-        // console.log(e);
-        // console.log('Just ends');
-        // console.log(context);
         if (document.querySelector(".voice-off") !== null) {
           const element = document.querySelector(".voice-off");
           element.classList.add("voice-on");
           element.classList.remove("voice-off");
-          // console.log(context);
           context.properties.voice = false;
-
         }
       };
       this.properties.recognition.onresult = function (event) {
-        // console.log(event);
         const length = event.results.length;
-        // console.log(length)
         let text = event.results[length - 1][0].transcript;
-        // console.log(text);
-        // this.properties.value += this.properties.capsLock ? text.toUpperCase() : text.toLowerCase();
         const blackboard = document.querySelector(".use-keyboard-input");
         let string = blackboard.value.length === 0 ? "" : `${blackboard.value} `;
         blackboard.value = `${string}${text.trim()}`;
@@ -675,7 +577,6 @@ const Keyboard = {
       }
     } else {
       this.properties.recognition.stop();
-      // console.log('Stop');
     }
   },
 
@@ -683,7 +584,6 @@ const Keyboard = {
     this.properties.capsLock = !this.properties.capsLock;
     for (const key of this.elements.keys) {
       if (key.childElementCount === 0) {
-        // key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
         key.textContent = this.properties.capsLock !== this.properties.shift ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
         if (key.textContent.toLowerCase() === "en / ru") {
           key.textContent = "en / ru";
