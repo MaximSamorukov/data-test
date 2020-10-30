@@ -14,10 +14,11 @@
   bottom: 0;
   width: 100%;
   padding: 5px 0;
-  background: #c7ccc0;
+  background: #ffffff;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
   user-select: none;
   transition: bottom 0.4s;
+  font-family: Georgia;
 }
 
 .keyboard--hidden {
@@ -29,15 +30,18 @@
 }
 
 .keyboard__key {
-  height: 45px;
+  height: 46px;
+  box-shadow: 2px 2px black;
   width: 4%;
   max-width: 90px;
-  margin: 3px;
+  margin: 4px;
   border-radius: 4px;
-  border: 2px solid darkgoldenrod;
-  background: rgb(157, 96, 96);
-  color: #ffffff;
+  border: 2px solid rgb(65, 147, 235);
+  background: rgb(255, 255, 255);
+  color: #000000;
   font-size: 1.05rem;
+  font-weight: 400;
+  font-size: 18px;
   outline: none;
   cursor: pointer;
   display: inline-flex;
@@ -54,7 +58,7 @@
 } */
 
 .keyboard__key--wide {
-  width: 12%;
+  width: 14%;
 }
 
 .keyboard__key--extra-wide {
@@ -75,11 +79,12 @@
 
 
 .keyboard__key--dark {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .keyboard__key-pressed, .keyboard__key:active {
   background: rgba(22, 225, 62, 0.796);
+  box-shadow: none;
 }
 
 .keyboard__key--active::after {
@@ -106,4 +111,66 @@
   right: 5px;
   border-radius: 50%;
   position: absolute;
+}
+
+.sound-on::after {
+  content: '';
+  background-image: url("./assets/icons/sound-on.png");
+  transform: scale(0.85);
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 50px;
+  top: 2px;
+  right: 15px;
+  position: absolute;
+}
+
+
+.sound-off::before {
+  content: '';
+  background-image: url("./assets/icons/sound-off.png");
+  transform: scale(0.85);
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 50px;
+  top: 2px;
+  right: 15px;
+  position: absolute;
+}
+
+.voice-on, .voice-off {
+  padding: 0;
+}
+
+.voice-on::after {
+  content: '';
+  background-image: url("./assets/icons/voice-on.png");
+  transform: scale(0.60);
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  top: -10px;
+  right: 13px;
+  position: absolute;
+  background-color: #08ff00;
+}
+
+
+.voice-off::before {
+  content: '';
+  background-image: url("./assets/icons/voice-off.png");
+  transform: scale(0.60);
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  top: -10px;
+  right: 13px;
+  position: absolute;
+  background-color: rgba(253, 53, 53, 0.953);
 }
