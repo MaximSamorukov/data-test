@@ -31,7 +31,7 @@ const Keyboard = {
     },
   },
   alphabet: {
-    ru: ["й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
+    ru: ["ё", "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
       "caps", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "enter",
       "done", "shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю"],
     current: 'english'
@@ -175,9 +175,10 @@ const Keyboard = {
     this.elements.main.appendChild(this.elements.keysContainer);
     document.body.appendChild(this.elements.main);
 
-    // Add highlight to buttons 
+    // Add highlight to buttons
     document.querySelectorAll(".use-keyboard-input").forEach(element => {
       element.addEventListener('keydown', (e) => {
+        e.preventDefault();
         const elem = document.querySelectorAll('.keyboard__key--activatable');
         const wideElements = document.querySelectorAll('.keyboard__key--wide');
         const { key } = e;
@@ -185,7 +186,7 @@ const Keyboard = {
         elem.forEach((item) => {
           // console.log(item.innerText);
           if (item.innerText === "keyboard_capslock" && key === "CapsLock") {
-            console.log(this.properties.capsLock);
+            // console.log(this.properties.capsLock);
             // if (this.properties.capsLock) {
             //   item.classList.add("keyboard__key--active");
             // }
@@ -195,7 +196,7 @@ const Keyboard = {
             return;
           }
           if (item.innerText === 'shift' && key === "Shift") {
-            console.log('shift');
+            // console.log('shift');
             this.makeSound('shift');
             this._toggleShift();
             item.classList.toggle("keyboard__key--active", this.properties.shift);
@@ -237,12 +238,23 @@ const Keyboard = {
           const end = textArea.selectionEnd;
 
           if (key.length === 1) {
-            // this.properties.value += key;
+            // console.log(key);
+            let str;
+            if (this.specialKeys.originalKeys.includes(key)) {
+              // console.log(key);
+              const ind = (this.specialKeys.originalKeys.indexOf(key));
+              const char = (this.specialKeys.shiftKeys[ind]);
+              str = this.properties.shift ? char : key;
+            } else {
+              str = ((this.properties.capsLock && this.properties.shift) || (!this.properties.capsLock && !this.properties.shift)) ? key.toLowerCase() : key.toUpperCase();
+            }
+            this.properties.value += str;
             // console.log(`keydown: ${this.properties.value}`);
             // console.log(endPosition);
             // console.log(this.properties.value);
             this.properties.cursor.start = start + 1;
             this.properties.cursor.end = end + 1;
+            this._triggerEvent("oninput");
           }
           for (let item of this.elements.keys.entries()) {
             if (item[1].innerText === "keyboard_capslock" && key === "CapsLock") {
@@ -250,7 +262,7 @@ const Keyboard = {
             }
           }
 
-          let currentLanguage = this.getCurrentLanguage(key);
+          let currentLanguage = this.getCurrentLanguage(key.toLowerCase());
           // console.log(key);
           // console.log(currentLanguage);
           // console.log(this.alphabet.current);
@@ -285,7 +297,7 @@ const Keyboard = {
           // console.log(activeElement);
           activeElement.classList.remove("keyboard__key-pressed");
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       });
     })
@@ -322,7 +334,7 @@ const Keyboard = {
     ];
     const keyLayoutRus = [
       "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "backspace",
-      "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
+      "ё", "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
       "caps", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "enter",
       "done", "shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ",", ".", "?",
       "space", "en / ru", "<-", "->", "sound", "voice"
@@ -548,7 +560,7 @@ const Keyboard = {
             this.properties.cursor.end += 1;
             const stringBefore = this.properties.value.slice(0, startPosition);
             const stringAfter = this.properties.value.slice(startPosition, this.properties.value.length);
-            const str = this.properties.capsLock ? e.target.textContent.toUpperCase() : e.target.textContent.toLowerCase();
+            const str = ((this.properties.capsLock && this.properties.shift) || (!this.properties.capsLock && !this.properties.shift)) ? e.target.textContent.toLowerCase() : e.target.textContent.toUpperCase();
             this.properties.value = `${stringBefore}${str}${stringAfter}`;
             this._triggerEvent("oninput");
             textArea.selectionStart = this.properties.cursor.start;
