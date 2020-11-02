@@ -31,7 +31,7 @@ const Keyboard = {
     },
   },
   alphabet: {
-    ru: ["й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
+    ru: ["ё", "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
       "caps", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "enter",
       "done", "shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю"],
     current: 'english'
@@ -175,7 +175,7 @@ const Keyboard = {
     this.elements.main.appendChild(this.elements.keysContainer);
     document.body.appendChild(this.elements.main);
 
-    // Add highlight to buttons 
+    // Add highlight to buttons
     document.querySelectorAll(".use-keyboard-input").forEach(element => {
       element.addEventListener('keydown', (e) => {
         const elem = document.querySelectorAll('.keyboard__key--activatable');
@@ -322,7 +322,7 @@ const Keyboard = {
     ];
     const keyLayoutRus = [
       "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "backspace",
-      "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
+      "ё", "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
       "caps", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "enter",
       "done", "shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ",", ".", "?",
       "space", "en / ru", "<-", "->", "sound", "voice"
@@ -548,7 +548,7 @@ const Keyboard = {
             this.properties.cursor.end += 1;
             const stringBefore = this.properties.value.slice(0, startPosition);
             const stringAfter = this.properties.value.slice(startPosition, this.properties.value.length);
-            const str = this.properties.capsLock ? e.target.textContent.toUpperCase() : e.target.textContent.toLowerCase();
+            const str = ((this.properties.capsLock && this.properties.shift) || (!this.properties.capsLock && !this.properties.shift)) ? e.target.textContent.toLowerCase() : e.target.textContent.toUpperCase();
             this.properties.value = `${stringBefore}${str}${stringAfter}`;
             this._triggerEvent("oninput");
             textArea.selectionStart = this.properties.cursor.start;
