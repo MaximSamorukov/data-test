@@ -272,7 +272,7 @@ const Keyboard = {
           this.makeSound(key);
           const activeElement = this.elements.keys[Object.keys(this.elements.keys).filter((element) => {
             // console.log(this.elements.keys[element].textContent);
-            return this.getKeyName(this.elements.keys[element].textContent) === key.toLowerCase();
+            return this.getKeyName(this.elements.keys[element].textContent.toLowerCase()) === key.toLowerCase();
           })[0]];
           // console.log(activeElement);
           activeElement.classList.add("keyboard__key-pressed");
@@ -291,7 +291,7 @@ const Keyboard = {
         const end = textArea.selectionEnd;
         const activeElement = this.elements.keys[Object.keys(this.elements.keys).filter((element) => {
 
-          return this.getKeyName(this.elements.keys[element].textContent) === key.toLowerCase();
+          return this.getKeyName(this.elements.keys[element].textContent.toLowerCase()) === key.toLowerCase();
         })[0]];
         try {
           // console.log(activeElement);
