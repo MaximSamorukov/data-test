@@ -1,0 +1,61 @@
+.game-container {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}
+
+.game-area {
+  width: 255px;
+  height: 255px;
+  background-color: rgb(123, 150, 125);
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 2px;
+}
+.four-on-four {
+
+}
+
+.three-on-three {
+
+}
+
+.eight-on-eight {
+
+}
+
+.item-60 {
+  width: 60px;
+  height: 60px;
+
+  border-radius: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 18px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.item-zero {
+  background-color: rgb(123, 150, 125);
+}
+
+.blue {
+  background-color: blueviolet;
+}
+
+.green {
+  background-color: rgb(89, 226, 43);
+}
