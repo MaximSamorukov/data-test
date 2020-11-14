@@ -1,3 +1,7 @@
+* {
+  font-family: 'Boogaloo', cursive;
+}
+
 .game-container {
   width: 500px;
   height: 500px;
@@ -34,7 +38,8 @@ select {
 .game-area {
   width: 255px;
   height: 255px;
-  background-color: rgb(123, 150, 125);
+  background-color: rgb(255, 255, 255);
+  border: 3px solid blue;
   margin-right: auto;
   margin-left: auto;
   display: flex;
@@ -56,15 +61,21 @@ select {
 
 }
 
+.blue {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid blue;
+}
+
+
 .item-60 {
   width: 60px;
   height: 60px;
 
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
   box-sizing: border-box;
-  padding: 18px;
-  font-size: 22px;
+  padding: 10px;
+  font-size: 28px;
   cursor: pointer;
 }
 
@@ -72,18 +83,18 @@ select {
   width: 80px;
   height: 80px;
 
-  border-radius: 5px;
+  border-radius: 15px;
   text-align: center;
   box-sizing: border-box;
-  padding: 18px;
-  font-size: 22px;
+  padding: 12px;
+  font-size: 40px;
   cursor: pointer;
 }
 
 .item-30 {
   width: 30px;
   height: 30px;
-
+  border: 1px solid blue;
   border-radius: 3px;
   text-align: center;
   box-sizing: border-box;
@@ -93,12 +104,11 @@ select {
 }
 
 .item-zero {
-  background-color: rgb(123, 150, 125);
+  background-color: rgb(255, 255, 255);
+  border: 0;
 }
 
-.blue {
-  background-color: blueviolet;
-}
+
 
 .green {
   background-color: rgb(89, 226, 43);
