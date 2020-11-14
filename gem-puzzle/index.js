@@ -1,5 +1,5 @@
 const Gem = {
-
+  delta: 0,
   randomArray(n) {
     let array = [];
     for (let i = 0; i < n; i += 1) {
@@ -112,6 +112,54 @@ const Gem = {
 
   },
 
+  items(n = 4, size) {
+    const howManyItems = {
+      '3': 9,
+      '4': 16,
+      '8': 64,
+    };
+    const gameArea = document.querySelector('.game-area');
+    this.randomArray(howManyItems[`${n}`]).map((i) => {
+      const item = document.createElement('div');
+      item.className = `item-${size} blue`;
+      gameArea.appendChild(item);
+      if (i === 0) {
+        item.className = `item-${size} item-zero`;
+        item.textContent = ``;
+      } else {
+        item.textContent = `${i}`;
+      }
+      this.n = n;
+      item.addEventListener('click', this.move.bind(this))
+
+    })
+  },
+
+  createItemsOnLoad(str) {
+    const n = Math.pow(str.split(':').length, 0.5);
+    const size = Math.floor(25 / n) * 10;
+    const howManyItems = {
+      '3': 9,
+      '4': 16,
+      '8': 64,
+    };
+    const gameArea = document.querySelector('.game-area');
+    str.split(':').map((i) => {
+      const item = document.createElement('div');
+      item.className = `item-${size} blue`;
+      console.log(item);
+      gameArea.appendChild(item);
+      if (i === '') {
+        item.className = `item-${size} item-zero`;
+        item.textContent = ``;
+      } else {
+        item.textContent = `${i}`;
+      }
+      this.n = n;
+      item.addEventListener('click', this.move.bind(this))
+
+    })
+  },
 
   gameAreaConstruct(n) {
     const size = Math.floor(25 / n) * 10;
@@ -140,6 +188,61 @@ const Gem = {
     const option3on3 = document.createElement('option');
     const option4on4 = document.createElement('option');
     const option8on8 = document.createElement('option');
+    const saveBtn = document.createElement('button');
+    saveBtn.name = 'save-btn';
+    saveBtn.textContent = "Save";
+    saveBtn.className = 'save-btn';
+    saveBtn.addEventListener('click', (e) => {
+      console.log('save');
+      const gameArea = document.querySelector('.game-area');
+      const gameAreaChildren = gameArea.childNodes;
+      const clicks = document.querySelector('.click-zone').textContent.split(':')[1].trim();
+      const time = document.querySelector('.time-zone').textContent;
+      let string = '';
+      gameAreaChildren.forEach((item) => {
+        string = `${string}:${item.textContent}`;
+        return item;
+      });
+      string = string.slice(1);
+      string = `${clicks};${time};${string}`;
+      const storage = window.localStorage;
+      storage.setItem('data', string);
+      // console.log(string);
+    });
+    const loadBtn = document.createElement('button');
+    loadBtn.name = 'load-btn';
+    loadBtn.textContent = "Load";
+    loadBtn.className = 'load-btn';
+    loadBtn.addEventListener('click', (e) => {
+      console.log('load');
+      const storage = window.localStorage;
+      const data = storage.getItem('data');
+      const [clicks, time, items] = data.split(';');
+      // console.log(clicks);
+      // console.log(time);
+      // console.log(items);
+      const date = new Date(time.split(':').map((i) => parseInt(i)).reduce((acc, i, index) => {
+        if (index === 0) {
+          const hValue = i * 60 * 60 * 1000;
+          return acc + hValue;
+        }
+        else if (index === 1) {
+          const mValue = i * 60 * 1000;
+          return acc + mValue;
+        }
+        else if (index === 2) {
+          const sValue = i * 1000;
+          return acc + sValue;
+        }
+      }, 0));
+      console.log(date);
+      this.delta = date;
+      const clickszone = document.querySelector('.click-zone');
+      clickszone.textContent = `Clicks: ${clicks}`;
+      const gameArea = document.querySelector('.game-area');
+      gameArea.innerHTML = '';
+      this.createItemsOnLoad(items);
+    });
     const btn = document.createElement('button');
     btn.type = 'submit';
     btn.name = 'select-btn';
@@ -171,31 +274,34 @@ const Gem = {
     gameContainer.appendChild(menuContainer);
     menuContainer.appendChild(select);
     menuContainer.appendChild(btn);
+    menuContainer.appendChild(saveBtn);
+    menuContainer.appendChild(loadBtn);
     menuContainer.appendChild(clickZone);
     menuContainer.appendChild(timeZone);
     menuContainer.className = 'menu-container';
-    const items = (n = 4) => {
-      this.randomArray(howManyItems[`${n}`]).map((i) => {
-        const item = document.createElement('div');
-        item.className = `item-${size} blue`;
-        gameArea.appendChild(item);
-        if (i === 0) {
-          item.className = `item-${size} item-zero`;
-          item.textContent = ``;
-        } else {
-          item.textContent = `${i}`;
-        }
-        this.n = n;
-        item.addEventListener('click', this.move.bind(this))
 
-      })
-    }
-    items(n);
+    // const items = (n = 4) => {
+    //   this.randomArray(howManyItems[`${n}`]).map((i) => {
+    //     const item = document.createElement('div');
+    //     item.className = `item-${size} blue`;
+    //     gameArea.appendChild(item);
+    //     if (i === 0) {
+    //       item.className = `item-${size} item-zero`;
+    //       item.textContent = ``;
+    //     } else {
+    //       item.textContent = `${i}`;
+    //     }
+    //     this.n = n;
+    //     item.addEventListener('click', this.move.bind(this))
+
+    //   })
+    // };
 
     gameContainer.appendChild(gameArea)
     gameContainer.className = `game-container ${options[`${n}`]}-container`;
     gameArea.className = `game-area ${options[`${n}`]}-game-area`;
     root.appendChild(gameContainer);
+    this.items(n, size);
 
     gameArea.addEventListener('mousedown', (e) => {
       if (e.target.className.includes('item-zero')) {
@@ -204,7 +310,7 @@ const Gem = {
       const clickZone = document.querySelector('.click-zone');
       const prevValue = parseInt(clickZone.textContent.split(':')[1].trim());
       const newValue = prevValue + 1;
-      clickZone.textContent = `Clicks: ${newValue}`
+      clickZone.textContent = `Clicks: ${newValue}`;
     })
     // console.log(gameArea);
   },
@@ -216,30 +322,34 @@ const Gem = {
     gameArea.addEventListener('click', (e) => {
       const classListAr = [];
       children.forEach((element) => classListAr.push(parseInt(element.textContent)));
-      console.log(classListAr);
+      // console.log(classListAr);
     })
   },
 
   init(arg) {
+    this.delta = 0;
     this.gameAreaConstruct(arg);
     this.ifwin();
     const timeZone = document.querySelector('.time-zone');
     const gameArea = document.querySelector('.game-area');
-    const timeOrigin = new Date();
-    const myFunc = () => {
-      const now = new Date();
-      let t = new Date(now - timeOrigin);
+    let timeOrigin = null;
 
+    const myFunc = () => {
+      timeOrigin = timeOrigin === null ? new Date() : timeOrigin;
+      const now = new Date();
+      let t = new Date(now.valueOf() - timeOrigin.valueOf() + this.delta.valueOf());
+      console.log(t);
       const h = t.getUTCHours() < 10 ? `0${t.getUTCHours()}` : `${t.getUTCHours()}`;
       const m = t.getMinutes() < 10 ? `0${t.getMinutes()}` : `${t.getMinutes()}`;
       const s = t.getSeconds() < 10 ? `0${t.getSeconds()}` : `${t.getSeconds()}`;
       const time = [h, m, s];
       timeZone.textContent = timeZone.textContent.split(':').map((i, index) => time[index]).join(':');
-    }
+    };
     const fnTime = (e) => {
       if (e.target.className.includes('item-zero')) {
         return;
       };
+      myFunc();
       let id = window.setInterval(myFunc, 1000);
       gameArea.removeEventListener('mousedown', fnTime);
       window.setTimeout(() => {
