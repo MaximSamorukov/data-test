@@ -98,14 +98,15 @@ select {
   border-radius: 3px;
   text-align: center;
   box-sizing: border-box;
-  padding: 8px;
-  font-size: 14px;
+  padding: 3px;
+  font-size: 16px;
   cursor: pointer;
 }
 
 .item-zero {
   background-color: rgb(255, 255, 255);
   border: 0;
+  color: white;
 }
 
 

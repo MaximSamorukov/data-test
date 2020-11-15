@@ -1,5 +1,8 @@
 const Gem = {
   delta: 0,
+  key: false,
+  timeOrigin: 0,
+
   randomArray(n) {
     let array = [];
     for (let i = 0; i < n; i += 1) {
@@ -14,6 +17,43 @@ const Gem = {
     };
 
     return returnArray;
+  },
+
+  myFunc() {
+    // console.log('i');
+    // console.log(this);
+    const timeZone = document.querySelector('.time-zone');
+    // console.log(this.timeOrigin);
+    this.timeOrigin = this.timeOrigin === 0 ? new Date() : this.timeOrigin;
+    // console.log(this.timeOrigin);
+    const now = new Date();
+    // console.log(now.valueOf());
+    // console.log(this.timeOrigin);
+    // console.log(this.delta);
+    let t = new Date(now.valueOf() - this.timeOrigin.valueOf() + this.delta);
+    const h = t.getUTCHours() < 10 ? `0${t.getUTCHours()}` : `${t.getUTCHours()}`;
+    const m = t.getMinutes() < 10 ? `0${t.getMinutes()}` : `${t.getMinutes()}`;
+    const s = t.getSeconds() < 10 ? `0${t.getSeconds()}` : `${t.getSeconds()}`;
+    const time = [h, m, s];
+    timeZone.textContent = timeZone.textContent.split(':').map((i, index) => time[index]).join(':');
+  },
+
+  fnTime(e) {
+    const gameArea = document.querySelector('.game-area');
+    if (e.target.className.includes('item-zero')) {
+      return;
+    };
+    this.myFunc();
+    // console.log(this.timeOrigin)
+    if (this.key === false) {
+      let id = window.setInterval(this.myFunc.bind(this), 1000);
+      this.key = id;
+    }
+
+    gameArea.removeEventListener('mousedown', this.fnTime);
+    window.setTimeout(() => {
+      window.clearInterval(this.key);
+    }, 50000);
   },
 
   canMove(e, l = 16) {
@@ -130,7 +170,15 @@ const Gem = {
         item.textContent = `${i}`;
       }
       this.n = n;
-      item.addEventListener('click', this.move.bind(this))
+      item.addEventListener('click', this.move.bind(this));
+      item.addEventListener('mousedown', (e) => {
+        const item = e.target;
+        item.className = `item-${size} item-zero`;
+      });
+      item.addEventListener('mouseup', (e) => {
+        const item = e.target;
+        item.className = `item-${size} blue`;
+      });
 
     })
   },
@@ -147,7 +195,7 @@ const Gem = {
     str.split(':').map((i) => {
       const item = document.createElement('div');
       item.className = `item-${size} blue`;
-      console.log(item);
+      // console.log(item);
       gameArea.appendChild(item);
       if (i === '') {
         item.className = `item-${size} item-zero`;
@@ -213,8 +261,11 @@ const Gem = {
     loadBtn.name = 'load-btn';
     loadBtn.textContent = "Load";
     loadBtn.className = 'load-btn';
+
     loadBtn.addEventListener('click', (e) => {
-      console.log('load');
+      // console.log(window);
+      window.clearInterval(this.key);
+      this.key = false;
       const storage = window.localStorage;
       const data = storage.getItem('data');
       const [clicks, time, items] = data.split(';');
@@ -235,13 +286,20 @@ const Gem = {
           return acc + sValue;
         }
       }, 0));
-      console.log(date);
-      this.delta = date;
+      // console.log(date);
+      this.delta = date.valueOf();
+      // console.log(this.delta);
+      this.timeOrigin = 0;
       const clickszone = document.querySelector('.click-zone');
+      const timezone = document.querySelector('.time-zone');
+      timezone.textContent = time;
       clickszone.textContent = `Clicks: ${clicks}`;
       const gameArea = document.querySelector('.game-area');
       gameArea.innerHTML = '';
       this.createItemsOnLoad(items);
+
+      gameArea.addEventListener('mousedown', this.fnTime.bind(this));
+
     });
     const btn = document.createElement('button');
     btn.type = 'submit';
@@ -327,36 +385,46 @@ const Gem = {
   },
 
   init(arg) {
+
+    if (this.key) {
+      window.clearInterval(this.key);
+    };
+    this.key = false;
     this.delta = 0;
+    this.timeOrigin = 0;
     this.gameAreaConstruct(arg);
     this.ifwin();
     const timeZone = document.querySelector('.time-zone');
     const gameArea = document.querySelector('.game-area');
-    let timeOrigin = null;
 
-    const myFunc = () => {
-      timeOrigin = timeOrigin === null ? new Date() : timeOrigin;
-      const now = new Date();
-      let t = new Date(now.valueOf() - timeOrigin.valueOf() + this.delta.valueOf());
-      console.log(t);
-      const h = t.getUTCHours() < 10 ? `0${t.getUTCHours()}` : `${t.getUTCHours()}`;
-      const m = t.getMinutes() < 10 ? `0${t.getMinutes()}` : `${t.getMinutes()}`;
-      const s = t.getSeconds() < 10 ? `0${t.getSeconds()}` : `${t.getSeconds()}`;
-      const time = [h, m, s];
-      timeZone.textContent = timeZone.textContent.split(':').map((i, index) => time[index]).join(':');
-    };
-    const fnTime = (e) => {
-      if (e.target.className.includes('item-zero')) {
-        return;
-      };
-      myFunc();
-      let id = window.setInterval(myFunc, 1000);
-      gameArea.removeEventListener('mousedown', fnTime);
-      window.setTimeout(() => {
-        window.clearInterval(id);
-      }, 10000);
-    }
-    gameArea.addEventListener('mousedown', fnTime);
+    // const myFunc = () => {
+    //   this.timeOrigin = this.timeOrigin === null ? new Date() : this.timeOrigin;
+    //   const now = new Date();
+    //   let t = new Date(now.valueOf() - this.timeOrigin.valueOf() + this.delta.valueOf());
+    //   console.log(t);
+    //   const h = t.getUTCHours() < 10 ? `0${t.getUTCHours()}` : `${t.getUTCHours()}`;
+    //   const m = t.getMinutes() < 10 ? `0${t.getMinutes()}` : `${t.getMinutes()}`;
+    //   const s = t.getSeconds() < 10 ? `0${t.getSeconds()}` : `${t.getSeconds()}`;
+    //   const time = [h, m, s];
+    //   timeZone.textContent = timeZone.textContent.split(':').map((i, index) => time[index]).join(':');
+    // };
+
+    // const fnTime = (e) => {
+    //   if (e.target.className.includes('item-zero')) {
+    //     return;
+    //   };
+    //   this.myFunc();
+    //   console.log(this.timeOrigin)
+    //   let id = window.setInterval(this.myFunc.bind(this), 1000);
+    //   this.key = id;
+    //   gameArea.removeEventListener('mousedown', fnTime);
+    //   window.setTimeout(() => {
+    //     window.clearInterval(id);
+    //   }, 50000);
+    // }
+
+    gameArea.addEventListener('mousedown', this.fnTime.bind(this));
+
   },
 }
 
