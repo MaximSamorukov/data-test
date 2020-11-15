@@ -205,8 +205,20 @@ const Gem = {
       }
       this.n = n;
       item.addEventListener('click', this.move.bind(this))
-
+      item.addEventListener('mousedown', (e) => {
+        const item = e.target;
+        item.className = `item-${size} item-zero`;
+      });
+      item.addEventListener('mouseup', (e) => {
+        const item = e.target;
+        item.className = `item-${size} blue`;
+      });
     })
+  },
+
+  makeSelected(par, n) {
+    const index = n === 3 ? 0 : n === 8 ? 2 : 1;
+    par[index].selected = true;
   },
 
   gameAreaConstruct(n) {
@@ -223,10 +235,7 @@ const Gem = {
       '8': 64,
     };
 
-    const makeSelected = (par, n) => {
-      const index = n === 3 ? 0 : n === 8 ? 2 : 1;
-      par[index].selected = true;
-    };
+
 
     const root = document.body;
     const gameContainer = document.createElement('div');
@@ -297,7 +306,7 @@ const Gem = {
       const gameArea = document.querySelector('.game-area');
       gameArea.innerHTML = '';
       this.createItemsOnLoad(items);
-
+      this.makeSelected(select, Math.pow(items.split(':').length, 0.5));
       gameArea.addEventListener('mousedown', this.fnTime.bind(this));
 
     });
@@ -322,7 +331,7 @@ const Gem = {
     select.appendChild(option3on3);
     select.appendChild(option4on4);
     select.appendChild(option8on8);
-    makeSelected(select, n);
+    this.makeSelected(select, n);
     const clickZone = document.createElement('div');
     clickZone.textContent = 'Clicks: 0';
     clickZone.className = 'click-zone';
