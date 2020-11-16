@@ -1,4 +1,4 @@
-import changeAnimation from ('./animation');
+// import changeAnimation from('animation');
 
 const Gem = {
   delta: 0,
@@ -439,11 +439,9 @@ const Gem = {
     //     window.clearInterval(id);
     //   }, 50000);
     // }
-
     gameArea.addEventListener('mousedown', this.fnTime.bind(this));
-
   },
-}
+};
 
 window.addEventListener("DOMContentLoaded", function () {
   Gem.init(4);

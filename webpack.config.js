@@ -7,10 +7,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   context: path.resolve(__dirname),
   mode: 'development',
-  entry: '.gem-puzzle/index.js',
+  entry: './gem-puzzle/index.js',
   output: {
     filename: 'main.[contenthash].js',
-    path: path.resolve(__dirname, '.gem-puzzle/dist'),
+    path: path.resolve(__dirname, './gem-puzzle/dist'),
   },
   resolve: {
     extensions: ['.js', '.json', '.png'],
@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: '.gem-puzzle/index.html',
+      template: './gem-puzzle/index.html',
     }),
     new CleanWebpackPlugin(),
   ],
@@ -31,13 +31,13 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['eslint-loader']
+        use: ['eslint-loader'],
       },
       {
         test: /\.ttf$/,
-        type: 'asset/inline'
-      }
-    ]
-  }
+        type: 'asset/inline',
+      },
+    ],
+  },
 
-}
+};
