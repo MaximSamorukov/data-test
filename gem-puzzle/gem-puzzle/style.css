@@ -1,0 +1,121 @@
+* {
+  font-family: 'Boogaloo', cursive;
+}
+
+.game-container {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  flex-direction: column;
+}
+
+.menu-container {
+  width: 455px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px, solid chartreuse;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+select {
+  margin-right: auto;
+  margin-left: auto;
+  width: 90px;
+  height: 22px;
+  margin: 0;
+
+}
+.game-area {
+  width: 255px;
+  height: 255px;
+  background-color: rgb(255, 255, 255);
+  border: 3px solid blue;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 2px;
+}
+.four-on-four {
+
+}
+
+.three-on-three {
+
+}
+
+.eight-on-eight {
+
+}
+
+.blue {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid blue;
+}
+
+
+.item-60 {
+  width: 60px;
+  height: 60px;
+
+  border-radius: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.item-80 {
+  width: 80px;
+  height: 80px;
+
+  border-radius: 15px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 12px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.item-30 {
+  width: 30px;
+  height: 30px;
+  border: 1px solid blue;
+  border-radius: 3px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.item-zero {
+  background-color: rgb(255, 255, 255);
+  border: 0;
+  color: white;
+}
+
+
+
+.green {
+  background-color: rgb(89, 226, 43);
+}
+
+.win {
+  border: 1px solid black;
+  cursor: pointer;
+}
