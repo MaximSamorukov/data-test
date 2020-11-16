@@ -431,8 +431,8 @@ const Gem = {
     // const clicks = document.querySelector('.click-zone').textContent.split(':')[1].trim();
     const time = document.querySelector('.time-zone').textContent;
     const string = `${clicks};${time}`;
-    const storage = window.localStorage;
-    const results = storage.getItem('results', string);
+    // const storage = window.localStorage;
+    // const results = storage.getItem('results', string);
     console.log(string);
   },
 
