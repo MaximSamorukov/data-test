@@ -1,3 +1,5 @@
+import changeAnimation from ('./animation');
+
 const Gem = {
   delta: 0,
   key: false,
@@ -176,6 +178,9 @@ const Gem = {
         item.className = `item-${size} item-zero`;
       });
       item.addEventListener('mouseup', (e) => {
+        if (e.target.className.includes('item-zero')) {
+          return;
+        };
         const item = e.target;
         item.className = `item-${size} blue`;
       });
@@ -210,6 +215,9 @@ const Gem = {
         item.className = `item-${size} item-zero`;
       });
       item.addEventListener('mouseup', (e) => {
+        if (e.target.className.includes('item-zero')) {
+          return;
+        };
         const item = e.target;
         item.className = `item-${size} blue`;
       });
