@@ -114,3 +114,8 @@ select {
 .green {
   background-color: rgb(89, 226, 43);
 }
+
+.win {
+  border: 1px solid black;
+  cursor: pointer;
+}
