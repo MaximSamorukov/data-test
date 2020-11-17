@@ -175,6 +175,9 @@ const Gem = {
     const howManyItems = {
       3: 9,
       4: 16,
+      5: 25,
+      6: 36,
+      7: 49,
       8: 64,
     };
     const gameArea = document.querySelector('.game-area');
@@ -213,7 +216,7 @@ const Gem = {
 
   createItemsOnLoad(str) {
     const n = str.split(':').length ** 0.5;
-    const size = Math.floor(25 / n) * 10;
+    const size = Math.floor((25 / n) * 10);
     // const howManyItems = {
     //   3: 9,
     //   4: 16,
@@ -256,22 +259,34 @@ const Gem = {
 
   makeSelected(par, n) {
     const a = par;
-    let index = 1;
-    if (n === 3) {
-      index = 0;
-    }
-    if (n === 8) {
-      index = 2;
-    }
-    // const index = n === 3 ? 0 : n === 8 ? 2 : 1;
-    a[index].selected = true;
+    const ob = {
+      3: 0,
+      4: 1,
+      5: 2,
+      6: 3,
+      7: 4,
+      8: 5,
+    };
+
+    // let index = 1;
+    // if (n === 3) {
+    //   index = 0;
+    // }
+    // if (n === 8) {
+    //   index = 2;
+    // }
+    // // const index = n === 3 ? 0 : n === 8 ? 2 : 1;
+    a[ob[n]].selected = true;
   },
 
   gameAreaConstruct(n) {
-    const size = Math.floor(25 / n) * 10;
+    const size = Math.floor((25 / n) * 10);
     const options = {
       3: 'three-on-three',
       4: 'four-on-four',
+      5: 'five-on-five',
+      6: 'six-on-six',
+      7: 'seven-on-seven',
       8: 'eight-on-eight',
     };
 
@@ -288,6 +303,9 @@ const Gem = {
     const select = document.createElement('select');
     const option3on3 = document.createElement('option');
     const option4on4 = document.createElement('option');
+    const option5on5 = document.createElement('option');
+    const option6on6 = document.createElement('option');
+    const option7on7 = document.createElement('option');
     const option8on8 = document.createElement('option');
     const saveBtn = document.createElement('button');
     saveBtn.name = 'save-btn';
@@ -370,13 +388,22 @@ const Gem = {
     });
     option3on3.textContent = '3 x 3';
     option4on4.textContent = '4 x 4';
+    option5on5.textContent = '5 x 5';
+    option6on6.textContent = '6 x 6';
+    option7on7.textContent = '7 x 7';
     option8on8.textContent = '8 x 8';
     select.name = 'gameOptions';
     option3on3.value = '3 x 3';
     option4on4.value = '4 x 4';
+    option5on5.value = '5 x 5';
+    option6on6.value = '6 x 6';
+    option7on7.value = '7 x 7';
     option8on8.value = '8 x 8';
     select.appendChild(option3on3);
     select.appendChild(option4on4);
+    select.appendChild(option5on5);
+    select.appendChild(option6on6);
+    select.appendChild(option7on7);
     select.appendChild(option8on8);
     this.makeSelected(select, n);
     const clickZone = document.createElement('div');
