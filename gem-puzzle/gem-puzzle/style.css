@@ -41,7 +41,10 @@ select {
 }
 
 .select-btn, .save-btn {
-  margin-right: 23px;
+  margin-right: 16px;
+}
+.load-btn {
+  margin: 0;
 }
 
 .game-area {
