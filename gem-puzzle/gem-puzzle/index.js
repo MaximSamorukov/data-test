@@ -1,6 +1,7 @@
 import './style.css';
 
 const changeAnimation = require('./animation');
+const getBestResults = require('./bestResults');
 
 console.log(changeAnimation);
 const Gem = {
@@ -376,6 +377,12 @@ const Gem = {
     const timeZone = document.createElement('div');
     timeZone.className = 'time-zone';
     timeZone.textContent = '00:00:00';
+
+    const bestBtn = document.createElement('div');
+    bestBtn.className = 'best';
+    bestBtn.addEventListener('click', this.getBest.bind(this));
+    bestBtn.textContent = 'Show best results';
+
     const winBtn = document.createElement('div');
     winBtn.className = 'win';
     winBtn.addEventListener('click', this.ifwin.bind(this));
@@ -388,6 +395,7 @@ const Gem = {
     menuContainer.appendChild(clickZone);
     menuContainer.appendChild(timeZone);
     menuContainer.appendChild(winBtn);
+    menuContainer.appendChild(bestBtn);
     menuContainer.className = 'menu-container';
 
     // const items = (n = 4) => {
@@ -425,15 +433,21 @@ const Gem = {
   //   // });
   //   // console.log(gameArea);
   },
+  getBest() {
+    getBestResults();
+  },
 
   ifwin() {
     const clicks = this.steps;
-    // const clicks = document.querySelector('.click-zone').textContent.split(':')[1].trim();
     const time = document.querySelector('.time-zone').textContent;
-    const string = `${clicks};${time}`;
-    // const storage = window.localStorage;
-    // const results = storage.getItem('results', string);
-    console.log(string);
+    const obj = { time, clicks };
+    const storage = window.localStorage;
+    let results = JSON.parse(storage.getItem('results'));
+    results.push(obj);
+    results.sort((a, b) => a.clicks - b.clicks);
+    results = results.slice(0, 10);
+    const objj = JSON.stringify(results);
+    storage.setItem('results', objj);
   },
 
   init(arg) {
@@ -445,11 +459,11 @@ const Gem = {
     this.timeOrigin = 0;
     this.steps = 0;
     this.gameAreaConstruct(arg);
-    this.ifwin();
-    const storage = window.localStorage;
-    if (!storage.getItem('results')) {
-      storage.setItem('results', '');
+    const st = window.localStorage;
+    if (!st.getItem('results')) {
+      st.setItem('results', JSON.stringify([]));
     }
+    // this.ifwin();
     // const timeZone = document.querySelector('.time-zone');
     const gameArea = document.querySelector('.game-area');
     gameArea.addEventListener('mousedown', this.fnTime.bind(this));
