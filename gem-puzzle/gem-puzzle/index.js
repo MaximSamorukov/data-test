@@ -1,7 +1,7 @@
 import './style.css';
 import sound from './sound.wav';
 
-// const changeAnimation = require('./animation');
+const changeAnimation = require('./animation');
 const getBestResults = require('./bestResults');
 
 const Gem = {
@@ -158,15 +158,14 @@ const Gem = {
       const element = e.target;
       const { children } = e.target.parentNode;
       const emptyItem = Array.from(children).filter((i) => i.textContent === '')[0];
-      // changeAnimation(e, emptyItem);
-      const text = element.textContent;
+      changeAnimation(e, emptyItem);
+      // const text = element.textContent;
       element.textContent = '';
-      emptyItem.textContent = text;
-      element.classList.add('item-zero');
-      emptyItem.classList.remove('item-zero');
-      element.classList.remove('blue');
-      emptyItem.classList.add('blue');
-
+      // emptyItem.textContent = text;
+      // element.classList.add('item-zero');
+      // emptyItem.classList.remove('item-zero');
+      // element.classList.remove('blue');
+      // emptyItem.classList.add('blue');
       // console.log(emptyItem);
       // this.canMove(e);
     }
@@ -190,23 +189,23 @@ const Gem = {
         item.textContent = `${i}`;
       }
       this.n = n;
-      item.addEventListener('click', this.move.bind(this));
+      // item.addEventListener('click', this.move.bind(this));
       item.addEventListener('mousedown', (e) => {
         // console.log(e);
         this.move(e);
         if (this.verdict === false) {
-          return;
+          // return;
         }
-        const itemM = e.target;
-        itemM.className = `item-${size} item-zero`;
+        // const itemM = e.target;
+        // itemM.className = `item-${size} item-zero`;
       });
-      item.addEventListener('mouseup', (e) => {
+      item.addEventListener('mouseup', () => {
         if (this.verdict === false) {
-          return;
+          // return;
         }
         this.verdict = false;
-        const itemN = e.target;
-        itemN.className = `item-${size} blue`;
+        // const itemN = e.target;
+        // itemN.className = `item-${size} blue`;
       });
       return i;
     });
@@ -233,23 +232,23 @@ const Gem = {
         item.textContent = `${i}`;
       }
       this.n = n;
-      item.addEventListener('click', this.move.bind(this));
+      // item.addEventListener('click', this.move.bind(this));
       item.addEventListener('mousedown', (e) => {
-        // console.log(`>>>> ${this.verdict}`);
-        if (this.verdict === false) {
-          return;
-        }
-        const itemN = e.target;
-        itemN.className = `item-${size} item-zero`;
+        this.move(e);
+        // if (this.verdict === false) {
+        //   return;
+        // }
+        // const itemN = e.target;
+        // itemN.className = `item-${size} item-zero`;
       });
-      item.addEventListener('mouseup', (e) => {
+      item.addEventListener('mouseup', () => {
         // console.log(this.verdict);
-        if (this.verdict === false) {
-          return;
-        }
-        this.verdict = false;
-        const itemNew = e.target;
-        itemNew.className = `item-${size} blue`;
+        // if (this.verdict === false) {
+        //   return;
+        // }
+        // this.verdict = false;
+        // const itemNew = e.target;
+        // itemNew.className = `item-${size} blue`;
       });
       return i;
     });
@@ -361,7 +360,7 @@ const Gem = {
     const btn = document.createElement('button');
     btn.type = 'submit';
     btn.name = 'select-btn';
-    btn.textContent = 'Apply';
+    btn.textContent = 'New game';
     btn.className = 'select-btn';
     btn.addEventListener('click', (e) => {
       const value = parseInt(e.target.parentNode.children[0].value[0], 10);

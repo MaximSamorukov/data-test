@@ -38,7 +38,7 @@
 select {
   margin-right: auto;
   margin-left: auto;
-  width: 90px;
+  width: 70px;
   height: 22px;
   margin: 0;
   margin-right: 3px;
@@ -206,7 +206,7 @@ span {
 }
 
 .main {
-  background-color: turquoise;
+  /* background-color: turquoise; */
 }
 
 .item-opacity {
