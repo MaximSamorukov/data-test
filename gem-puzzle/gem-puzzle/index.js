@@ -1,15 +1,17 @@
 import './style.css';
+import sound from './sound.wav';
 
-const changeAnimation = require('./animation');
+// const changeAnimation = require('./animation');
 const getBestResults = require('./bestResults');
 
-console.log(changeAnimation);
 const Gem = {
+  iftime: false,
   delta: 0,
   key: false,
   timeOrigin: 0,
   verdict: false,
   steps: 0,
+  soundfile: '',
 
   randomArray(n) {
     let array = [];
@@ -41,14 +43,16 @@ const Gem = {
     const m = t.getMinutes() < 10 ? `0${t.getMinutes()}` : `${t.getMinutes()}`;
     const s = t.getSeconds() < 10 ? `0${t.getSeconds()}` : `${t.getSeconds()}`;
     const time = [h, m, s];
+    // console.log(time);
     timeZone.textContent = timeZone.textContent.split(':').map((i, index) => time[index]).join(':');
   },
 
-  fnTime(e) {
+  fnTime() {
     const gameArea = document.querySelector('.game-area');
-    if (e.target.className.includes('item-zero')) {
+    if (this.iftime === false) {
       return;
     }
+    this.iftime = false;
     this.myFunc();
     // console.log(this.timeOrigin)
     if (this.key === false) {
@@ -57,9 +61,9 @@ const Gem = {
     }
 
     gameArea.removeEventListener('mousedown', this.fnTime);
-    window.setTimeout(() => {
-      window.clearInterval(this.key);
-    }, 50000);
+    // window.setTimeout(() => {
+    //   window.clearInterval(this.key);
+    // }, 50000);
   },
 
   canMove(e, l = 16) {
@@ -146,12 +150,15 @@ const Gem = {
     // console.log((this.canMove(e, this.n ** 2)));
     if ((this.canMove(e, this.n ** 2))) {
       this.steps += 1;
+      this.iftime = true;
       // console.log(this.steps);
+      this.soundfile.play();
       const clickZoneNew = document.querySelector('.click-zone');
       clickZoneNew.textContent = `Clicks: ${this.steps}`;
       const element = e.target;
       const { children } = e.target.parentNode;
       const emptyItem = Array.from(children).filter((i) => i.textContent === '')[0];
+      // changeAnimation(e, emptyItem);
       const text = element.textContent;
       element.textContent = '';
       emptyItem.textContent = text;
@@ -185,6 +192,8 @@ const Gem = {
       this.n = n;
       item.addEventListener('click', this.move.bind(this));
       item.addEventListener('mousedown', (e) => {
+        // console.log(e);
+        this.move(e);
         if (this.verdict === false) {
           return;
         }
@@ -394,7 +403,7 @@ const Gem = {
     menuContainer.appendChild(loadBtn);
     menuContainer.appendChild(clickZone);
     menuContainer.appendChild(timeZone);
-    menuContainer.appendChild(winBtn);
+    // menuContainer.appendChild(winBtn);
     menuContainer.appendChild(bestBtn);
     menuContainer.className = 'menu-container';
 
@@ -455,6 +464,7 @@ const Gem = {
       window.clearInterval(this.key);
     }
     this.key = false;
+    this.soundfile = new Audio(sound);
     this.delta = 0;
     this.timeOrigin = 0;
     this.steps = 0;

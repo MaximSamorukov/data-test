@@ -8,11 +8,14 @@ function getBestResults() {
   tableContainer.className = 'table-container';
   const res = window.localStorage;
   const obj = JSON.parse(res.getItem('results'));
-  const ifNobody = '<div class="table-item">No results</div>';
-  const resString = obj.map((i, index) => {
-    const number = index < 9 ? `0${index + 1}` : `${index + 1}`;
-    return `<div class="table-item"><span>${number}.</span><span>Time: ${i.time}</span> <span>Steps:${i.clicks}</span></div>`;
-  });
+  const ifNobody = '<div class="table-item table-noitem">No results yet</div>';
+  let resString = [];
+  if (obj.length > 0) {
+    resString = obj.map((i, index) => {
+      const number = index < 9 ? `0${index + 1}` : `${index + 1}`;
+      return `<div class="table-item"><span>${number}.</span><span>Time: ${i.time}</span> <span>Steps:${i.clicks}</span></div>`;
+    });
+  }
   const returnValue = obj.length > 0 ? resString.join('') : ifNobody;
   table.innerHTML = returnValue;
   tableContainer.addEventListener('click', () => {
