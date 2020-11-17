@@ -35,6 +35,10 @@ module.exports = {
         test: /\.ttf$/,
         type: 'asset/inline',
       },
+      {
+        test: /\.wav$/,
+        use: ['file-loader'],
+      },
     ],
   },
 
