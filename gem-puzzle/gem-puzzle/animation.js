@@ -1,4 +1,5 @@
 function changeAnimation(e, opposite) {
+  const opp = opposite;
   // const originX = e.target.getBoundingClientRect().left;
   // const originY = e.target.getBoundingClientRect().top;
   const x = opposite.getBoundingClientRect().left;
@@ -8,7 +9,7 @@ function changeAnimation(e, opposite) {
   const text = e.target.textContent;
   newMainElement.textContent = text;
   const clas = e.target.className;
-  newMainElement.className = clas;
+  newMainElement.className = `${clas} main`;
   e.target.className = `${clas} item-zero`;
   // const newTargetElement = opposite;
   const shiftX = e.clientX - e.target.getBoundingClientRect().left;
@@ -32,16 +33,22 @@ function changeAnimation(e, opposite) {
   function mouseUp(eve) {
     const ev = eve;
     ev.preventDefault();
+    const cl = ev.target.className;
     ev.target.className = 'item-opacity';
     // ev.target.classList.remove('main');
     // opposite.classList.add('background');
-    document.removeEventListener('mousemove', mouseMove);
     // console.log(e);
     ev.target.style.left = `${x}px`;
     ev.target.style.top = `${y}px`;
+    document.removeEventListener('mousemove', mouseMove);
     ev.target.onmouseup = null;
+    opp.className = cl;
+    opp.textContent = ev.target.textContent;
+    // const parent = ev.target.parentNode;
+
+    ev.target.remove();
   }
-  newMainElement.onmouseup = mouseUp;
+  newMainElement.addEventListener('mouseup', mouseUp);
 }
 
 module.exports = changeAnimation;
