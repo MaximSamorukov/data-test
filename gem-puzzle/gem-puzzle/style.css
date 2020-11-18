@@ -28,17 +28,34 @@ body {
   width: 255px;
   min-width: 255px;
   max-width: 255px;
-  height: 80px;
-  min-height: 80px;
-  max-height: 80px;
+  height: 120px;
+  min-height: 120px;
+  max-height: 120px;
   margin-left: auto;
   margin-right: auto;
   border: 1px, solid black;
   display: flex;
-  justify-content: start;
+
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* justify-content: start;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: flex-start; */
   /* background-color: turquoise; */
+}
+
+.line-menu {
+  width: 255px;
+  min-width: 255px;
+  max-width: 255px;
+  height: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 select {
@@ -92,6 +109,7 @@ select {
 .blue {
   background-color: rgb(255, 255, 255);
   border: 3px solid rgb(255, 201, 101);
+  /* animation: animation 2s 1 reverse; */
 }
 
 
@@ -266,6 +284,14 @@ span {
   /* border: 1px solid violet; */
   margin-left: 15px;
   margin-right: 25px;
+}
+
+.sound-btn-on {
+  background-color: greenyellow;
+}
+
+.sound-btn-off {
+  background-color: rgb(173, 90, 47);
 }
 
 @keyframes animation {
