@@ -39,7 +39,9 @@ const Gem = {
     }
     const timeValue = document.querySelector('.time-zone').textContent;
     const clicksValue = document.querySelector('.click-zone').textContent;
-    const value = JSON.stringify({ time: timeValue, clicks: clicksValue });
+    const selectElement = document.getElementsByTagName('select');
+    const type = selectElement[0].value;
+    const value = JSON.stringify({ type, time: timeValue, clicks: clicksValue });
     st.setItem('dataToWinScreen', value);
     // console.log(this);
     const timeZone = document.querySelector('.time-zone');
