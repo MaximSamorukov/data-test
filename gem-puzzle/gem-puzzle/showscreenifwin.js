@@ -8,7 +8,10 @@ function showScreen() {
   tableContainer.className = 'table-container';
   // const res = window.localStorage;
   // const obj = JSON.parse(res.getItem('results'));
-  const ifNobody = '<div class="table-item table-noitem">You have win</div>';
+  const st = window.localStorage;
+  const value = JSON.parse(st.getItem('dataToWinScreen'));
+  const results = `Your results:\nTime: ${value.time};\nSteps: ${value.steps}`;
+  const ifNobody = `<div class="table-item table-noitem">You have win!!!\n${results}</div>`;
   // let resString = [];
   // if (obj.length > 0) {
   //   resString = obj.map((i, index) => {
