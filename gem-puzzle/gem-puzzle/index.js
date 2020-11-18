@@ -164,6 +164,7 @@ const Gem = {
       changeAnimation(e, emptyItem);
       // const text = element.textContent;
       element.textContent = '';
+
       // emptyItem.textContent = text;
       // element.classList.add('item-zero');
       // emptyItem.classList.remove('item-zero');
