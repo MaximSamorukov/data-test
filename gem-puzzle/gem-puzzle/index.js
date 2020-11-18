@@ -29,7 +29,18 @@ const Gem = {
   },
 
   myFunc() {
-    // console.log('i');
+    const st = window.localStorage;
+    const status = st.getItem('win');
+    if (status === 'true') {
+      const root = document.querySelector('body');
+      const gameContainer = document.querySelector('.game-container');
+      root.removeChild(gameContainer);
+      this.init(4);
+    }
+    const timeValue = document.querySelector('.time-zone').textContent;
+    const clicksValue = document.querySelector('.click-zone').textContent;
+    const value = JSON.stringify({ time: timeValue, clicks: clicksValue });
+    st.setItem('dataToWinScreen', value);
     // console.log(this);
     const timeZone = document.querySelector('.time-zone');
     // console.log(this.timeOrigin);
@@ -548,6 +559,7 @@ const Gem = {
     if (!st.getItem('results')) {
       st.setItem('results', JSON.stringify([]));
     }
+    st.setItem('win', false);
     // this.ifwin();
     // const timeZone = document.querySelector('.time-zone');
     const gameArea = document.querySelector('.game-area');
