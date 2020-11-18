@@ -48,7 +48,7 @@ function changeAnimation(e, opposite) {
     opp.textContent = ev.target.textContent;
     // const parent = ev.target.parentNode;
     ev.target.remove();
-    checkIfWin(eve);
+    checkIfWin();
   }
   newMainElement.addEventListener('mouseup', mouseUp);
 }

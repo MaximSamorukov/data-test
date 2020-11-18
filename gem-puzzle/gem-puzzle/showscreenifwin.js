@@ -22,6 +22,8 @@ function showScreen() {
   tableContainer.addEventListener('click', () => {
     // tableContainer.className = 'table-container-invis';
     root.removeChild(tableContainer);
+    const storage = window.localStorage;
+    storage.setItem('win', true);
   });
 }
 

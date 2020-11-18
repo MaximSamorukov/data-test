@@ -29,6 +29,14 @@ const Gem = {
   },
 
   myFunc() {
+    const st = window.localStorage;
+    const status = st.getItem('win');
+    if (status === 'true') {
+      const root = document.querySelector('body');
+      const gameContainer = document.querySelector('.game-container');
+      root.removeChild(gameContainer);
+      this.init(4);
+    }
     // console.log('i');
     // console.log(this);
     const timeZone = document.querySelector('.time-zone');
@@ -548,6 +556,7 @@ const Gem = {
     if (!st.getItem('results')) {
       st.setItem('results', JSON.stringify([]));
     }
+    st.setItem('win', false);
     // this.ifwin();
     // const timeZone = document.querySelector('.time-zone');
     const gameArea = document.querySelector('.game-area');
