@@ -1,3 +1,5 @@
+const checkIfWin = require('./checkIfWin');
+
 function changeAnimation(e, opposite) {
   const opp = opposite;
   // const originX = e.target.getBoundingClientRect().left;
@@ -45,8 +47,8 @@ function changeAnimation(e, opposite) {
     opp.className = cl;
     opp.textContent = ev.target.textContent;
     // const parent = ev.target.parentNode;
-
     ev.target.remove();
+    checkIfWin(eve);
   }
   newMainElement.addEventListener('mouseup', mouseUp);
 }
