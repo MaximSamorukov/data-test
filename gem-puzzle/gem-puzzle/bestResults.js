@@ -20,7 +20,7 @@ function getBestResults() {
       .sort((a, b) => a.clicks - b.clicks)
       .map(({ type, time, clicks }, index) => {
         const number = index < 9 ? `0${index + 1}` : `${index + 1}`;
-        return `<div class="table-item"><span>${number}. </span><span>Type: ${type} </span><span>Time: ${time}</span><span>Steps: ${clicks}</span></div>`;
+        return `<div class="table-item"><span>${number}.</span><span>Type: ${type} </span><span>Time: ${time}</span><span>Steps: ${clicks}</span></div>`;
       });
   }
   const returnValue = obj.length > 0 ? resString.join('') : ifNobody;
