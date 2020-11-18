@@ -20,7 +20,6 @@ function checkIfWin() {
     }
     return false;
   }).filter((i) => i !== true);
-
   if (resultArray.length === 0) {
     showScreen();
   }
