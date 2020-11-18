@@ -21,7 +21,7 @@ function getBestResults() {
       .map(({ type, time, clicks }, index) => {
         const number = index < 9 ? `0${index + 1}` : `${index + 1}`;
         return `<div class="table-item"><span class={firstCL}>${number}.</span><span class={secondCL}>Type: ${type} </span><span class={thirdCL}>Time: ${time}</span><span class={fourthCL}>Steps: ${clicks}</span></div>`;
-      });
+      }).slice(0, 10);
   }
   const returnValue = obj.length > 0 ? resString.join('') : ifNobody;
   table.innerHTML = returnValue;
