@@ -12,6 +12,7 @@ const Gem = {
   verdict: false,
   steps: 0,
   soundfile: '',
+  sound: false,
 
   randomArray(n) {
     let array = [];
@@ -151,8 +152,10 @@ const Gem = {
     if ((this.canMove(e, this.n ** 2))) {
       this.steps += 1;
       this.iftime = true;
-      // console.log(this.steps);
-      this.soundfile.play();
+      // console.log(this.sound);
+      if (this.sound) {
+        this.soundfile.play();
+      }
       const clickZoneNew = document.querySelector('.click-zone');
       clickZoneNew.textContent = `Clicks: ${this.steps}`;
       const element = e.target;
@@ -300,6 +303,12 @@ const Gem = {
     const gameContainer = document.createElement('div');
     const gameArea = document.createElement('div');
     const menuContainer = document.createElement('div');
+    const firstLineMenu = document.createElement('div');
+    const secondLineMenu = document.createElement('div');
+    const thirdLineMenu = document.createElement('div');
+    firstLineMenu.className = 'fst-line-menu line-menu';
+    secondLineMenu.className = 'scnd-line-menu line-menu';
+    thirdLineMenu.className = 'thrd-line-menu line-menu';
     const select = document.createElement('select');
     const option3on3 = document.createElement('option');
     const option4on4 = document.createElement('option');
@@ -386,6 +395,28 @@ const Gem = {
       root.removeChild(gameContainer);
       this.init(value);
     });
+
+    const soundOnOff = document.createElement('button');
+    soundOnOff.type = 'submit';
+    soundOnOff.name = 'sound-btn';
+    soundOnOff.textContent = 'sound on / off';
+    soundOnOff.className = 'sound-btn-off';
+    soundOnOff.addEventListener('click', () => {
+      this.sound = !this.sound;
+      // console.log(this.sound);
+      const str = this.sound ? 'on' : 'off';
+      soundOnOff.className = `sound-btn-${str}`;
+    });
+
+    const autoEnd = document.createElement('button');
+    autoEnd.type = 'submit';
+    autoEnd.name = 'end-btn';
+    autoEnd.textContent = 'Accomplished';
+    autoEnd.className = 'auto-end';
+    autoEnd.addEventListener('click', (e) => {
+      console.log(e);
+    });
+
     option3on3.textContent = '3 x 3';
     option4on4.textContent = '4 x 4';
     option5on5.textContent = '5 x 5';
@@ -422,15 +453,32 @@ const Gem = {
     winBtn.className = 'win';
     winBtn.addEventListener('click', this.ifwin.bind(this));
     winBtn.textContent = 'Win';
+
     gameContainer.appendChild(menuContainer);
-    menuContainer.appendChild(select);
-    menuContainer.appendChild(btn);
-    menuContainer.appendChild(saveBtn);
-    menuContainer.appendChild(loadBtn);
-    menuContainer.appendChild(clickZone);
-    menuContainer.appendChild(timeZone);
+
+    firstLineMenu.appendChild(select);
+    firstLineMenu.appendChild(btn);
+    firstLineMenu.appendChild(saveBtn);
+    firstLineMenu.appendChild(loadBtn);
+
+    thirdLineMenu.appendChild(clickZone);
+    thirdLineMenu.appendChild(timeZone);
+    thirdLineMenu.appendChild(bestBtn);
+
+    secondLineMenu.appendChild(soundOnOff);
+    secondLineMenu.appendChild(autoEnd);
+
+    menuContainer.appendChild(firstLineMenu);
+    menuContainer.appendChild(secondLineMenu);
+    menuContainer.appendChild(thirdLineMenu);
+    // menuContainer.appendChild(select);
+    // menuContainer.appendChild(btn);
+    // menuContainer.appendChild(saveBtn);
+    // menuContainer.appendChild(loadBtn);
+    // menuContainer.appendChild(clickZone);
+    // menuContainer.appendChild(timeZone);
     // menuContainer.appendChild(winBtn);
-    menuContainer.appendChild(bestBtn);
+    // menuContainer.appendChild(bestBtn);
     menuContainer.className = 'menu-container';
 
     // const items = (n = 4) => {
