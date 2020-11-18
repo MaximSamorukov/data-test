@@ -21,6 +21,12 @@ function checkIfWin() {
     return false;
   }).filter((i) => i !== true);
   if (resultArray.length === 0) {
+    const st = window.localStorage;
+    const results = JSON.parse(st.getItem('results'));
+    const winResult = JSON.parse(st.getItem('dataToWinScreen'));
+    // console.log(results);
+    results.push(winResult);
+    st.setItem('results', JSON.stringify(results));
     showScreen();
   }
 }
