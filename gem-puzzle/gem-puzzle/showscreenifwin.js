@@ -10,8 +10,8 @@ function showScreen() {
   // const obj = JSON.parse(res.getItem('results'));
   const st = window.localStorage;
   const value = JSON.parse(st.getItem('dataToWinScreen'));
-  const results = `Your results:\nTime: ${value.time};\nSteps: ${value.steps}`;
-  const ifNobody = `<div class="table-item table-noitem">You have win!!!\n${results}</div>`;
+  const results = `<p>Your results:</p><p>Time: ${value.time}</p><p>Steps: ${value.clicks.split(':')[1]}</p>`;
+  const ifNobody = `<div class="table-item table-noitem"><p>You have win!!!</p>${results}</div>`;
   // let resString = [];
   // if (obj.length > 0) {
   //   resString = obj.map((i, index) => {
