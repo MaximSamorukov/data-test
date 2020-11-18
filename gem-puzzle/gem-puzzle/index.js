@@ -551,6 +551,7 @@ const Gem = {
     }
     this.key = false;
     this.soundfile = new Audio(sound);
+    this.sound = false;
     this.delta = 0;
     this.timeOrigin = 0;
     this.steps = 0;
