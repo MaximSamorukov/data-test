@@ -1,14 +1,14 @@
 # maximsamorukov-JS2020Q3
 Private repository for @maximsamorukov
 
-https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/shelter/pages/main/
+https://MaximSamorukov.github.io/data-test/shelter/pages/main/
 
-https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/shelter/pages/pets/
+https://MaximSamorukov.github.io/data-test/shelter/pages/pets/
 
-https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/calculator
+https://MaximSamorukov.github.io/data-test/calculator
 
-https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/momentum
+https://MaximSamorukov.github.io/data-test/momentum
 
-https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/virtual-keyboard
+https://MaximSamorukov.github.io/data-test/virtual-keyboard
 
-https://rolling-scopes-school.github.io/maximsamorukov-JS2020Q3/gem-puzzle/gem-puzzle/dist/
+https://MaximSamorukov.github.io/data-test/gem-puzzle/gem-puzzle/dist/
