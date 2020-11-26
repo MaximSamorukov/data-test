@@ -1,3 +1,4 @@
 export default function main() {
-  console.log('The main');
+  const page = '<div>Main Page</div>';
+  return page;
 }
