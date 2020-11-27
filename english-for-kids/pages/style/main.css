@@ -1,3 +1,5 @@
+@import "./nerkoOne.css";
 div {
+  font-family: 'Nerko One', cursive;
   margin: 0;
 }
