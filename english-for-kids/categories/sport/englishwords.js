@@ -2,7 +2,7 @@ module.exports = {
   first: 'football',
   second: 'volleyball',
   third: 'hockey',
-  forth: 'yachting',
+  fourth: 'yachting',
   fifth: 'wrestling',
   sixth: 'running',
   seventh: 'soccer',
