@@ -1,3 +1,6 @@
+@import "./nerkoOne.css";
+
 body {
-  font-family: 'Nerko One', cursive;
+  font-family: 'Arial';
+  font-size: 15px;
 }
