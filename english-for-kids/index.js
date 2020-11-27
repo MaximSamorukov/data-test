@@ -6,7 +6,7 @@ import './pages/style/index.css'
 const root = document.querySelector('.container');
 const rootContainer = document.createElement('div');
 const mainPage = main();
-console.log(mainPage);
+console.log('mainPage');
 rootContainer.innerHTML = mainPage;
 root.appendChild(rootContainer);
 document.body.appendChild(root);

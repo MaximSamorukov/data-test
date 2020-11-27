@@ -1,4 +1,4 @@
 export default function main() {
-  const page = '<div>Main Page</div>';
+  const page = '<div>Super Main Page</div>';
   return page;
 }

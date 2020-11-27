@@ -10,6 +10,7 @@
     "build": "webpack --mode production",
     "watch": "webpack --mode development --watch"
   },
+  "browserslist": "> 0.25%, not dead",
   "author": "Samorukov Maxim",
   "license": "ISC",
   "devDependencies": {
