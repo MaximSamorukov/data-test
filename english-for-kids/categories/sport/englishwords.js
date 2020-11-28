@@ -1,4 +1,4 @@
-module.exports = {
+const words = {
   0: 'football',
   1: 'volleyball',
   2: 'hockey',
@@ -10,3 +10,5 @@ module.exports = {
   8: 'climbing',
   9: 'swimming'
 }
+
+export { words };
