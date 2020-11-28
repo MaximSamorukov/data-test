@@ -1,3 +1,28 @@
-div {
-  margin: 0;
+.play-card-container {
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  height: 200px;
+  border-radius: 20px;
+  box-shadow: 0px 1px 12px 4px rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.play-card {
+  margin: 0px auto;
+  color: blueviolet;
+
+}
+
+.not-chosen {
+  background-color: white;
+}
+
+.chosen {
+  background-color: slateblue;
 }

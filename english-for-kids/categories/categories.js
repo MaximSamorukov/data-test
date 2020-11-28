@@ -1,6 +1,6 @@
 // const path = require('path');
 
-export default function category(name) {
+export default function categoryConstructor(name) {
   const imgExt = 'png';
   const soundExt = 'mp3';
   const template = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'nineth', 'tenth'];
