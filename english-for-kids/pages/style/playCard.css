@@ -15,14 +15,14 @@
 
 .play-card {
   margin: 0px auto;
-  color: blueviolet;
-
 }
 
-.not-chosen {
+.english {
   background-color: white;
+  color: blueviolet;
 }
 
-.chosen {
+.russian {
   background-color: slateblue;
+  color: black;
 }

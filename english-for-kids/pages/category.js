@@ -5,24 +5,15 @@ import categoryConstructor from '../categories/categories';
 
 export default function category(context) {
   const container = document.createElement('div');
+  container.className = 'category-container';
   const { currentCategory } = context;
   const data = categoryConstructor(currentCategory);
   const array = arrayOfDataForCardsCreator(data, currentCategory);
-  console.log(array);
   array.then((i) => {
-    console.log(i);
-  })
-
-  // const arrayWithPlayCardData = new Array(10).map((i, index) => {
-  // return {
-  // english: englishword[index],
-  // russian: russianword[index],
-  // image: data.images[index],
-  // sound: data.sounds[index],
-  // }
-  // });
-  // console.log(arrayWithPlayCardData);
-  // context.categories.map((i) => contain / er.appendChild(playCard(context, i)))
-  container.className = 'category-container';
+    i.map((element) => {
+      container.append(playCard(context, element));
+      return element;
+    });
+  });
   return container;
 }
