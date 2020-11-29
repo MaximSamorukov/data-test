@@ -6,7 +6,7 @@ import statistics from '../pages/statistics';
 import { render } from '../index';
 
 const Game = {
-  categories: ['space', 'cars', 'it', 'music', 'tools', 'furniture', 'sport', 'science', 'dress'],
+  categories: ['space', 'materials', 'it', 'music', 'tools', 'furniture', 'sport', 'science', 'dress'],
   isPlay: false,
   currentCategory: false,
   currentPage: 'main',

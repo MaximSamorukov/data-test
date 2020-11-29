@@ -1,12 +1,14 @@
-module.exports = {
-  first: '',
-  second: '',
-  third: '',
-  forth: '',
-  fifth: '',
-  sixth: '',
-  seventh: '',
-  eighth: '',
-  nineth: '',
-  tenth: ''
+const words = {
+  0: 'аккордеон',
+  1: 'фагот',
+  2: 'виолончель',
+  3: 'кларнет',
+  4: 'барабан',
+  5: 'гитара',
+  6: 'флейта',
+  7: 'ноты',
+  8: 'саксофон',
+  9: 'пианино'
 }
+
+export { words };

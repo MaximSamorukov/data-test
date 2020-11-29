@@ -1,12 +1,14 @@
-module.exports = {
-  first: '',
-  second: '',
-  third: '',
-  forth: '',
-  fifth: '',
-  sixth: '',
-  seventh: '',
-  eighth: '',
-  nineth: '',
-  tenth: ''
+const words = {
+  0: 'стол',
+  1: 'стул',
+  2: 'диван',
+  3: 'кровать',
+  4: 'кресло',
+  5: 'кушетка',
+  6: 'сервант',
+  7: 'книжный шкаф',
+  8: 'книжный полка',
+  9: 'комод'
 }
+
+export { words };
