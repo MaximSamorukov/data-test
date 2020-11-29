@@ -1,5 +1,5 @@
 const words = {
-  0: 'tool',
+  0: 'pliers',
   1: 'hammer',
   2: 'saw',
   3: 'plane',
