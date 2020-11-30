@@ -13,6 +13,8 @@ export default function playCard(context, data) {
   container.appendChild(card);
   container.addEventListener('mousedown', (e) => {
     // console.log(this);
+    const sound = new Audio(data.sound);
+    sound.play();
     container.className = 'play-card-container russian';
     innerWord.innerText = data.russian;
   });

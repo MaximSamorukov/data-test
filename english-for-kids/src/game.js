@@ -1,6 +1,9 @@
 // import categoryConstructor from '../categories/categories';
 import btnBeginGame from '../pages/btnBeginGame';
+import btnTrainPlay from '../pages/btnTrainPlay';
+import btnGamburger from '../pages/btnGamburger';
 import main from '../pages/main';
+import menu from '../pages/menu';
 import category from '../pages/category';
 import statistics from '../pages/statistics';
 import { render } from '../index';
@@ -10,9 +13,26 @@ const Game = {
   isPlay: false,
   currentCategory: false,
   currentPage: 'main',
+  showMenu: false,
 
   init() {
     render();
+  },
+
+  btnTrainAndPlay() {
+    return btnTrainPlay(this);
+  },
+
+  btnBeginTheGame() {
+    return btnBeginGame(this);
+  },
+
+  btnTheGamburger() {
+    return btnGamburger(this);
+  },
+
+  showMenuFunc() {
+    return menu(this);
   },
 
   game() {
