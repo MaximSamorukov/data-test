@@ -9,6 +9,7 @@ import statistics from '../pages/statistics';
 import { render } from '../index';
 
 const Game = {
+  pages: ['main', 'category', 'statistics'],
   categories: ['space', 'materials', 'it', 'music', 'tools', 'furniture', 'sport', 'science', 'dress'],
   isPlay: false,
   inGame: false, // This is not correct!!!

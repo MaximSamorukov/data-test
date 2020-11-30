@@ -1,15 +1,15 @@
 import './style/btnBeginGame.css';
 
 export default function btnBeginGame(context) {
-  const { inGame, isPlay } = context;
+  const { inGame, isPlay, currentPage } = context;
   const btnContainer = document.createElement('div');
-  btnContainer.className = isPlay && inGame ? 'btn-begin-game-container btn-begin-game-on' : 'btn-begin-game-container btn-begin-game-off';
+  btnContainer.className = (isPlay && inGame && currentPage === 'category') ? 'btn-begin-game-container btn-begin-game-on' : 'btn-begin-game-container btn-begin-game-off';
   const btn = document.createElement('div');
   btnContainer.appendChild(btn);
   btn.className = 'btn-begin-game';
-  btn.innerText = isPlay && inGame ? "Game" : "Out of Game";
+  btn.innerText = (isPlay && inGame && currentPage === 'category') ? "Game" : "Out of Game";
   btn.addEventListener('click', (e) => {
-    context.inGame = isPlay ? !context.inGame : false;
+    context.inGame = (isPlay && currentPage === 'category') ? !context.inGame : false;
     context.init();
   });
   return btnContainer;
