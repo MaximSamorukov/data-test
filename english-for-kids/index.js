@@ -14,7 +14,9 @@ function render() {
   const menu = Game.showMenuFunc();
   const btnTrainPlay = Game.btnTrainAndPlay();
   const btnGamburger = Game.btnTheGamburger();
+  const btnBeginGame = Game.btnBeginTheGame();
   topContainer.appendChild(btnGamburger);
+  topContainer.appendChild(btnBeginGame);
   topContainer.appendChild(btnTrainPlay);
   rootContainer.appendChild(view);
   root.appendChild(menu);

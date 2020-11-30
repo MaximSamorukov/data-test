@@ -11,6 +11,7 @@ import { render } from '../index';
 const Game = {
   categories: ['space', 'materials', 'it', 'music', 'tools', 'furniture', 'sport', 'science', 'dress'],
   isPlay: false,
+  inGame: false, // This is not correct!!!
   currentCategory: false,
   currentPage: 'main',
   showMenu: false,

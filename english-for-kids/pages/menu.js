@@ -14,6 +14,18 @@ export default function menu(context) {
     return element;
   });
   container.appendChild(textContainer);
-
+  container.addEventListener('click', () => {
+    context.showMenu = !showMenu;
+    context.init();
+  });
+  textContainer.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log(e.target.textContent);
+    const word = e.target.textContent;
+    const chosen = context.currentCategory === word;
+    context.currentCategory = chosen ? false : word;
+    context.currentPage = 'category';
+    context.init();
+  })
   return container;
 }
