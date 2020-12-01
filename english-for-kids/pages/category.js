@@ -9,6 +9,11 @@ export default function category(context) {
   const { currentCategory } = context;
   const data = categoryConstructor(currentCategory);
   const array = arrayOfDataForCardsCreator(data, currentCategory);
+  const storage = window.localStorage;
+  array.then((i) => {
+    const str = JSON.stringify(i);
+    storage.setItem('englishForKids', str);
+  });
   array.then((i) => {
     i.map((element) => {
       container.append(playCard(context, element));

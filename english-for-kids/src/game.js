@@ -16,6 +16,9 @@ const Game = {
   currentCategory: false,
   currentPage: 'main',
   showMenu: false,
+  currentPlayArray: [],
+  currentPlayWord: '',
+  currentStat: [],
 
   init() {
     render();
@@ -47,7 +50,6 @@ const Game = {
       return el;
     }
     if (this.currentPage === 'category') {
-      console.log('category');
       const elCat = document.createElement('div');
       // const btn = btnBeginGame(this);
       const page = category(this);

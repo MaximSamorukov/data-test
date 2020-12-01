@@ -3,7 +3,6 @@ import { menuItem, menuPage } from './service';
 
 export default function menu(context) {
   const { showMenu, pages, currentCategory, categories } = context;
-  console.log(showMenu);
   const container = document.createElement('div');
   const textContainer = document.createElement('div');
 
@@ -48,10 +47,10 @@ export default function menu(context) {
     if (e.target.textContent === 'Pages') {
       return;
     }
-    console.log(e.target.textContent);
     const page = e.target.textContent;
     context.isPlay = false;
     context.inGame = false;
+    context.currentStat = [];
     context.currentCategory = false;
     context.currentPage = page;
     context.init();
@@ -62,11 +61,12 @@ export default function menu(context) {
     if (e.target.textContent === 'Categories') {
       return;
     }
-    console.log(e.target.textContent);
     const word = e.target.textContent;
     const chosen = context.currentCategory === word;
     context.currentCategory = chosen ? false : word;
     context.currentPage = 'category';
+    context.inGame = false;
+    context.currentStat = [];
     context.init();
   });
 

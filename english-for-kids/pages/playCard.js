@@ -1,4 +1,5 @@
 import './style/playCard.css';
+import { theGame } from './service';
 
 export default function playCard(context, data) {
   // console.log(context);
@@ -27,6 +28,7 @@ export default function playCard(context, data) {
     container.addEventListener('mousedown', (e) => {
       // const sound = new Audio(data.sound);
       // sound.play();
+      theGame(context, data);
       container.className = 'play-card-container english';
       innerWord.innerText = data.english;
     });

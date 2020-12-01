@@ -11,6 +11,7 @@ export default function btnTrainPlay(context) {
   btn.addEventListener('click', (e) => {
     context.isPlay = !context.isPlay;
     context.inGame = context.isPlay === false ? false : inGame;
+    context.currentStat = context.inGame === false ? [] : context.currentStat;
     context.init();
   });
   return btnContainer;
