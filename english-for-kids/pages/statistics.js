@@ -1,3 +1,8 @@
-export default function statistics() {
-  console.log('statistics');
+import './style/statistics.css';
+
+export default function statistics(context) {
+  const container = document.createElement('div');
+  container.className = 'statistics-container';
+  container.textContent = 'Statistics';
+  return container;
 }

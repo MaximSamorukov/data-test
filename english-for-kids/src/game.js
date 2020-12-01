@@ -9,7 +9,7 @@ import statistics from '../pages/statistics';
 import { render } from '../index';
 
 const Game = {
-  pages: ['main', 'category', 'statistics'],
+  pages: ['main', 'statistics'],
   categories: ['space', 'materials', 'it', 'music', 'tools', 'furniture', 'sport', 'science', 'dress'],
   isPlay: false,
   inGame: false, // This is not correct!!!
@@ -57,6 +57,12 @@ const Game = {
     }
     if (this.currentPage === 'statistics') {
       console.log('statistics');
+      const elStat = document.createElement('div');
+      // const btn = btnBeginGame(this);
+      const collection = statistics(this);
+      elStat.appendChild(collection);
+      // el.appendChild(btn);
+      return elStat;
     }
     else {
 
