@@ -3,7 +3,7 @@ import { theGame } from './service';
 
 export default function playCard(context, data) {
   // console.log(context);
-  const { isPlay } = context;
+  const { isPlay, inGame } = context;
   const container = document.createElement('div');
   const card = document.createElement('div');
   const innerWord = document.createElement('b');
@@ -26,13 +26,17 @@ export default function playCard(context, data) {
     });
   } else {
     container.addEventListener('mousedown', (e) => {
-      // const sound = new Audio(data.sound);
-      // sound.play();
+      if (!inGame) {
+        return;
+      }
       theGame(context, data);
       container.className = 'play-card-container english';
       innerWord.innerText = data.english;
     });
     container.addEventListener('mouseup', (e) => {
+      if (!inGame) {
+        return;
+      }
       container.className = 'play-card-container russian';
       innerWord.innerText = data.russian;
     });

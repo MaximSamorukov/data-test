@@ -13,6 +13,7 @@ export default function btnBeginGame(context) {
     context.inGame = (isPlay && currentPage === 'category') ? !context.inGame : false;
     context.init();
     if (context.inGame === true) {
+      context.currentPlayArray = [];
       theGame(context);
     }
   });
