@@ -10,11 +10,11 @@ export default function btnBeginGame(context) {
   btn.className = 'btn-begin-game';
   btn.innerText = (isPlay && inGame && currentPage === 'category') ? "Game" : "Out of Game";
   btn.addEventListener('click', (e) => {
-    // context.inGame = (isPlay && currentPage === 'category') ? !context.inGame : false;
-    // context.init();
-    // if (context.inGame === true) {
-    theGame(context);
-    // }
+    context.inGame = (isPlay && currentPage === 'category') ? !context.inGame : false;
+    context.init();
+    if (context.inGame === true) {
+      theGame(context);
+    }
   });
   return btnContainer;
 }

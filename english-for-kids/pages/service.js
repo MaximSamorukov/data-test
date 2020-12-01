@@ -41,29 +41,31 @@ function theGame(context, data = false) {
     // const arrayOfData = JSON.parse(data);
 
   };
-  if (isPlay && currentPage === 'category' && inGame === true) {
-    context.init();
+  if (isPlay && currentPage === 'category' && currentPlayArray.length !== 0) {
+    // context.init();
     const random = Math.floor(Math.random() * currentPlayArray.length)
     const randomElement = currentPlayArray[random];
     currentPlayArray = currentPlayArray.filter((i, index) => index !== random);
+    console.log(currentPlayArray);
     if (currentPlayArray.length === 0) {
       console.log('you have won!!!');
-
+      return;
     }
     context.currentPlayArray = [...currentPlayArray];
     context.currentPlayWord = randomElement.english;
     const b = new Audio(randomElement.sound);
     b.play();
   }
-  else if (isPlay && currentPage === 'category' && inGame === false) {
-    context.init();
+  else if (isPlay && currentPage === 'category' && currentPlayArray.length === 0) {
+    // context.init();
     const data = storage.getItem('englishForKids');
     const arrayOfData = JSON.parse(data);
     let workArrayOfData = [...arrayOfData];
-    context.inGame = true;
-    const random = Math.floor(Math.random() * workArrayOfData.length)
+    const random = Math.floor(Math.random() * workArrayOfData.length);
     const randomElement = workArrayOfData[random];
     workArrayOfData = workArrayOfData.filter((i, index) => index !== random);
+    console.log(workArrayOfData);
+    console.log(randomElement.english);
     context.currentPlayArray = [...workArrayOfData];
     context.currentPlayWord = randomElement.english;
     const a = new Audio(randomElement.sound);
