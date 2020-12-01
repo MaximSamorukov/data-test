@@ -29,10 +29,12 @@ export default function menu(context) {
     pageContainer.append(menuPage(i));
     return i;
   });
+
   categories.map((element) => {
     categoriesContainer.append(menuItem(element));
     return element;
   });
+
   textContainer.appendChild(pageContainer);
   textContainer.appendChild(categoriesContainer);
   container.appendChild(textContainer);
@@ -43,6 +45,9 @@ export default function menu(context) {
 
   pageContainer.addEventListener('click', (e) => {
     e.preventDefault();
+    if (e.target.textContent === 'Pages') {
+      return;
+    }
     console.log(e.target.textContent);
     const page = e.target.textContent;
     context.isPlay = false;
@@ -54,6 +59,9 @@ export default function menu(context) {
 
   categoriesContainer.addEventListener('click', (e) => {
     e.preventDefault();
+    if (e.target.textContent === 'Categories') {
+      return;
+    }
     console.log(e.target.textContent);
     const word = e.target.textContent;
     const chosen = context.currentCategory === word;

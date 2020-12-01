@@ -50,6 +50,7 @@
   /* border: 1px solid black; */
   padding: 0;
   /* opacity: 1; */
+  cursor: pointer;
 }
 
 .page-title-menu > p, .category-title-menu > p {
@@ -72,6 +73,7 @@
   /* border: 1px solid black; */
   padding: 0;
   /* opacity: 1; */
+  cursor: pointer;
 }
 
 .menu-item-category > p {

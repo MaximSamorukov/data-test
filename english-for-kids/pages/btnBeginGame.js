@@ -1,4 +1,5 @@
 import './style/btnBeginGame.css';
+import { theGame } from './service';
 
 export default function btnBeginGame(context) {
   const { inGame, isPlay, currentPage } = context;
@@ -11,6 +12,9 @@ export default function btnBeginGame(context) {
   btn.addEventListener('click', (e) => {
     context.inGame = (isPlay && currentPage === 'category') ? !context.inGame : false;
     context.init();
+    if (context.inGame === true) {
+      theGame(context);
+    }
   });
   return btnContainer;
 }
