@@ -157,4 +157,31 @@ function makeLinesStatistics(items) {
   return returnValue;
 }
 
-export { menuItem, menuPage, theGame, makeCategoryItemForStatistics };
+function getAllWordsWithCategoriesObject(context) {
+  const returnObject = {};
+  const { categories } = context;
+  const arrayOfWords = categories.map((i) => {
+    const engWords = import(`../categories/${i}/englishwords`);
+    return engWords.then(({ words }) => {
+      const newObject = {};
+      (Object.values(words)).map((word) => newObject[word] = {
+        true: 0,
+        false: 0
+      });
+      const s = {
+        [i]: newObject,
+      };
+      return s;
+    });
+  });
+  // console.log(arrayOfWords);
+  return Promise.all(arrayOfWords).then((data) => {
+    const newObject = {};
+    data.map((i) => {
+      newObject[Object.keys(i)[0]] = i[Object.keys(i)[0]];
+    });
+    return newObject;
+  });
+}
+
+export { getAllWordsWithCategoriesObject, menuItem, menuPage, theGame, makeCategoryItemForStatistics };

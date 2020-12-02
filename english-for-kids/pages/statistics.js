@@ -1,5 +1,5 @@
 import './style/statistics.css';
-import { makeCategoryItemForStatistics } from './service';
+import { makeCategoryItemForStatistics, getAllWordsWithCategoriesObject } from './service';
 
 export default function statistics(context) {
   const { categories } = context;
@@ -10,36 +10,27 @@ export default function statistics(context) {
   const stat = storage.getItem('englishForKidsStat');
   const procStat = JSON.parse(stat).filter((i) => i.word !== '');
 
-  const experimentalData = categories.reduce((acc, i) => {
-    acc[i] = {};
-    return acc;
-  }, {});
-  // console.log(experimentalData);
-  procStat.map((i) => { // replace expermentalData!!!!
-    experimentalData[i.currentCategory][i.word] = {
-      true: 0,
-      false: 0,
-    };
-    return i;
-  });
-  const statisticsData = procStat.reduce((acc, i) => {
-    if (i.verdict === true) {
-      acc[i.currentCategory][i.word][i.verdict] += 1;
-    } else {
-      acc[i.currentCategory][i.word][i.verdict] += 1;
-    };
-    return acc;
-  }, experimentalData);
-  const revisedData = Object.keys(statisticsData).map((i) => {
-    const item = {
-      [i]: statisticsData[i],
-    };
-    return item;
-  });
-  // console.log(revisedData);
-  const dom = revisedData.map((i) => {
-    const a = makeCategoryItemForStatistics(i);
-    container.appendChild(a);
-  });
+  const experimentalData = getAllWordsWithCategoriesObject(context);
+  experimentalData.then((info) => {
+    const statisticsData = procStat.reduce((acc, i) => {
+      if (i.verdict === true) {
+        acc[i.currentCategory][i.word][i.verdict] += 1;
+      } else {
+        acc[i.currentCategory][i.word][i.verdict] += 1;
+      };
+      return acc;
+    }, info);
+
+    const revisedData = Object.keys(statisticsData).map((i) => {
+      const item = {
+        [i]: statisticsData[i],
+      };
+      return item;
+    });
+    revisedData.map((i) => {
+      const a = makeCategoryItemForStatistics(i);
+      container.appendChild(a);
+    });
+  })
   return container;
 }

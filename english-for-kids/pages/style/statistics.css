@@ -2,21 +2,22 @@
   width: 1040px;
   min-width: 1040px;
   max-width: 1040px;
-  min-height: 650px;
-  max-height: 650px;
-  height: 650px;
+  min-height: 820px;
+  max-height: 820px;
+  height: 820px;
   box-shadow: 0px 1px 12px 4px rgba(0,0,0,0.6);
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
   margin: 0 auto;
+  border: 1px solid darkgoldenrod;
 }
 
 .statistics-category-container {
-  widows: 200px;
-  min-width: 200px;
-  max-width: 200px;
+  width: 310px;
+  min-width: 310px;
+  max-width: 310px;
   height: 250px;
   min-height: 250px;
   max-height: 250px;
@@ -25,7 +26,7 @@
   justify-content: flex-start;
   align-items: center;
   margin: 10px auto;
-  /* background-color: rgb(186, 194, 202); */
+  background-color: rgb(223, 239, 255);
 }
 
 .statistics-category-title {
@@ -57,7 +58,7 @@
   flex-direction: column;
   /* flex-wrap: wrap; */
   justify-content: start;
-
+  /* border: 1px solid darkgoldenrod; */
   align-items: center;
 
 }
@@ -101,9 +102,9 @@
 }
 
 .second-stat-column-title, .second-stat-column {
-  width: 45%;
-  min-width: 45%;
-  max-width: 45%;
+  width: 47%;
+  min-width: 47%;
+  max-width: 47%;
 }
 
 .third-stat-column-title, .third-stat-column {
