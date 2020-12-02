@@ -75,8 +75,86 @@ function theGame(context, data = false) {
     const a = new Audio(randomElement.sound);
     a.play();
   }
-
-  // где-то теряю одну хрень
 }
 
-export { menuItem, menuPage, theGame };
+function makeCategoryItemForStatistics(item) {
+  // console.log(item);
+  const container = document.createElement('div');
+  container.className = 'statistics-category-container';
+  const title = document.createElement('div');
+  title.className = 'statistics-category-title';
+  title.textContent = Object.keys(item)[0];
+  container.appendChild(title);
+  const firstRow = document.createElement('div');
+  firstRow.className = 'row-stat-title';
+  container.appendChild(firstRow);
+
+  const fColumnTitle = document.createElement('div');
+  fColumnTitle.className = 'first-stat-column-title stat-column-title';
+  fColumnTitle.textContent = '#';
+
+  const secondColumnTitle = document.createElement('div');
+  secondColumnTitle.className = 'second-stat-column-title stat-column-title';
+  secondColumnTitle.textContent = 'Word';
+
+  const thirdColumnTitle = document.createElement('div');
+  thirdColumnTitle.className = 'third-stat-column-title stat-column-title';
+  thirdColumnTitle.textContent = 'Correct';
+
+  const fourthColumnTitle = document.createElement('div');
+  fourthColumnTitle.className = 'fourth-stat-column-title stat-column-title';
+  fourthColumnTitle.textContent = 'Incorrect';
+
+  firstRow.appendChild(fColumnTitle);
+  firstRow.appendChild(secondColumnTitle);
+  firstRow.appendChild(thirdColumnTitle);
+  firstRow.appendChild(fourthColumnTitle);
+
+  container.className = 'statistics-category-container';
+  const wordsContainer = document.createElement('div');
+  wordsContainer.className = 'statistics-words-container';
+  container.appendChild(wordsContainer);
+  makeLinesStatistics(item[Object.keys(item)[0]])
+    .map((i) => wordsContainer.appendChild(i));
+  // console.log(words);
+
+  return container;
+}
+
+function makeLinesStatistics(items) {
+
+  // console.log(items);
+  if (items === {}) {
+    const rowEmpty = document.createElement('div');
+    rowEmpty.className = 'row-stat';
+    return [rowEmpty];
+  }
+  const returnValue = Object.keys(items).map((i, index) => {
+    const fColumn = document.createElement('div');
+    fColumn.className = 'first-stat-column stat-column';
+    fColumn.textContent = index;
+
+    const secondColumn = document.createElement('div');
+    secondColumn.className = 'second-stat-column stat-column';
+    secondColumn.textContent = i;
+
+    const thirdColumn = document.createElement('div');
+    thirdColumn.className = 'third-stat-column stat-column';
+    thirdColumn.textContent = items[i].true;
+
+    const fourthColumn = document.createElement('div');
+    fourthColumn.className = 'fourth-stat-column stat-column';
+    fourthColumn.textContent = items[i].false;
+
+    const row = document.createElement('div');
+    row.className = 'row-stat';
+    row.appendChild(fColumn);
+    row.appendChild(secondColumn);
+    row.appendChild(thirdColumn);
+    row.appendChild(fourthColumn);
+    return row;
+  })
+  return returnValue;
+}
+
+export { menuItem, menuPage, theGame, makeCategoryItemForStatistics };
