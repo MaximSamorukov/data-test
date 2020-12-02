@@ -1,11 +1,12 @@
 import './style/statistics.css';
+import { makeCategoryItemForStatistics } from './service';
 
 export default function statistics(context) {
   const { categories } = context;
   const storage = window.localStorage;
   const container = document.createElement('div');
   container.className = 'statistics-container';
-  container.textContent = 'Statistics';
+  // container.textContent = 'Statistics';
   const stat = storage.getItem('englishForKidsStat');
   const procStat = JSON.parse(stat).filter((i) => i.word !== '');
 
@@ -13,7 +14,8 @@ export default function statistics(context) {
     acc[i] = {};
     return acc;
   }, {});
-  procStat.map((i) => {
+  // console.log(experimentalData);
+  procStat.map((i) => { // replace expermentalData!!!!
     experimentalData[i.currentCategory][i.word] = {
       true: 0,
       false: 0,
@@ -28,6 +30,16 @@ export default function statistics(context) {
     };
     return acc;
   }, experimentalData);
-  console.log(statisticsData);
+  const revisedData = Object.keys(statisticsData).map((i) => {
+    const item = {
+      [i]: statisticsData[i],
+    };
+    return item;
+  });
+  // console.log(revisedData);
+  const dom = revisedData.map((i) => {
+    const a = makeCategoryItemForStatistics(i);
+    container.appendChild(a);
+  });
   return container;
 }
