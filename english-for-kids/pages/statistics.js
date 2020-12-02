@@ -15,7 +15,7 @@ export default function statistics(context) {
     return acc;
   }, {});
   // console.log(experimentalData);
-  procStat.map((i) => {
+  procStat.map((i) => { // replace expermentalData!!!!
     experimentalData[i.currentCategory][i.word] = {
       true: 0,
       false: 0,
@@ -39,7 +39,6 @@ export default function statistics(context) {
   // console.log(revisedData);
   const dom = revisedData.map((i) => {
     const a = makeCategoryItemForStatistics(i);
-    console.log(a);
     container.appendChild(a);
   });
   return container;

@@ -99,11 +99,11 @@ function makeCategoryItemForStatistics(item) {
 
   const thirdColumnTitle = document.createElement('div');
   thirdColumnTitle.className = 'third-stat-column-title stat-column-title';
-  thirdColumnTitle.textContent = 'Correct';
+  thirdColumnTitle.textContent = 'Corr.';
 
   const fourthColumnTitle = document.createElement('div');
   fourthColumnTitle.className = 'fourth-stat-column-title stat-column-title';
-  fourthColumnTitle.textContent = 'Incorrect';
+  fourthColumnTitle.textContent = 'Incorr.';
 
   firstRow.appendChild(fColumnTitle);
   firstRow.appendChild(secondColumnTitle);
@@ -132,7 +132,7 @@ function makeLinesStatistics(items) {
   const returnValue = Object.keys(items).map((i, index) => {
     const fColumn = document.createElement('div');
     fColumn.className = 'first-stat-column stat-column';
-    fColumn.textContent = index;
+    fColumn.textContent = index + 1;
 
     const secondColumn = document.createElement('div');
     secondColumn.className = 'second-stat-column stat-column';
