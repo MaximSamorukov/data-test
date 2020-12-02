@@ -1,0 +1,40 @@
+.btn-gamburger {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  align-self: center;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn-gamburger-btn {
+  width: 100%;
+  height: 4px;
+  background-color: springgreen;
+  position: relative;
+
+}
+
+.btn-gamburger-btn::after {
+  position: absolute;
+  top: -14px;
+  content: "";
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: springgreen;
+}
+
+.btn-gamburger-btn::before {
+  position: absolute;
+  top: 14px;
+  content: "";
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: springgreen;
+}
