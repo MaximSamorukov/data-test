@@ -1,0 +1,15 @@
+.page-name {
+  font-size: 30px;
+  flood-color: darkorchid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-name-page {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}

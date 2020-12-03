@@ -25,12 +25,12 @@ export default function menu(context) {
   textContainer.className = showMenu ? 'menu-text-container' : 'menu-text-container display-none';
 
   pages.map((i) => {
-    pageContainer.append(menuPage(i));
+    pageContainer.append(menuPage(context, i));
     return i;
   });
 
   categories.map((element) => {
-    categoriesContainer.append(menuItem(element));
+    categoriesContainer.append(menuItem(context, element));
     return element;
   });
 
@@ -61,6 +61,10 @@ export default function menu(context) {
     if (e.target.textContent === 'Categories') {
       return;
     }
+    if (e.target.textContent === context.currentCategory) {
+      context.init();
+      return;
+    };
     const word = e.target.textContent;
     const chosen = context.currentCategory === word;
     context.currentCategory = chosen ? false : word;

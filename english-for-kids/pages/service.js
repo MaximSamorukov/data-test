@@ -1,13 +1,15 @@
-function menuItem(element) {
+function menuItem(context, element) {
+  const { currentCategory } = context;
   const elem = document.createElement('div');
-  elem.className = 'menu-item-category';
+  elem.className = currentCategory === element ? 'menu-item-category active-item' : 'menu-item-category';
   elem.innerHTML = `<p>${element}</p>`;
   return elem;
 };
 
-function menuPage(element) {
+function menuPage(context, element) {
+  const { currentPage } = context;
   const elem = document.createElement('div');
-  elem.className = 'menu-item-category';
+  elem.className = currentPage === element ? 'menu-item-category active-item' : 'menu-item-category';
   elem.innerHTML = `<p>${element}</p>`;
   return elem;
 };

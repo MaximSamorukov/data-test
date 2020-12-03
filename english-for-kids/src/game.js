@@ -2,6 +2,7 @@
 import btnBeginGame from '../pages/btnBeginGame';
 import btnTrainPlay from '../pages/btnTrainPlay';
 import btnGamburger from '../pages/btnGamburger';
+import getPageNameFunc from '../pages/getPageNameFunc';
 import main from '../pages/main';
 import menu from '../pages/menu';
 import winLoseScreen from '../pages/winLoseScreen';
@@ -25,6 +26,10 @@ const Game = {
 
   init() {
     render();
+  },
+
+  getPageName() {
+    return getPageNameFunc(this);
   },
 
   btnTrainAndPlay() {
@@ -69,7 +74,6 @@ const Game = {
       return elCat;
     }
     if (this.currentPage === 'statistics') {
-      console.log('statistics');
       const elStat = document.createElement('div');
       // const btn = btnBeginGame(this);
       const collection = statistics(this);

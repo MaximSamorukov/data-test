@@ -12,10 +12,12 @@ function render() {
   rootContainer.className = 'root-container';
   const view = Game.game();
   const menu = Game.showMenuFunc();
+  const pageName = Game.getPageName();
   const btnTrainPlay = Game.btnTrainAndPlay();
   const btnGamburger = Game.btnTheGamburger();
   const btnBeginGame = Game.btnBeginTheGame();
   topContainer.appendChild(btnGamburger);
+  topContainer.appendChild(pageName);
   topContainer.appendChild(btnBeginGame);
   topContainer.appendChild(btnTrainPlay);
   rootContainer.appendChild(view);

@@ -76,6 +76,10 @@
   cursor: pointer;
 }
 
+.active-item {
+  background-color: #48d860;
+}
+
 .menu-item-category > p {
   line-height: 25px;
   padding: 0;

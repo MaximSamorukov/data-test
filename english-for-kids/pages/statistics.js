@@ -9,8 +9,11 @@ export default function statistics(context) {
   // container.textContent = 'Statistics';
   const stat = storage.getItem('englishForKidsStat');
   const procStat = JSON.parse(stat).filter((i) => i.word !== '');
+  // console.log(procStat);
   const experimentalData = getAllWordsWithCategoriesObject(context);
+
   experimentalData.then((info) => {
+    // console.log(info);
     const statisticsData = procStat.reduce((acc, i) => {
       if (i.verdict === true) {
         acc[i.currentCategory][i.word][i.verdict] += 1;
