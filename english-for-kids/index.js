@@ -23,6 +23,17 @@ function render() {
   root.appendChild(topContainer);
   root.appendChild(rootContainer);
   document.body.appendChild(root);
+
+  const storage = window.localStorage;
+  const stat = storage.getItem('englishForKidsStat');
+  if (!stat) {
+    storage.setItem('englishForKidsStat', JSON.stringify([{
+      verdict: false,
+      currentCategory: '',
+      word: '',
+    }]));
+  }
+
 }
 
 window.addEventListener('DOMContentLoaded', () => {

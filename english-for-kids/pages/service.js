@@ -43,7 +43,10 @@ function theGame(context, data = false) {
       context.currentPlayArray = [];
       context.currentPlayWord = '';
       console.log(currentStat);
-      console.log('you have won!!!');
+      const gameResult = !currentStat.includes(false);
+      context.gameResult = gameResult;
+      context.showWinScreen = true;
+      // console.log('you have won!!!');
       context.init();
       return;
     };

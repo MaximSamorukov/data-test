@@ -9,7 +9,6 @@ export default function statistics(context) {
   // container.textContent = 'Statistics';
   const stat = storage.getItem('englishForKidsStat');
   const procStat = JSON.parse(stat).filter((i) => i.word !== '');
-
   const experimentalData = getAllWordsWithCategoriesObject(context);
   experimentalData.then((info) => {
     const statisticsData = procStat.reduce((acc, i) => {

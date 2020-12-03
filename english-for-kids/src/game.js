@@ -4,6 +4,7 @@ import btnTrainPlay from '../pages/btnTrainPlay';
 import btnGamburger from '../pages/btnGamburger';
 import main from '../pages/main';
 import menu from '../pages/menu';
+import winLoseScreen from '../pages/winLoseScreen';
 import category from '../pages/category';
 import statistics from '../pages/statistics';
 import { render } from '../index';
@@ -16,6 +17,8 @@ const Game = {
   currentCategory: false,
   currentPage: 'main',
   showMenu: false,
+  showWinScreen: false,
+  gameResult: false,
   currentPlayArray: [],
   currentPlayWord: '',
   currentStat: [],
@@ -41,6 +44,14 @@ const Game = {
   },
 
   game() {
+    if (this.showWinScreen === true) {
+      const elWin = document.createElement('div');
+      // const btn = btnBeginGame(this);
+      const element = winLoseScreen(this);
+      elWin.appendChild(element);
+      // el.appendChild(btn);
+      return elWin;
+    }
     if (this.currentPage === 'main') {
       const el = document.createElement('div');
       // const btn = btnBeginGame(this);
