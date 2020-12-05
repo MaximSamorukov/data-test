@@ -33,6 +33,7 @@ function render() {
       verdict: false,
       currentCategory: '',
       word: '',
+      mode: '',
     }]));
   }
 

@@ -1,4 +1,4 @@
-/* .play-card-container {
+.play-card-container {
   width: 200px;
   min-width: 200px;
   max-width: 200px;
@@ -6,12 +6,34 @@
   max-height: 200px;
   height: 200px;
   border-radius: 20px;
-  box-shadow: 0px 1px 12px 4px rgba(0,0,0,0.6);
+  /* box-shadow: 0px 1px 12px 4px rgba(0,0,0,0.6); */
   display: flex;
   justify-content: center;
   align-items: flex-start;
   margin-top: 10px;
   padding: 0;
+  -webkit-perspective: 700;
+}
+.play-card-innercont {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  box-shadow: 0px 1px 12px 4px rgba(0,0,0,0.6);
+  border-radius: 20px;
+}
+
+.face {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  z-index: 2;
 }
 
 .play-card {
@@ -26,11 +48,41 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  position: absolute;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.play-card-back {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  height: 100%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  position: absolute;
+  border-radius: 20px;
+  -webkit-transform: rotatey(-180deg);
+}
+
+.play-card-picture {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  height: 100%;
+  background-color: rgb(216, 214, 232);
   position: relative;
   border-radius: 20px;
 }
 
-.play-card-picture {
+.play-card-picture-back {
   width: 100%;
   min-width: 100%;
   max-width: 100%;
@@ -38,10 +90,11 @@
   max-height: 80%;
   height: 80%;
   background-color: rgb(216, 214, 232);
+  position: relative;
   border-radius: 20px 20px 0 0;
 }
 
-.play-card-word {
+.play-card-word, .play-card-word-back {
   width: 100%;
   min-width: 100%;
   max-width: 100%;
@@ -56,9 +109,20 @@
   padding-top: 4px;
 }
 
+.play-card-word-back {
+  background-color: blueviolet;
+}
+
 .play-card-word b {
   font-weight: 400;
   line-height: 24px;
+  color: blueviolet;
+}
+
+.play-card-word-back b {
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(85, 230, 13);
 }
 
 .play-card-reverse {
@@ -77,10 +141,14 @@
 
 .english {
   background-color: white;
-  color: blueviolet;
+  /* color: blueviolet; */
 }
 
 .russian {
   background-color: slateblue;
   color: black;
-} */
+}
+
+.flipped {
+  -webkit-transform: rotatey(-180deg);
+}

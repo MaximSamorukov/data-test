@@ -53,6 +53,8 @@ export default function menu(context) {
     context.currentStat = [];
     context.currentCategory = false;
     context.currentPage = page;
+    context.sort = '';
+    context.sortDirection = '';
     context.init();
   });
 
@@ -71,6 +73,8 @@ export default function menu(context) {
     context.currentPage = 'category';
     context.inGame = false;
     context.currentStat = [];
+    context.sort = '';
+    context.sortDirection = '';
     context.init();
   });
 

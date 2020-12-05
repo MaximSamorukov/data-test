@@ -23,6 +23,8 @@ const Game = {
   currentPlayArray: [],
   currentPlayWord: '',
   currentStat: [],
+  sort: '',
+  sortDirection: '',
 
   init() {
     render();

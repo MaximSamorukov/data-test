@@ -1,5 +1,5 @@
 import './style/statistics.css';
-import { makeCategoryItemForStatistics, getAllWordsWithCategoriesObject } from './service';
+import { sortArray, makeTitle, makeLinesStatistics, getAllWordsWithCategoriesObject } from './service';
 
 export default function statistics(context) {
   const { categories } = context;
@@ -17,21 +17,34 @@ export default function statistics(context) {
     const statisticsData = procStat.reduce((acc, i) => {
       if (i.verdict === true) {
         acc[i.currentCategory][i.word][i.verdict] += 1;
-      } else {
+      } else if (i.verdict === false) {
         acc[i.currentCategory][i.word][i.verdict] += 1;
       };
+      if (i.mode === 'train') {
+        acc[i.currentCategory][i.word]['trained'] += 1;
+      }
       return acc;
     }, info);
-
-    const revisedData = Object.keys(statisticsData).map((i) => {
-      const item = {
-        [i]: statisticsData[i],
-      };
-      return item;
-    });
-    revisedData.map((i) => {
-      const a = makeCategoryItemForStatistics(i);
-      container.appendChild(a);
+    // console.log(statisticsData);
+    const revisedData = Object.keys(statisticsData).reduce((acc, i) => {
+      // const item = {
+      //   [i]: statisticsData[i],
+      // };
+      // return item;
+      Object.keys(statisticsData[i]).map((ii) => {
+        acc.push(statisticsData[i][ii]);
+      });
+      // console.log(acc);
+      return acc;
+    }, []);
+    // console.log(revisedData);
+    const title = makeTitle(context);
+    container.appendChild(title);
+    const sortedData = sortArray(revisedData, context);
+    sortedData.map((i, index) => {
+      // console.log(statisticsData);
+      const a = makeLinesStatistics(i, index);
+      title.appendChild(a);
     });
   })
   return container;

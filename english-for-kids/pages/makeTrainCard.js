@@ -1,61 +1,80 @@
+import './style/makeTrainCard.css';
+import { trainStat } from './service';
+
 export default function makeTrainCard(context, data) {
 
+  const container = document.createElement('div');
+  container.className = 'train-card-container english';
+
+  const card = document.createElement('div');
+  card.className = 'train-card-innercont';
+
+  const cardFrontface = document.createElement('div'); // card
+  cardFrontface.className = 'train-card face';
+
+  const cardBackface = document.createElement('div');
+  cardBackface.className = 'train-card-back face';
+
   const cardPicture = document.createElement('div');
-  cardPicture.className = 'play-card-picture';
-  const cardWord = document.createElement('div');
-  cardWord.className = 'play-card-word';
-  const reverseBtn = document.createElement('div');
-  reverseBtn.className = 'play-card-reverse';
+  cardPicture.className = 'train-card-picture';
   cardPicture.style.backgroundImage = `url(${data.image})`;
   cardPicture.style.backgroundRepeat = 'no-repeat';
   cardPicture.style.backgroundPosition = 'center';
-  const container = document.createElement('div');
-  const card = document.createElement('div');
+  cardPicture.style.backgroundSize = 'contain';
+
+  const cardBackPicture = document.createElement('div');
+  cardBackPicture.className = 'train-card-picture-back';
+  cardBackPicture.style.backgroundImage = `url(${data.image})`;
+  cardBackPicture.style.backgroundRepeat = 'no-repeat';
+  cardBackPicture.style.backgroundPosition = 'center';
+  cardBackPicture.style.backgroundSize = 'contain';
+
+  const cardWord = document.createElement('div');
+  cardWord.className = 'train-card-word';
+
+  const cardRusWord = document.createElement('div');
+  cardRusWord.className = 'train-card-word-back';
+
+  const reverseBtn = document.createElement('div');
+  reverseBtn.className = 'train-card-reverse';
+
+
   const innerWord = document.createElement('b');
-  innerWord.innerText = isPlay ? data.russian : data.english;
+  innerWord.innerText = data.english;
+
+  const innerRusWord = document.createElement('b');
+  innerRusWord.innerText = data.russian;
+
+  cardRusWord.appendChild(innerRusWord);
+
   cardWord.appendChild(innerWord);
-  container.className = isPlay ? 'play-card-container russian' : 'play-card-container english';
-  // container.className = 'play-card-container english';
-  card.className = 'play-card';
-  card.appendChild(cardPicture);
-  card.appendChild(cardWord);
-  card.appendChild(reverseBtn);
+
+  cardFrontface.appendChild(cardPicture);
+  cardFrontface.appendChild(cardWord);
+  cardFrontface.appendChild(reverseBtn);
+
+  cardBackface.appendChild(cardBackPicture);
+  cardBackface.appendChild(cardRusWord);
+
+
+  card.appendChild(cardFrontface);
+  card.appendChild(cardBackface);
   container.appendChild(card);
 
+  reverseBtn.addEventListener('mousedown', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    card.className = card.className.includes('flipped') ? 'train-card-innercont' : 'train-card-innercont flipped';
+    trainStat(context, data);
+  });
+  container.addEventListener('mousedown', (e) => {
+    const sound = new Audio(data.sound);
+    sound.play();
+  });
+  reverseBtn.addEventListener('mouseleave', (e) => {
+    card.className = 'train-card-innercont';
+  });
 
-
-  if (!isPlay) {
-    reverseBtn.addEventListener('mousedown', (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-      container.className = 'play-card-container russian';
-      innerWord.innerText = data.russian;
-    });
-    container.addEventListener('mousedown', (e) => {
-      const sound = new Audio(data.sound);
-      sound.play();
-    });
-    reverseBtn.addEventListener('mouseup', (e) => {
-      container.className = 'play-card-container english';
-      innerWord.innerText = data.english;
-    });
-  } else {
-    container.addEventListener('mousedown', (e) => {
-      if (!inGame) {
-        return;
-      }
-      theGame(context, data);
-      container.className = 'play-card-container english';
-      innerWord.innerText = data.english;
-    });
-    container.addEventListener('mouseup', (e) => {
-      if (!inGame) {
-        return;
-      }
-      container.className = 'play-card-container russian';
-      innerWord.innerText = data.russian;
-    });
-  }
   return container;
 
 }
