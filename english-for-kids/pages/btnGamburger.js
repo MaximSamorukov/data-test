@@ -8,6 +8,8 @@ export default function btnGamburger(context) {
   btnContainer.appendChild(btn);
   btn.className = 'btn-gamburger-btn';
   btnContainer.addEventListener('click', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
     context.showMenu = !showMenu;
     context.init();
   });

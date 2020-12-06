@@ -3,7 +3,9 @@ import btnBeginGame from '../pages/btnBeginGame';
 import btnTrainPlay from '../pages/btnTrainPlay';
 import btnGamburger from '../pages/btnGamburger';
 import getPageNameFunc from '../pages/getPageNameFunc';
-import showInGameAnswers from '../pages/showInGameAnswers'
+import showInGameAnswers from '../pages/showInGameAnswers';
+import btnComplexRepeat from '../pages/btnComplexRepeat';
+import makeBtnRepeat from '../pages/makeBtnRepeat';
 import main from '../pages/main';
 import menu from '../pages/menu';
 import winLoseScreen from '../pages/winLoseScreen';
@@ -29,6 +31,14 @@ const Game = {
 
   init() {
     render(this);
+  },
+
+  makeComplexRepeat() {
+    return btnComplexRepeat(this);
+  },
+
+  makeRepeat() {
+    return makeBtnRepeat(this);
   },
 
   getStars() {

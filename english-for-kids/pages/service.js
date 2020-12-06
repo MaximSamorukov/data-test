@@ -55,7 +55,7 @@ function theGame(context, data = false) {
       return;
     };
   };
-  console.log(currentPlayArray.length);
+  // console.log(currentPlayArray.length);
   if (isPlay && currentPage === 'category' && currentPlayArray.length !== 0) {
     const answer = data.english;
     const correctAnswer = context.currentPlayWord;
@@ -69,6 +69,7 @@ function theGame(context, data = false) {
       context.currentPlayWord = randomElement.english;
       const b = new Audio(randomElement.sound);
       b.play();
+      storage.setItem('sound', JSON.stringify(randomElement.sound));
     };
     context.init();
     if (currentPlayArray.length === 0) {
@@ -87,6 +88,7 @@ function theGame(context, data = false) {
     context.currentPlayWord = randomElement.english;
     const a = new Audio(randomElement.sound);
     a.play();
+    storage.setItem('sound', JSON.stringify(randomElement.sound));
   }
 }
 

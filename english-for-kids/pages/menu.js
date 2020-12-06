@@ -6,6 +6,10 @@ export default function menu(context) {
   const container = document.createElement('div');
   const textContainer = document.createElement('div');
 
+  const close = document.createElement('div');
+  close.className = 'close-btn';
+  close.textContent = "X";
+  container.appendChild(close);
   const pageContainer = document.createElement('div');
   pageContainer.className = 'menu-page-container';
   const categoriesContainer = document.createElement('div');
@@ -37,16 +41,25 @@ export default function menu(context) {
   textContainer.appendChild(pageContainer);
   textContainer.appendChild(categoriesContainer);
   container.appendChild(textContainer);
-  container.addEventListener('click', () => {
+  close.addEventListener('click', (e) => {
+    // e.stopPropagation();
+    e.preventDefault();
     context.showMenu = !showMenu;
     context.init();
   });
 
+  container.addEventListener('click', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    return;
+  });
+
   pageContainer.addEventListener('click', (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (e.target.textContent === 'Pages') {
       return;
-    }
+    };
     const page = e.target.textContent;
     context.isPlay = false;
     context.inGame = false;
@@ -55,11 +68,13 @@ export default function menu(context) {
     context.currentPage = page;
     context.sort = '';
     context.sortDirection = '';
+    context.showMenu = !showMenu;
     context.init();
   });
 
   categoriesContainer.addEventListener('click', (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (e.target.textContent === 'Categories') {
       return;
     }
@@ -75,8 +90,20 @@ export default function menu(context) {
     context.currentStat = [];
     context.sort = '';
     context.sortDirection = '';
+    context.showMenu = !showMenu;
     context.init();
   });
+
+  document.addEventListener('click', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    if (!showMenu) {
+      return;
+    }
+    context.showMenu = !showMenu;
+    context.init();
+  });
+
 
   return container;
 }
