@@ -40,7 +40,14 @@ export default function statistics(context) {
     // console.log(revisedData);
     const title = makeTitle(context);
     container.appendChild(title);
-    const sortedData = sortArray(revisedData, context);
+    // console.log(revisedData);
+
+    const sortedData = sortArray(revisedData.map((i) => {
+      const value = Math.floor((i.true / (i.true + i.false)) * 100);
+      i.percent = isNaN(value) ? 0 : value;
+      return i;
+    }), context);
+    // console.log(sortedData);
     sortedData.map((i, index) => {
       // console.log(statisticsData);
       const a = makeLinesStatistics(i, index);

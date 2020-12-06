@@ -1,7 +1,7 @@
 import './style/makePlayCard.css';
 import { theGame } from './service';
 
-export default function makeTrainCard(context, data) {
+export default function makePlayCard(context, data) {
   const { isPlay, inGame } = context;
   const container = document.createElement('div');
   container.className = 'play-card-container english';

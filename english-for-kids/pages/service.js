@@ -46,7 +46,7 @@ function theGame(context, data = false) {
       context.inGame = false;
       context.currentPlayArray = [];
       context.currentPlayWord = '';
-      console.log(currentStat);
+      // console.log(currentStat);
       const gameResult = !currentStat.includes(false);
       context.gameResult = gameResult;
       context.showWinScreen = true;
@@ -57,14 +57,20 @@ function theGame(context, data = false) {
   };
   console.log(currentPlayArray.length);
   if (isPlay && currentPage === 'category' && currentPlayArray.length !== 0) {
-    // context.init();
-    const random = Math.floor(Math.random() * currentPlayArray.length)
-    const randomElement = currentPlayArray[random];
-    currentPlayArray = currentPlayArray.filter((i, index) => index !== random);
-    context.currentPlayArray = [...currentPlayArray];
-    context.currentPlayWord = randomElement.english;
-    const b = new Audio(randomElement.sound);
-    b.play();
+    const answer = data.english;
+    const correctAnswer = context.currentPlayWord;
+    const verdict = answer === correctAnswer;
+    // console.log(verdict);
+    if (verdict === true) {
+      const random = Math.floor(Math.random() * currentPlayArray.length)
+      const randomElement = currentPlayArray[random];
+      currentPlayArray = currentPlayArray.filter((i, index) => index !== random);
+      context.currentPlayArray = [...currentPlayArray];
+      context.currentPlayWord = randomElement.english;
+      const b = new Audio(randomElement.sound);
+      b.play();
+    };
+    context.init();
     if (currentPlayArray.length === 0) {
       return;
     };
@@ -83,7 +89,9 @@ function theGame(context, data = false) {
     a.play();
   }
 }
+
 function makeTitle(context) {
+  const { sort, sortDirection } = context;
   const container = document.createElement('div');
   container.className = 'statistics-category-container';
   const firstRow = document.createElement('div');
@@ -95,31 +103,101 @@ function makeTitle(context) {
   fColumnTitle.textContent = '#';
 
   const secondColumnTitle = document.createElement('div');
-  secondColumnTitle.className = 'second-stat-column-title stat-column-title';
+  const sctstr = 'second-stat-column-title stat-column-title';
+  if (sort === 'englishword') {
+    if (sortDirection === 'up') {
+      secondColumnTitle.className = `${sctstr} up-style`;
+    }
+    if (sortDirection === 'down') {
+      secondColumnTitle.className = `${sctstr} down-style`;
+    }
+  } else {
+    secondColumnTitle.className = sctstr;
+  }
   secondColumnTitle.textContent = 'Word';
 
   const translationColumnTitle = document.createElement('div');
-  translationColumnTitle.className = 'trans-stat-column-title stat-column-title';
+  const tctstr = 'trans-stat-column-title stat-column-title';
+  if (sort === 'translation') {
+    if (sortDirection === 'up') {
+      translationColumnTitle.className = `${tctstr} up-style`;
+    }
+    if (sortDirection === 'down') {
+      translationColumnTitle.className = `${tctstr} down-style`;
+    }
+  } else {
+    translationColumnTitle.className = tctstr;
+  };
   translationColumnTitle.textContent = 'Trans.';
 
   const thirdColumnTitle = document.createElement('div');
-  thirdColumnTitle.className = 'third-stat-column-title stat-column-title';
+  const thctstr = 'third-stat-column-title stat-column-title';
+  if (sort === 'true') {
+    if (sortDirection === 'up') {
+      thirdColumnTitle.className = `${thctstr} up-style`;
+    }
+    if (sortDirection === 'down') {
+      thirdColumnTitle.className = `${thctstr} down-style`;
+    }
+  } else {
+    thirdColumnTitle.className = thctstr;
+  };
   thirdColumnTitle.textContent = 'Corr.';
 
   const fourthColumnTitle = document.createElement('div');
-  fourthColumnTitle.className = 'fourth-stat-column-title stat-column-title';
+  const fctstr = 'fourth-stat-column-title stat-column-title';
+  if (sort === 'false') {
+    if (sortDirection === 'up') {
+      fourthColumnTitle.className = `${fctstr} up-style`;
+    }
+    if (sortDirection === 'down') {
+      fourthColumnTitle.className = `${fctstr} down-style`;
+    }
+  } else {
+    fourthColumnTitle.className = fctstr;
+  };
   fourthColumnTitle.textContent = 'Incorr.';
 
   const fifthColumnTitle = document.createElement('div');
-  fifthColumnTitle.className = 'fifth-stat-column-title stat-column-title';
+  const fifctstr = 'fifth-stat-column-title stat-column-title';
+  if (sort === 'category') {
+    if (sortDirection === 'up') {
+      fifthColumnTitle.className = `${fifctstr} up-style`;
+    }
+    if (sortDirection === 'down') {
+      fifthColumnTitle.className = `${fifctstr} down-style`;
+    }
+  } else {
+    fifthColumnTitle.className = fifctstr;
+  };
   fifthColumnTitle.textContent = 'Category';
 
   const sixthColumnTitle = document.createElement('div');
-  sixthColumnTitle.className = 'sixth-stat-column-title stat-column-title';
+  const val = 'sixth-stat-column-title stat-column-title';
+  if (sort === 'percent') {
+    if (sortDirection === 'up') {
+      sixthColumnTitle.className = `${val} up-style`;
+    }
+    if (sortDirection === 'down') {
+      sixthColumnTitle.className = `${val} down-style`;
+    }
+  } else {
+    sixthColumnTitle.className = val;
+  };
   sixthColumnTitle.textContent = '%';
 
   const seventhColumnTitle = document.createElement('div');
-  seventhColumnTitle.className = 'seventh-stat-column-title stat-column-title';
+  const sevctstr = 'seventh-stat-column-title stat-column-title';
+  if (sort === 'trained') {
+    if (sortDirection === 'up') {
+      seventhColumnTitle.className = `${sevctstr} up-style`;
+    }
+    if (sortDirection === 'down') {
+      seventhColumnTitle.className = `${sevctstr} down-style`;
+    }
+  } else {
+    seventhColumnTitle.className = sevctstr;
+  };
   seventhColumnTitle.textContent = 'Trained';
 
   firstRow.appendChild(fColumnTitle);
@@ -135,25 +213,25 @@ function makeTitle(context) {
   // changeSort('number', context);
   // });
   secondColumnTitle.addEventListener('click', (e) => {
-    changeSort('english', context);
+    changeSort('englishword', context);
   });
   thirdColumnTitle.addEventListener('click', (e) => {
-    changeSort('correct', context);
+    changeSort('true', context);
   });
   fourthColumnTitle.addEventListener('click', (e) => {
-    changeSort('incorrect', context);
+    changeSort('false', context);
   });
   sixthColumnTitle.addEventListener('click', (e) => {
     changeSort('percent', context);
   });
   seventhColumnTitle.addEventListener('click', (e) => {
-    changeSort('train', context);
+    changeSort('trained', context);
   });
   fifthColumnTitle.addEventListener('click', (e) => {
     changeSort('category', context);
   });
   translationColumnTitle.addEventListener('click', (e) => {
-    changeSort('russian', context);
+    changeSort('translation', context);
   });
   return container;
 }
@@ -184,7 +262,9 @@ function makeLinesStatistics(items, number) {
     return [rowEmpty];
   }
   // const returnValue = items.map((i, index) => {
-  items.percent = Math.floor((items.true / (items.true + items.false)) * 100);
+  // const value = Math.floor((items.true / (items.true + items.false)) * 100);
+  //items.percent = isNaN(value) ? 0 : value; //Math.floor((items.true / (items.true + items.false)) * 100);
+  // console.log(`${value} => ${isNaN(value)} => ${items.percent}`);
   const fColumn = document.createElement('div');
   fColumn.className = 'first-stat-column stat-column';
   fColumn.textContent = number + 1;
@@ -296,8 +376,8 @@ function trainStat(context, data) {
 
 function changeSort(field, context) {
   const { sort, sortDirection } = context;
-  console.log(sort);
-  console.log(sortDirection);
+  // console.log(sort);
+  // console.log(sortDirection);
   if (sort === field) {
     context.sortDirection = sortDirection === 'up' ? 'down' : 'up';
   } else {
@@ -309,32 +389,28 @@ function changeSort(field, context) {
 
 function sortArray(array, context) {
   const { sort, sortDirection } = context;
-  const field = getField(sort);
+  // const field = getField(sort);
+  // console.log(sort);
+  // console.log(sortDirection);
   if (sort === '' || sortDirection === '') {
     return array;
   }
-  return array.sort(getFuncLib(sortDirection, field));
+  return array.sort(getFuncLib(sortDirection, sort));
 }
 
 function getFuncLib(direction, field) {
-  const obj = {
+  const objStr = {
+    up: (a, b) => b[field].localeCompare(a[field]),
+    down: (a, b) => a[field].localeCompare(b[field]),
+  };
+  const objNum = {
     up: (a, b) => a[field] - b[field],
     down: (a, b) => b[field] - a[field],
   };
-  return obj[direction];
-}
-
-function getField(type) {
-  const lib = {
-    english: 'englishword',
-    correct: 'true',
-    incorrect: 'false',
-    percent: 'percent',
-    train: 'trained',
-    category: 'category',
-    russian: 'translation',
+  if (['englishword', 'category', 'translation'].includes(field)) {
+    return objStr[direction];
   };
-  return lib[type];
+  return objNum[direction];
 }
 
 

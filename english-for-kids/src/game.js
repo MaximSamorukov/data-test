@@ -3,6 +3,7 @@ import btnBeginGame from '../pages/btnBeginGame';
 import btnTrainPlay from '../pages/btnTrainPlay';
 import btnGamburger from '../pages/btnGamburger';
 import getPageNameFunc from '../pages/getPageNameFunc';
+import showInGameAnswers from '../pages/showInGameAnswers'
 import main from '../pages/main';
 import menu from '../pages/menu';
 import winLoseScreen from '../pages/winLoseScreen';
@@ -27,7 +28,11 @@ const Game = {
   sortDirection: '',
 
   init() {
-    render();
+    render(this);
+  },
+
+  getStars() {
+    return showInGameAnswers(this);
   },
 
   getPageName() {
