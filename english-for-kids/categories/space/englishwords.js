@@ -1,5 +1,5 @@
 const words = {
-  0: 'astronomy',
+  0: 'telescope',
   1: 'star',
   2: 'sun',
   3: 'earth',
