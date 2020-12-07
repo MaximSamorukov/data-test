@@ -7,7 +7,7 @@ const words = {
   5: 'vise',
   6: 'screwdriver',
   7: 'awl',
-  8: 'flathead screwdriver',
+  8: 'chisel',
   9: 'wrench'
 }
 
