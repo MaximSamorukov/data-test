@@ -19,7 +19,7 @@
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"words\": function() { return /* binding */ words; }\n/* harmony export */ });\nvar words = {\n  0: 'football',\n  1: 'volleyball',\n  2: 'hockey',\n  3: 'yachting',\n  4: 'wrestling',\n  5: 'running',\n  6: 'soccer',\n  7: 'javelin throw',\n  8: 'climbing',\n  9: 'swimming'\n};\n\n\n//# sourceURL=webpack://english-for-kids/./categories/sport/englishwords.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"words\": function() { return /* binding */ words; }\n/* harmony export */ });\nvar words = {\n  0: 'football',\n  1: 'volleyball',\n  2: 'hockey',\n  3: 'yachting',\n  4: 'wrestling',\n  5: 'running',\n  6: 'rugby',\n  7: 'javelin throw',\n  8: 'climbing',\n  9: 'swimming'\n};\n\n\n//# sourceURL=webpack://english-for-kids/./categories/sport/englishwords.js?");
 
 /***/ })
 

@@ -19,7 +19,7 @@
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"words\": function() { return /* binding */ words; }\n/* harmony export */ });\nvar words = {\n  0: 'футбол',\n  1: 'волейбол',\n  2: 'хоккей',\n  3: 'парусный спорт',\n  4: 'борьба',\n  5: 'бег',\n  6: 'американский футбол',\n  7: 'метание копья',\n  8: 'скалалазание',\n  9: 'плавание'\n};\n\n\n//# sourceURL=webpack://english-for-kids/./categories/sport/russianwords.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"words\": function() { return /* binding */ words; }\n/* harmony export */ });\nvar words = {\n  0: 'футбол',\n  1: 'волейбол',\n  2: 'хоккей',\n  3: 'парусный спорт',\n  4: 'борьба',\n  5: 'бег',\n  6: 'амер. футбол',\n  7: 'метание копья',\n  8: 'скалалазание',\n  9: 'плавание'\n};\n\n\n//# sourceURL=webpack://english-for-kids/./categories/sport/russianwords.js?");
 
 /***/ })
 
