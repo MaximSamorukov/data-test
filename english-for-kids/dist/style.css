@@ -541,7 +541,7 @@ div {
   justify-content: center;
   align-items: center;
   /* opacity: 0.5; */
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 0px;
   background-color: #d2b48c;
