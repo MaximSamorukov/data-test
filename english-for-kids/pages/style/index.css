@@ -1,4 +1,4 @@
-@import "./nerkoOne.css";
+/* @import "./nerkoOne.css"; */
 
 body {
   font-family: 'Arial';
@@ -32,6 +32,24 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 0px 1px 12px 4px rgba(0,0,0,0.6);
+  /* box-shadow: 0px 1px 12px 4px rgba(0,0,0,0.6); */
+  margin: 0px auto;
+}
+
+.top-container-second {
+  width: 85%;
+  min-width: 85%;
+  max-width: 85%;
+  height: 50px;
+  min-height: 30%;
+  max-height: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* box-shadow: 0px 1px 12px 4px rgba(0,0,0,0.6); */
   margin: 10px auto;
+}
+
+.root-container {
+  margin-top: 10px;
 }

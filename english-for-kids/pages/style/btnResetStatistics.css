@@ -1,0 +1,16 @@
+.btn-reset-container {
+  width: 100px;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+.btn-reset-repeat {
+  margin: 0 auto;
+  max-width: 100%;
+  height: 100%;
+  cursor: pointer;
+  font-size: 15px;
+}
+

@@ -2,8 +2,14 @@
 import btnBeginGame from '../pages/btnBeginGame';
 import btnTrainPlay from '../pages/btnTrainPlay';
 import btnGamburger from '../pages/btnGamburger';
+import getPageNameFunc from '../pages/getPageNameFunc';
+import showInGameAnswers from '../pages/showInGameAnswers';
+import btnComplexRepeat from '../pages/btnComplexRepeat';
+import btnResetStatistics from '../pages/btnResetStatistics';
+import makeBtnRepeat from '../pages/makeBtnRepeat';
 import main from '../pages/main';
 import menu from '../pages/menu';
+import winLoseScreen from '../pages/winLoseScreen';
 import category from '../pages/category';
 import statistics from '../pages/statistics';
 import { render } from '../index';
@@ -16,12 +22,36 @@ const Game = {
   currentCategory: false,
   currentPage: 'main',
   showMenu: false,
+  showWinScreen: false,
+  gameResult: false,
   currentPlayArray: [],
   currentPlayWord: '',
   currentStat: [],
+  sort: '',
+  sortDirection: '',
 
   init() {
-    render();
+    render(this);
+  },
+
+  makeReset() {
+    return btnResetStatistics(this);
+  },
+
+  makeComplexRepeat() {
+    return btnComplexRepeat(this);
+  },
+
+  makeRepeat() {
+    return makeBtnRepeat(this);
+  },
+
+  getStars() {
+    return showInGameAnswers(this);
+  },
+
+  getPageName() {
+    return getPageNameFunc(this);
   },
 
   btnTrainAndPlay() {
@@ -41,6 +71,14 @@ const Game = {
   },
 
   game() {
+    if (this.showWinScreen === true) {
+      const elWin = document.createElement('div');
+      // const btn = btnBeginGame(this);
+      const element = winLoseScreen(this);
+      elWin.appendChild(element);
+      // el.appendChild(btn);
+      return elWin;
+    }
     if (this.currentPage === 'main') {
       const el = document.createElement('div');
       // const btn = btnBeginGame(this);
@@ -58,7 +96,6 @@ const Game = {
       return elCat;
     }
     if (this.currentPage === 'statistics') {
-      console.log('statistics');
       const elStat = document.createElement('div');
       // const btn = btnBeginGame(this);
       const collection = statistics(this);

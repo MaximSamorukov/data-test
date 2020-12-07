@@ -6,6 +6,10 @@ export default function menu(context) {
   const container = document.createElement('div');
   const textContainer = document.createElement('div');
 
+  const close = document.createElement('div');
+  close.className = 'close-btn';
+  close.textContent = "X";
+  container.appendChild(close);
   const pageContainer = document.createElement('div');
   pageContainer.className = 'menu-page-container';
   const categoriesContainer = document.createElement('div');
@@ -25,50 +29,81 @@ export default function menu(context) {
   textContainer.className = showMenu ? 'menu-text-container' : 'menu-text-container display-none';
 
   pages.map((i) => {
-    pageContainer.append(menuPage(i));
+    pageContainer.append(menuPage(context, i));
     return i;
   });
 
   categories.map((element) => {
-    categoriesContainer.append(menuItem(element));
+    categoriesContainer.append(menuItem(context, element));
     return element;
   });
 
   textContainer.appendChild(pageContainer);
   textContainer.appendChild(categoriesContainer);
   container.appendChild(textContainer);
-  container.addEventListener('click', () => {
+  close.addEventListener('click', (e) => {
+    // e.stopPropagation();
+    e.preventDefault();
     context.showMenu = !showMenu;
     context.init();
   });
 
+  container.addEventListener('click', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    return;
+  });
+
   pageContainer.addEventListener('click', (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (e.target.textContent === 'Pages') {
       return;
-    }
+    };
     const page = e.target.textContent;
     context.isPlay = false;
     context.inGame = false;
     context.currentStat = [];
     context.currentCategory = false;
     context.currentPage = page;
+    context.sort = '';
+    context.sortDirection = '';
+    context.showMenu = !showMenu;
     context.init();
   });
 
   categoriesContainer.addEventListener('click', (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (e.target.textContent === 'Categories') {
       return;
     }
+    if (e.target.textContent === context.currentCategory) {
+      context.init();
+      return;
+    };
     const word = e.target.textContent;
     const chosen = context.currentCategory === word;
     context.currentCategory = chosen ? false : word;
     context.currentPage = 'category';
     context.inGame = false;
     context.currentStat = [];
+    context.sort = '';
+    context.sortDirection = '';
+    context.showMenu = !showMenu;
     context.init();
   });
+
+  document.addEventListener('click', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    if (!showMenu) {
+      return;
+    }
+    context.showMenu = !showMenu;
+    context.init();
+  });
+
 
   return container;
 }
