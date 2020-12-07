@@ -9,9 +9,9 @@ body {
 }
 
 .container {
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
+  width: 1060px;
+  min-width: 1060px;
+  max-width: 1060px;
   height: 100%;
   min-height: 100%;
   max-height: 100%;
@@ -23,9 +23,9 @@ body {
 }
 
 .top-container {
-  width: 1040px;
-  min-width: 1040px;
-  max-width: 1040px;
+  width: 97%;
+  min-width: 97%;
+  max-width: 97%;
   height: 100px;
   min-height: 100px;
   max-height: 100px;
@@ -37,9 +37,9 @@ body {
 }
 
 .top-container-second {
-  width: 85%;
-  min-width: 85%;
-  max-width: 85%;
+  width: 97%;
+  min-width: 97%;
+  max-width: 97%;
   height: 50px;
   min-height: 30%;
   max-height: 30%;
