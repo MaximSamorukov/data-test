@@ -17,10 +17,12 @@ function render(context) {
   const btnTrainPlay = Game.btnTrainAndPlay();
   const btnGamburger = Game.btnTheGamburger();
   const btnBeginGame = Game.btnBeginTheGame();
+  const btnReset = Game.makeReset();
   const btnRepeatComplexWords = Game.makeComplexRepeat();
   topContainer.appendChild(btnGamburger);
   topContainer.appendChild(pageName);
   if (context && context.currentPage === 'statistics') {
+    topContainer.appendChild(btnReset);
     topContainer.appendChild(btnRepeatComplexWords);
   }
   topContainer.appendChild(btnBeginGame);

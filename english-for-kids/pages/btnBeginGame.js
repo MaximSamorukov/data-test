@@ -16,7 +16,6 @@ export default function btnBeginGame(context) {
     context.init();
     if (context.inGame === true) {
       context.currentPlayArray = [];
-
       theGame(context);
     }
   });

@@ -5,6 +5,7 @@ import btnGamburger from '../pages/btnGamburger';
 import getPageNameFunc from '../pages/getPageNameFunc';
 import showInGameAnswers from '../pages/showInGameAnswers';
 import btnComplexRepeat from '../pages/btnComplexRepeat';
+import btnResetStatistics from '../pages/btnResetStatistics';
 import makeBtnRepeat from '../pages/makeBtnRepeat';
 import main from '../pages/main';
 import menu from '../pages/menu';
@@ -31,6 +32,10 @@ const Game = {
 
   init() {
     render(this);
+  },
+
+  makeReset() {
+    return btnResetStatistics(this);
   },
 
   makeComplexRepeat() {

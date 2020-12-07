@@ -14,5 +14,6 @@ export default function categoryConstructor(name) {
     russian,
     images,
     sounds,
+    name,
   };
 };

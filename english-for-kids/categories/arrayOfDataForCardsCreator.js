@@ -1,4 +1,5 @@
 function arrayOfDataForCardsCreator(data, currentCategory) {
+  // console.log(data);
   let arrayWithPlayCardData = Array.from('asdfghasdd').map((i, index) => {
     const element = {
       image: data.images[index],

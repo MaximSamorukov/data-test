@@ -17,7 +17,8 @@ function menuPage(context, element) {
 function theGame(context, data = false) {
   const storage = window.localStorage;
   let { currentCategory, isPlay, currentPage, currentStat, inGame, currentPlayArray } = context;
-
+  // console.log(data);
+  // console.log(currentCategory);
   if (data !== false) {
     const answer = data.english;
     const correctAnswer = context.currentPlayWord;
@@ -27,10 +28,11 @@ function theGame(context, data = false) {
     const toString = verdict ? 'Cool' : 'Not so cool';
     const chankOfData = {
       verdict,
-      currentCategory,
+      currentCategory: currentCategory === 'repeat' ? data.name : currentCategory,
       word,
       mode
     };
+    // console.log(chankOfData);
     context.currentStat.push(verdict); // !!! need to clear every time the inGame is false
 
     const stat = storage.getItem('englishForKidsStat');
@@ -415,5 +417,10 @@ function getFuncLib(direction, field) {
   return objNum[direction];
 }
 
+function getStrNumber(num) {
+  const array = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'nineth', 'tenth'];
+  return array[num];
+}
 
-export { sortArray, makeTitle, trainStat, makeLinesStatistics, getAllWordsWithCategoriesObject, menuItem, menuPage, theGame };
+
+export { getStrNumber, sortArray, makeTitle, trainStat, makeLinesStatistics, getAllWordsWithCategoriesObject, menuItem, menuPage, theGame };
