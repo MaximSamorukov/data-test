@@ -6,7 +6,7 @@ const words = {
   4: 'geology',
   5: 'medicine',
   6: 'mathematics',
-  7: 'chemist',
+  7: 'chemistry',
   8: 'scientist',
   9: 'degree'
 }
