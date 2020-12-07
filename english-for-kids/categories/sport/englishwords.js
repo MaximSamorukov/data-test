@@ -5,7 +5,7 @@ const words = {
   3: 'yachting',
   4: 'wrestling',
   5: 'running',
-  6: 'soccer',
+  6: 'rugby',
   7: 'javelin throw',
   8: 'climbing',
   9: 'swimming'
