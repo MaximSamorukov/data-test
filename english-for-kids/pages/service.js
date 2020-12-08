@@ -15,6 +15,8 @@ function menuPage(context, element) {
 };
 
 function theGame(context, data = false) {
+  const fail = new Audio('../categories/assets/fail.wav');
+  const success = new Audio('../categories/assets/success.mp3');
   const storage = window.localStorage;
   let { currentCategory, isPlay, currentPage, currentStat, inGame, currentPlayArray } = context;
   // console.log(data);
@@ -25,6 +27,11 @@ function theGame(context, data = false) {
     const word = correctAnswer;
     const mode = 'play';
     const verdict = answer === correctAnswer;
+    if (verdict === true) {
+      success.play();
+    } else {
+      fail.play();
+    };
     const toString = verdict ? 'Cool' : 'Not so cool';
     const chankOfData = {
       verdict,
@@ -57,12 +64,10 @@ function theGame(context, data = false) {
       return;
     };
   };
-  // console.log(currentPlayArray.length);
   if (isPlay && currentPage === 'category' && currentPlayArray.length !== 0) {
     const answer = data.english;
     const correctAnswer = context.currentPlayWord;
     const verdict = answer === correctAnswer;
-    // console.log(verdict);
     if (verdict === true) {
       const random = Math.floor(Math.random() * currentPlayArray.length)
       const randomElement = currentPlayArray[random];
@@ -70,7 +75,7 @@ function theGame(context, data = false) {
       context.currentPlayArray = [...currentPlayArray];
       context.currentPlayWord = randomElement.english;
       const b = new Audio(randomElement.sound);
-      b.play();
+      window.setTimeout(function () { b.play() }, 600);
       storage.setItem('sound', JSON.stringify(randomElement.sound));
     };
     context.init();
@@ -79,7 +84,6 @@ function theGame(context, data = false) {
     };
   }
   else if (isPlay && currentPage === 'category' && currentPlayArray.length === 0) {
-    // context.init();
     const data = storage.getItem('englishForKids');
     const arrayOfData = JSON.parse(data);
     let workArrayOfData = [...arrayOfData];
@@ -89,7 +93,7 @@ function theGame(context, data = false) {
     context.currentPlayArray = [...workArrayOfData];
     context.currentPlayWord = randomElement.english;
     const a = new Audio(randomElement.sound);
-    a.play();
+    window.setTimeout(function () { a.play() }, 600);
     storage.setItem('sound', JSON.stringify(randomElement.sound));
   }
 }

@@ -75,6 +75,10 @@ export default function makeTrainCard(context, data) {
     card.className = 'train-card-innercont';
   });
 
+  reverseBtn.addEventListener('mouseup', (e) => {
+    card.className = 'train-card-innercont';
+  });
+
   return container;
 
 }
