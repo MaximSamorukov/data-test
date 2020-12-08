@@ -61,23 +61,42 @@ export default function makeTrainCard(context, data) {
   card.appendChild(cardBackface);
   container.appendChild(card);
 
-  reverseBtn.addEventListener('mousedown', (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    card.className = card.className.includes('flipped') ? 'train-card-innercont' : 'train-card-innercont flipped';
-    trainStat(context, data);
-  });
-  container.addEventListener('mousedown', (e) => {
+  container.addEventListener('click', (e) => {
+    console.log(e.target);
+    // e.stopImmediatePropagation();
     const sound = new Audio(data.sound);
     sound.play();
   });
-  reverseBtn.addEventListener('mouseleave', (e) => {
-    card.className = 'train-card-innercont';
+
+  // reverseBtn.addEventListener('mousedown', (e) => {
+  //   e.stopImmediatePropagation();
+  //   e.stopPropagation();
+  //   e.preventDefault();
+  //   card.className = card.className.includes('flipped') ? 'train-card-innercont' : 'train-card-innercont flipped';
+  //   trainStat(context, data);
+  // });
+  // reverseBtn.addEventListener('mouseleave', (e) => {
+  //   card.className = 'train-card-innercont';
+  // });
+
+  // reverseBtn.addEventListener('mouseup', (e) => {
+  //   card.className = 'train-card-innercont';
+  // });
+
+  reverseBtn.addEventListener('click', (e) => {
+    const func = () => {
+      card.className = 'train-card-innercont';
+      trainStat(context, data);
+      card.removeEventListener('mouseleave', func);
+    };
+    e.stopImmediatePropagation();
+    e.stopPropagation();
+    e.preventDefault();
+    card.className = 'train-card-innercont flipped';
+    card.addEventListener('mouseleave', func);
   });
 
-  reverseBtn.addEventListener('mouseup', (e) => {
-    card.className = 'train-card-innercont';
-  });
+
 
   reverseBtn.addEventListener('touchstart', (e) => {
     e.stopPropagation();
