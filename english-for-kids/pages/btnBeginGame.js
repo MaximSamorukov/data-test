@@ -9,7 +9,7 @@ export default function btnBeginGame(context) {
   const btn = document.createElement('div');
   btnContainer.appendChild(btn);
   btn.className = 'btn-begin-game';
-  btn.innerText = (isPlay && inGame && currentPage === 'category') ? "Game" : "Out of Game";
+  btn.innerText = (isPlay && inGame && currentPage === 'category') ? "Game" : "Start";
   btn.addEventListener('click', (e) => {
     e.stopImmediatePropagation();
     storage.setItem('sound', JSON.stringify(''));
