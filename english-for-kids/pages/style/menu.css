@@ -1,7 +1,7 @@
 .menu-container {
   width: 400px;
-  min-width: 400px;
-  max-width: 400px;
+  /* min-width: 400px;
+  max-width: 400px; */
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -9,14 +9,13 @@
   align-items: center;
   /* opacity: 0.5; */
   position: fixed;
-  transition-property: left;
-  transition-duration: 10s;
-  transition-delay: 200ms;
-  left: 0px;
   top: 0px;
+  left: -400px;
   background-color: #d2b48c;
   z-index: 8;
 }
+
+
 
 .menu-text-container {
   width: 200px;
@@ -88,8 +87,6 @@
   padding: 0;
   padding-top: 2px;
   margin: 0;
-  /* opacity: 1; */
-  /* border: 1px solid rgb(255, 25, 0); */
 }
 
 .close-btn {
@@ -114,45 +111,55 @@
 
 
 .display-none {
-  display: none;
   left: -400px;
-  /* transition-property: left;
-  -webkit-transition-property: left;
-  transition-duration: 1s;
-  -webkit-transition-duration: 1s;
-  transition-delay: 200ms;
-  -webkit-transition-delay: 200ms; */
-
 }
 
+.show {
+  left: 0px;
+}
 
-  .display-none-none {
-    -webkit-animation-name: slideInRight;
-    animation-name: slideInRight;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    }
-    @-webkit-keyframes slideInRight {
-    0% {
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-    visibility: visible;
-    }
-    100% {
+.show {
+  -webkit-animation-name: leftToRight;
+  animation-name: leftToRight;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes leftToRight {
+  0% {
+    left: -400px;
+  }
+
+  100% {
+    left: -400px;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+.display-none {
+  -webkit-animation-name: rightToLeft;
+  animation-name: rightToLeft;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes rightToLeft {
+  0% {
+    left: 0px;
+  }
+
+  100% {
+    left: -400px;
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
-    }
-    }
-    @keyframes slideInRight {
-    0% {
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-    visibility: visible;
-    }
-    100% {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-    }
-    }
+  }
+}
+
+.off {
+  display: none;
+}

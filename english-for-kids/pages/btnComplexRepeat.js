@@ -15,6 +15,7 @@ export default function btnComplexRepeat(context) {
   btn.className = 'btn-complex-repeat';
   btn.innerText = "Repeat";
   btn.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
     // storage.setItem('sound', JSON.stringify(''));
     // context.inGame = (isPlay && currentPage === 'category') ? !context.inGame : false;
     // context.init();

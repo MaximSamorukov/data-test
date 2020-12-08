@@ -15,6 +15,7 @@ export default function btnResetStatistics(context) {
   btn.className = 'btn-reset-repeat';
   btn.innerText = "Reset";
   btn.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
     // storage.setItem('sound', JSON.stringify(''));
     // context.inGame = (isPlay && currentPage === 'category') ? !context.inGame : false;
     // context.init();

@@ -26,6 +26,7 @@
   top: 0;
   left: 0;
   background-color: chocolate;
+  z-index: 6;
 }
 
 .result-div {

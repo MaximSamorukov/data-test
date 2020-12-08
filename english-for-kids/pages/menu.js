@@ -24,8 +24,8 @@ export default function menu(context) {
   categoryTitle.className = "category-title-menu";
   categoryTitle.innerHTML = `<p>Categories</p>`;
   categoriesContainer.appendChild(categoryTitle);
-
-  container.className = showMenu ? 'menu-container' : 'menu-container display-none';
+  container.className = 'menu-container';
+  // container.className = showMenu ? 'menu-container show' : 'menu-container display-none';
   textContainer.className = showMenu ? 'menu-text-container' : 'menu-text-container display-none';
 
   pages.map((i) => {
@@ -44,8 +44,15 @@ export default function menu(context) {
   close.addEventListener('click', (e) => {
     // e.stopPropagation();
     e.preventDefault();
-    context.showMenu = !showMenu;
-    context.init();
+    e.stopImmediatePropagation();
+    // context.showMenu = !showMenu;
+    context.showMenu = false;
+    if (!context.showMenu) {
+      context.init();
+      const elem = document.querySelector('.menu-container');
+      elem.classList.remove('show');
+      elem.classList.add('display-none');
+    };
   });
 
   container.addEventListener('click', (e) => {
@@ -95,13 +102,19 @@ export default function menu(context) {
   });
 
   document.addEventListener('click', (e) => {
-    e.stopPropagation();
     e.preventDefault();
+    e.stopImmediatePropagation();
     if (!showMenu) {
+      context.init();
       return;
     }
-    context.showMenu = !showMenu;
-    context.init();
+    else {
+      context.showMenu = !showMenu;
+      context.init();
+      const elem = document.querySelector('.menu-container');
+      elem.classList.remove('show');
+      elem.classList.add('display-none');
+    }
   });
 
 

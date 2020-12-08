@@ -11,6 +11,7 @@ export default function makeBtnRepeat(context) {
   btn.className = 'btn-repeat-sound';
   btn.innerText = "Repeat";
   btn.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
     if (!inGame) {
       return;
     }

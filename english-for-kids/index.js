@@ -39,6 +39,10 @@ function render(context) {
     const stars = Game.getStars();
     topContainerSecond.appendChild(stars);
     topContainerSecond.appendChild(Game.makeRepeat());
+    topContainer.addEventListener('click', (e) => {
+      console.log('ffff');
+      return;
+    })
     root.appendChild(topContainerSecond);
   };
   document.body.appendChild(root);

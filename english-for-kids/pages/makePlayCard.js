@@ -29,6 +29,7 @@ export default function makePlayCard(context, data) {
   container.addEventListener('click', (e) => {
     e.stopPropagation();
     e.preventDefault();
+    e.stopImmediatePropagation();
     if (!inGame) {
       return;
     };

@@ -19,7 +19,8 @@ export default function winLoseScreen(context) {
     container.appendChild(errors);
   }
 
-  container.addEventListener('click', () => {
+  container.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
     context.showWinScreen = false;
     context.currentCategory = false;
     context.currentPage = 'main';

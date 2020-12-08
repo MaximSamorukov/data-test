@@ -9,6 +9,7 @@ export default function btnTrainPlay(context) {
   btn.className = 'btn-begin-game';
   btn.innerText = isPlay ? "Play" : "Train";
   btn.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
     context.isPlay = !context.isPlay;
     context.inGame = context.isPlay === false ? false : context.inGame;
     context.currentStat = context.inGame === false ? [] : context.currentStat;

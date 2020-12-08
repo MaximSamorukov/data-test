@@ -79,6 +79,17 @@ export default function makeTrainCard(context, data) {
     card.className = 'train-card-innercont';
   });
 
+  reverseBtn.addEventListener('touchstart', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    card.className = card.className.includes('flipped') ? 'train-card-innercont' : 'train-card-innercont flipped';
+    trainStat(context, data);
+  });
+
+  reverseBtn.addEventListener('touchend', (e) => {
+    card.className = 'train-card-innercont';
+  });
+
   return container;
 
 }
