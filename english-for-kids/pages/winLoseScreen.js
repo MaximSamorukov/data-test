@@ -2,14 +2,23 @@ import './style/winLose.css';
 
 
 export default function winLoseScreen(context) {
+  const { gameResult, currentStat } = context;
   const container = document.createElement('div');
   container.className = 'win-container';
   const showResult = document.createElement('div');
-  showResult.className = context.gameResult ? 'result-div result-win' : 'result-div result-lose';
+  showResult.className = gameResult ? 'result-div result-win' : 'result-div result-lose';
   const winPhrase = 'You WIN!!!\nKrasavchik!';
   const losePhrase = "You Lose!!!\nTry one more time!\nYou'll win!!!";
-  showResult.innerText = context.gameResult ? winPhrase : losePhrase;
+  showResult.innerText = gameResult ? winPhrase : losePhrase;
   container.appendChild(showResult);
+  if (!gameResult) {
+    const errors = document.createElement('div');
+    errors.className = 'win-container-errors';
+    const value = currentStat.filter((i) => i === false).length;
+    errors.textContent = `Errors: ${value}.`;
+    container.appendChild(errors);
+  }
+
   container.addEventListener('click', () => {
     context.showWinScreen = false;
     context.currentCategory = false;

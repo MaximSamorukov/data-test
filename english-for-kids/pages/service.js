@@ -14,7 +14,7 @@ function menuPage(context, element) {
   return elem;
 };
 
-function theGame(context, data = false) {
+function theGame(context, data = false, e) {
   const fail = new Audio('../categories/assets/fail.wav');
   const success = new Audio('../categories/assets/success.mp3');
   const storage = window.localStorage;
@@ -28,6 +28,10 @@ function theGame(context, data = false) {
     const mode = 'play';
     const verdict = answer === correctAnswer;
     if (verdict === true) {
+      const element = (e.target.parentNode.parentNode);
+      // console.log(element.className);
+      element.className = `${element.className} block`;
+      // console.log(element.className);
       success.play();
     } else {
       fail.play();
