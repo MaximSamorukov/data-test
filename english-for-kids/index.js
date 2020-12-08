@@ -25,7 +25,9 @@ function render(context) {
     topContainer.appendChild(btnReset);
     topContainer.appendChild(btnRepeatComplexWords);
   }
-  topContainer.appendChild(btnBeginGame);
+  if (context && !context.inGame) {
+    topContainer.appendChild(btnBeginGame);
+  }
   topContainer.appendChild(btnTrainPlay);
   rootContainer.appendChild(view);
   root.appendChild(menu);
@@ -55,7 +57,8 @@ function render(context) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  render();
+  // render(this);
+  Game.init();
 })
 
 export { render }
