@@ -13,7 +13,11 @@ export default function btnBeginGame(context) {
   btn.addEventListener('click', (e) => {
     storage.setItem('sound', JSON.stringify(''));
     context.inGame = (isPlay && currentPage === 'category') ? !context.inGame : false;
+    if (context.inGame === false) {
+      context.currentStat = [];
+    }
     context.init();
+
     if (context.inGame === true) {
       context.currentPlayArray = [];
       theGame(context);
