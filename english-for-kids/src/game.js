@@ -73,6 +73,7 @@ const Game = {
   game() {
     if (this.showWinScreen === true) {
       const elWin = document.createElement('div');
+      elWin.className = 'win-win-cont';
       // const btn = btnBeginGame(this);
       const element = winLoseScreen(this);
       elWin.appendChild(element);
