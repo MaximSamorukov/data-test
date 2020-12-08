@@ -11,6 +11,7 @@ export default function categoryCard(context, word) {
   card.className = 'category-card';
   container.appendChild(card);
   container.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
     context.currentCategory = chosen ? false : word;
     context.currentPage = 'category';
     context.init();
