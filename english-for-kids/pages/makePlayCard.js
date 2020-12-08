@@ -22,61 +22,25 @@ export default function makePlayCard(context, data) {
   cardPicture.style.backgroundPosition = 'center';
   cardPicture.style.backgroundSize = 'contain';
 
-  // const cardBackPicture = document.createElement('div');
-  // cardBackPicture.className = 'play-card-picture-back';
-  // cardBackPicture.style.backgroundImage = `url(${data.image})`;
-  // cardBackPicture.style.backgroundRepeat = 'no-repeat';
-  // cardBackPicture.style.backgroundPosition = 'center';
-  // cardBackPicture.style.backgroundSize = 'contain';
-
-  // const cardWord = document.createElement('div');
-  // cardWord.className = 'play-card-word';
-
-  // const cardRusWord = document.createElement('div');
-  // cardRusWord.className = 'play-card-word-back';
-
-  // const reverseBtn = document.createElement('div');
-  // reverseBtn.className = 'play-card-reverse';
-
-
-  // const innerWord = document.createElement('b');
-  // innerWord.innerText = data.english;
-
-  // const innerRusWord = document.createElement('b');
-  // innerRusWord.innerText = data.russian;
-
-  // cardRusWord.appendChild(innerRusWord);
-
-  // cardWord.appendChild(innerWord);
-
   cardFrontface.appendChild(cardPicture);
-  // cardFrontface.appendChild(cardWord);
-  // cardFrontface.appendChild(reverseBtn);
-
-  // cardBackface.appendChild(cardBackPicture);
-  // cardBackface.appendChild(cardRusWord);
-
-
   card.appendChild(cardFrontface);
-  // card.appendChild(cardBackface);
   container.appendChild(card);
 
-  // reverseBtn.addEventListener('mousedown', (e) => {
-  //   e.stopPropagation();
-  //   e.preventDefault();
-  //   card.className = card.className.includes('flipped') ? 'play-card-innercont' : 'play-card-innercont flipped';
-  // });
   container.addEventListener('click', (e) => {
-    // const sound = new Audio(data.sound);
-    // sound.play();
+    e.stopPropagation();
+    e.preventDefault();
     if (!inGame) {
       return;
     };
-    theGame(context, data); // added
+    const element = (e.target.parentNode.parentNode);
+    const fail = new Audio('../categories/assets/fail.wav');
+    if (element.className.includes('block')) {
+      fail.play();
+      return;
+    } else {
+      theGame(context, data, e); // added
+    };
   });
-  // reverseBtn.addEventListener('mouseleave', (e) => {
-  //   card.className = 'play-card-innercont';
-  // });
 
   return container;
 

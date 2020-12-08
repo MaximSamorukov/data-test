@@ -38,3 +38,11 @@
 .result-lose {
   color: blueviolet;
 }
+
+.win-container-errors {
+  font-size: 30px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  color: blueviolet;
+}
