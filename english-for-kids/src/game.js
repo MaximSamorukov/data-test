@@ -14,62 +14,66 @@ import category from '../pages/category';
 import statistics from '../pages/statistics';
 import { render } from '../index';
 
+// The class that includes the state flags.
+// The state defines the logic of elements.
+// the state flags can be changed from any function where it is as an argument
 const Game = {
-  pages: ['main', 'statistics'],
-  categories: ['space', 'materials', 'it', 'music', 'tools', 'furniture', 'sport', 'science', 'dress'],
-  isPlay: false,
-  inGame: false, // This is not correct!!!
-  currentCategory: false,
-  currentPage: 'main',
-  showMenu: false,
-  showWinScreen: false,
-  gameResult: false,
-  currentPlayArray: [],
-  currentPlayWord: '',
-  currentStat: [],
-  sort: '',
-  sortDirection: '',
+  pages: ['main', 'statistics'], // application pages
+  categories: ['space', 'materials', 'it', 'music', 'tools', 'furniture', 'sport', 'science', 'dress'], // application categories
+  isPlay: false, // application mode (true / false)
+  inGame: false, // shows if we play or not in game mode (true / false)
+  currentCategory: false, // shows the category that is shown. If the page is main or statistics then the value is false
+  currentPage: 'main', // (main || statistics)
+  showMenu: false, // if true - left side menu is shown, if false - left side menu is not shown
+  showWinScreen: false, // if true - application shows win / lose screen
+  gameResult: false, //
+  currentPlayArray: [], // in play mode this array includes data with paths (words, translations, images, sound) on current play category
+  currentPlayWord: '', // in play mode here is the word that is pronounced
+  currentStat: [], // array with current game statistics. After the end of the game it will be passed to localstorage
+  sort: '', // sort field - column title
+  sortDirection: '', // sort direction (up | down | '')
 
-  init() {
+  init() {  // function that initiate DOM reconstruction because of state change
     render(this);
   },
-
+  // methods that return dom elements based to index.js
+  // Button Reset in page statistics
   makeReset() {
     return btnResetStatistics(this);
   },
-
+  // Button Repeat in page statistics
   makeComplexRepeat() {
     return btnComplexRepeat(this);
   },
-
+  // Button Repeat in play mode to repeat the pronunciation
   makeRepeat() {
     return makeBtnRepeat(this);
   },
-
+  // element that shows correct and incorrect answers while in game
   getStars() {
     return showInGameAnswers(this);
   },
-
+  // element that returns the dom element with page name
   getPageName() {
     return getPageNameFunc(this);
   },
-
+  // button Train / Play - to switch the mode
   btnTrainAndPlay() {
     return btnTrainPlay(this);
   },
-
+  // button to start the game in game mode
   btnBeginTheGame() {
     return btnBeginGame(this);
   },
-
+  // button to show left-side menu
   btnTheGamburger() {
     return btnGamburger(this);
   },
-
+  // left-side menu
   showMenuFunc() {
     return menu(this);
   },
-
+  // methods that constructs return container (current page because of current page)
   game() {
     if (this.showWinScreen === true) {
       const elWin = document.createElement('div');

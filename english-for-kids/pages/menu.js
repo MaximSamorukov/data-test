@@ -1,5 +1,17 @@
 import './style/menu.css';
 import { menuItem, menuPage } from './service';
+// Function constructs and returns left side menu.
+// It consits of anchors to main page, statistics page and
+// directory pages.
+// The argument is 'this' from './src/games.js'.
+// The function return container that has the only child - textContainer.
+// textContainer has two children: pageContainer & categoriesContainer.
+// pageContainer - dom element that includes dom elements - anchors to pages (main, statistics);
+// categoriesContainer - dom element that includes dom elements - anchors to category pages;
+// Imports:
+// menuItem - creates dom elements (anchors to category pages) that appends to categoriesContainer;
+// menuPage - creates dom elements (anchors to pages (main, statistics)) that appends to pageContainer;
+//
 
 export default function menu(context) {
   const { showMenu, pages, currentCategory, categories } = context;
@@ -25,7 +37,6 @@ export default function menu(context) {
   categoryTitle.innerHTML = `<p>Categories</p>`;
   categoriesContainer.appendChild(categoryTitle);
   container.className = 'menu-container';
-  // container.className = showMenu ? 'menu-container show' : 'menu-container display-none';
   textContainer.className = showMenu ? 'menu-text-container' : 'menu-text-container display-none';
 
   pages.map((i) => {
@@ -42,10 +53,8 @@ export default function menu(context) {
   textContainer.appendChild(categoriesContainer);
   container.appendChild(textContainer);
   close.addEventListener('click', (e) => {
-    // e.stopPropagation();
     e.preventDefault();
     e.stopImmediatePropagation();
-    // context.showMenu = !showMenu;
     context.showMenu = false;
     if (!context.showMenu) {
       context.init();
@@ -116,7 +125,6 @@ export default function menu(context) {
       elem.classList.add('display-none');
     }
   });
-
 
   return container;
 }

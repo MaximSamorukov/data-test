@@ -5,7 +5,7 @@ function menuItem(context, element) {
   elem.innerHTML = `<p>${element}</p>`;
   return elem;
 };
-
+// Returns div element with name of the page to the left-side menu constructor
 function menuPage(context, element) {
   const { currentPage } = context;
   const elem = document.createElement('div');
@@ -19,8 +19,6 @@ function theGame(context, data = false, e) {
   const success = new Audio('../categories/assets/success.mp3');
   const storage = window.localStorage;
   let { currentCategory, isPlay, currentPage, currentStat, inGame, currentPlayArray } = context;
-  // console.log(data);
-  // console.log(currentCategory);
   if (data !== false) {
     const answer = data.english;
     const correctAnswer = context.currentPlayWord;
@@ -29,9 +27,7 @@ function theGame(context, data = false, e) {
     const verdict = answer === correctAnswer;
     if (verdict === true) {
       const element = (e.target.parentNode.parentNode);
-      // console.log(element.className);
       element.className = `${element.className} block`;
-      // console.log(element.className);
       success.play();
     } else {
       fail.play();
@@ -43,9 +39,7 @@ function theGame(context, data = false, e) {
       word,
       mode
     };
-    // console.log(chankOfData);
-    context.currentStat.push(verdict); // !!! need to clear every time the inGame is false
-
+    context.currentStat.push(verdict);
     const stat = storage.getItem('englishForKidsStat');
     if (!stat) {
       storage.setItem('englishForKidsStat', JSON.stringify([chankOfData]));
@@ -59,15 +53,14 @@ function theGame(context, data = false, e) {
       context.inGame = false;
       context.currentPlayArray = [];
       context.currentPlayWord = '';
-      // console.log(currentStat);
       const gameResult = !currentStat.includes(false);
       context.gameResult = gameResult;
       context.showWinScreen = true;
-      // console.log('you have won!!!');
       context.init();
       return;
     };
   };
+
   if (isPlay && currentPage === 'category' && currentPlayArray.length !== 0) {
     const answer = data.english;
     const correctAnswer = context.currentPlayWord;
@@ -101,7 +94,8 @@ function theGame(context, data = false, e) {
     storage.setItem('sound', JSON.stringify(randomElement.sound));
   }
 }
-
+// Function returns the first row of the table to the Statistics page.
+// Argument: this from './src/game.js'
 function makeTitle(context) {
   const { sort, sortDirection } = context;
   const container = document.createElement('div');
@@ -221,9 +215,6 @@ function makeTitle(context) {
   firstRow.appendChild(sixthColumnTitle);
   firstRow.appendChild(seventhColumnTitle);
 
-  // fColumnTitle.addEventListener('click', (e) => {
-  // changeSort('number', context);
-  // });
   secondColumnTitle.addEventListener('click', (e) => {
     changeSort('englishword', context);
   });
@@ -248,35 +239,26 @@ function makeTitle(context) {
   return container;
 }
 
-// function makeCategoryItemForStatistics(item) {
-// console.log(item);
-// const container = document.createElement('div');
-// const title = document.createElement('div');
-// title.className = 'statistics-category-title';
-// title.textContent = Object.keys(item)[0];
-// container.appendChild(title);
+// Function returns table rows to statistics table
+// Arguments:
+// - items: object with statistic info on every word { englishword, translation, true, false, category, percent, trained };
+// - number: current row number
 
-// const wordsContainer = document.createElement('div');
-// wordsContainer.className = 'statistics-words-container';
-// container.appendChild(wordsContainer);
-// container.appendChild(makeLinesStatistics(item));
-// makeLinesStatistics(item).map((i) => wordsContainer.appendChild(i));
-// console.log(words);
-
-// return makeLinesStatistics(item);
-// }
+// englishword
+// translation - russian equivalent
+// true - how many correct answers in play mode
+// false - how many incorrect answers in play mode
+// category - the word category
+// percent - true / (true + false)
+// trained - how many times the train card with the word was flipped
+//
 
 function makeLinesStatistics(items, number) {
-  // console.log(items);
   if (items === {}) {
     const rowEmpty = document.createElement('div');
     rowEmpty.className = 'row-stat';
     return [rowEmpty];
   }
-  // const returnValue = items.map((i, index) => {
-  // const value = Math.floor((items.true / (items.true + items.false)) * 100);
-  //items.percent = isNaN(value) ? 0 : value; //Math.floor((items.true / (items.true + items.false)) * 100);
-  // console.log(`${value} => ${isNaN(value)} => ${items.percent}`);
   const fColumn = document.createElement('div');
   fColumn.className = 'first-stat-column stat-column';
   fColumn.textContent = number + 1;
@@ -320,10 +302,18 @@ function makeLinesStatistics(items, number) {
   row.appendChild(sixthColumn);
   row.appendChild(seventhColumn);
   return row;
-  // })
-  // return returnValue;
 }
+// Function return the object where keys are english words and values are objects { englishword, translation, true, false, category, percent, trained }
+// Argument: this from './src/game.js'
 
+// englishword
+// translation - russian equivalent
+// true - how many correct answers in play mode
+// false - how many incorrect answers in play mode
+// category - the word category
+// percent - true / (true + false)
+// trained - how many times the train card with the word was flipped
+//
 function getAllWordsWithCategoriesObject(context) {
   const returnObject = {};
   const { categories } = context;
@@ -349,7 +339,6 @@ function getAllWordsWithCategoriesObject(context) {
       });
     })
   });
-  // console.log(arrayOfWords);
   return Promise.all(arrayOfWords).then((data) => {
     const newObject = {};
     data.map((i) => {
@@ -359,11 +348,12 @@ function getAllWordsWithCategoriesObject(context) {
   });
 }
 
+// Function that construct stat information based on input data to set it to localStorage (in train mode).
+// Argument: this from './src/game.js'
+// data - object with data on current word
 function trainStat(context, data) {
-  // console.log(data);
   const storage = window.localStorage;
   const stat = storage.getItem('englishForKidsStat');
-
   const { currentCategory } = context;
   const { english } = data;
   const verdict = null;
@@ -386,10 +376,12 @@ function trainStat(context, data) {
   };
 }
 
+// Function that set sort flags (sort, sortDirection) based on arguments
+// Arguments:
+// -field - name of the sorted column
+// -this from './src/game.js'
 function changeSort(field, context) {
   const { sort, sortDirection } = context;
-  // console.log(sort);
-  // console.log(sortDirection);
   if (sort === field) {
     context.sortDirection = sortDirection === 'up' ? 'down' : 'up';
   } else {
@@ -399,17 +391,21 @@ function changeSort(field, context) {
   context.init();
 }
 
+// Function processed array of stat information according to arguments
+// Arguments:
+// -array - stat information
+// -this from './src/game.js'
 function sortArray(array, context) {
   const { sort, sortDirection } = context;
-  // const field = getField(sort);
-  // console.log(sort);
-  // console.log(sortDirection);
   if (sort === '' || sortDirection === '') {
     return array;
   }
   return array.sort(getFuncLib(sortDirection, sort));
 }
-
+// Function return sort callback according to arguments
+// Arguments:
+// -direction - '' || 'up' || 'down'
+// -sort - column name
 function getFuncLib(direction, field) {
   const objStr = {
     up: (a, b) => b[field].localeCompare(a[field]),
@@ -424,7 +420,7 @@ function getFuncLib(direction, field) {
   };
   return objNum[direction];
 }
-
+// Function return the string that is used to construct paths to images, sounds and words
 function getStrNumber(num) {
   const array = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'nineth', 'tenth'];
   return array[num];

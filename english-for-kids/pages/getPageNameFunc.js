@@ -1,5 +1,8 @@
 import './style/getPageNameFunc.css';
 
+// function is used to return the page title based on the name of the current directory. The title is used
+// in the top part of every page (Main page, Statistics, Category name).
+
 export default function getPageNameFunc(context) {
   const { currentPage, currentCategory } = context;
   let value = " Main Page";

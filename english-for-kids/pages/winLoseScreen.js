@@ -1,6 +1,7 @@
 import './style/winLose.css';
 
-
+// Function created win or lose screen that is shown as a result of a game.
+// Argument: this from './src/game.js'
 export default function winLoseScreen(context) {
   const { gameResult, currentStat } = context;
   const container = document.createElement('div');

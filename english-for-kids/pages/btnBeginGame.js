@@ -1,6 +1,8 @@
 import './style/btnBeginGame.css';
 import { theGame } from './service';
 
+// Function constructs and returns button "Begin Game". Argument is "this" from "./src/game.js"
+
 export default function btnBeginGame(context) {
   const { inGame, isPlay, currentPage } = context;
   const storage = window.localStorage;
