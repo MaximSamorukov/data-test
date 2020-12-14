@@ -1,5 +1,7 @@
 import './style/btnGamburger.css';
 
+// Function constructs and returns button "Humburger" that is used in all pages to turn on / off left side menu. Argument is "this" from "./src/game.js"
+
 export default function btnGamburger(context) {
   const { showMenu } = context;
   const btnContainer = document.createElement('div');

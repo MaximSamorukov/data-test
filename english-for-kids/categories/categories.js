@@ -1,4 +1,9 @@
-// const path = require('path');
+// Function returns an object based on the title (name) of the current category (the play cards of which shoud be shown).
+// The returned object includes paths to:
+//  - file with english words,
+//  - file with russian translation of english words,
+//  - an array with paths to sound files with pronunciation
+//  - an array with paths to image files that is used on the play cards.
 
 export default function categoryConstructor(name) {
   const imgExt = 'png';

@@ -1,5 +1,9 @@
 import './style/btnRepeat.css';
 import { theGame } from './service';
+// Function constructs and returns button 'Repeat' that is used in play mode in the case player wants
+// to repeat the pronunciation of the word.
+// The argument is 'this' from './src/game.js'.
+// The button works only in the case of game mode (this.inGame === true).
 
 export default function makeBtnRepeat(context) {
   const { inGame, isPlay, currentPage } = context;

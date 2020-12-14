@@ -1,9 +1,10 @@
 import './style/showInGameResults.css';
-// import { theGame } from './service';
 
+// Function constructs the dom element that is used in play mode to show how many
+// corrects and ,incorrect answers were made
+// Argument: this from './src/game.js'
 export default function showInGameAnswers(context) {
   const { currentStat } = context;
-  // console.log(currentStat);
   const container = document.createElement('div');
   container.className = 'in-game-results-container';
   let arr = [...currentStat];

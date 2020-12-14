@@ -1,6 +1,15 @@
+// Function returns an array with data that is used to make DOM objects of play cards.
+// Arguments are:
+//  - object that was created in './categories/categories.js,
+//  - the name of the constructed directory.
+// Every item in the returned array is an object that consists of:
+//  - path to image (image);
+//  - path to sound file (sound);
+//  - english word (english);
+//  - russian translation of the english word (russian).
+
 function arrayOfDataForCardsCreator(data, currentCategory) {
-  // console.log(data);
-  let arrayWithPlayCardData = Array.from('asdfghasdd').map((i, index) => {
+  let arrayWithPlayCardData = Array.from({ length: 10 }).map((i, index) => { // Create an
     const element = {
       image: data.images[index],
       sound: data.sounds[index],

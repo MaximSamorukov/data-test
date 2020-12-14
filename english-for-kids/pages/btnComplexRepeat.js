@@ -1,13 +1,11 @@
 import './style/btnComplexRepeat.css';
 import { theGame, getStrNumber } from './service';
 
+// Function constructs and returns button "Repeat" that is used in Statistics page to repeat the most difficult words. Argument is "this" from "./src/game.js"
+
 export default function btnComplexRepeat(context) {
 
   const { inGame, isPlay, currentPage } = context;
-  // if (currentPage !== 'statistics') {
-  //   return ;
-  // }
-  // const storage = window.localStorage;
   const btnContainer = document.createElement('div');
   btnContainer.className = 'btn-complex-container';
   const btn = document.createElement('div');
@@ -16,14 +14,6 @@ export default function btnComplexRepeat(context) {
   btn.innerText = "Repeat";
   btn.addEventListener('click', (e) => {
     e.stopImmediatePropagation();
-    // storage.setItem('sound', JSON.stringify(''));
-    // context.inGame = (isPlay && currentPage === 'category') ? !context.inGame : false;
-    // context.init();
-    // if (context.inGame === true) {
-    //   context.currentPlayArray = [];
-
-    //   theGame(context);
-    // }
     const storage = window.localStorage;
     const statData = JSON.parse(storage.getItem('englishForKidsStat'))
       .filter((i) => i.verdict === false)
@@ -44,7 +34,6 @@ export default function btnComplexRepeat(context) {
     const procArray = Object.keys(statData).map((i) => statData[i])
       .sort((a, b) => b.falses - a.falses)
       .slice(0, 10);
-    // console.log(procArray);
     if (procArray.length < 10) {
       return;
     };
@@ -53,12 +42,8 @@ export default function btnComplexRepeat(context) {
       return englishWordsArray.then(({ words }) => {
         const number = Object.values(words).indexOf(i.word);
         const strNumber = getStrNumber(number);
-        // console.log(number);
-        // console.log(strNumber);
         const rusWords = import(`../categories/${i.currentCategory}/russianwords`);
         return rusWords.then(({ words }) => {
-          // console.log(words[number]);
-          // console.log(i.word);
           const obj = {
             name: i.currentCategory,
             english: i.word,
@@ -70,9 +55,7 @@ export default function btnComplexRepeat(context) {
         });
       })
     })
-    // console.log(readyArray);
     Promise.all(readyArray).then((all) => {
-      // console.log(all);
       const storage = window.localStorage;
       storage.setItem('englishForKids', JSON.stringify(all));
       context.isPlay = true;

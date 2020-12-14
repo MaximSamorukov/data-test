@@ -1,6 +1,11 @@
 import './style/makePlayCard.css';
 import { theGame } from './service';
 
+// Function constructs and returns 'Play Card' - the one that is used in the play mode and show the picture of the word.
+// Arguments are:
+// - 'this' from './src/game.js';
+// - data with paths to img, sound and words to construct exact card.
+
 export default function makePlayCard(context, data) {
   const { isPlay, inGame } = context;
   const container = document.createElement('div');
@@ -9,11 +14,8 @@ export default function makePlayCard(context, data) {
   const card = document.createElement('div');
   card.className = 'play-card-innercont';
 
-  const cardFrontface = document.createElement('div'); // card
+  const cardFrontface = document.createElement('div');
   cardFrontface.className = 'play-card face';
-
-  // const cardBackface = document.createElement('div');
-  // cardBackface.className = 'play-card-back face';
 
   const cardPicture = document.createElement('div');
   cardPicture.className = 'play-card-picture';
@@ -39,7 +41,7 @@ export default function makePlayCard(context, data) {
       fail.play();
       return;
     } else {
-      theGame(context, data, e); // added
+      theGame(context, data, e);
     };
   });
 

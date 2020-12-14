@@ -1,10 +1,10 @@
 import { Game } from './src/game.js';
 
 import './pages/style/index.css'
+// Function that constructs the dom with methods from game.js and based on the state
+// and appends it to the body.
 
 function render(context) {
-  // console.log(context);
-  // document.body.remove();
   const root = document.querySelector('.container');
   root.innerHTML = null;
   const rootContainer = document.createElement('div');
@@ -40,7 +40,6 @@ function render(context) {
     topContainerSecond.appendChild(stars);
     topContainerSecond.appendChild(Game.makeRepeat());
     topContainer.addEventListener('click', (e) => {
-      console.log('ffff');
       return;
     })
     root.appendChild(topContainerSecond);
@@ -61,7 +60,6 @@ function render(context) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  // render(this);
   Game.init();
 })
 

@@ -1,5 +1,6 @@
 import './style/btnTrainPlay.css';
 
+// Function constructs and returns button "Train / Play" that is used in all pages change the current mode. Modes are: train & play. Argument is "this" from "./src/game.js".
 export default function btnTrainPlay(context) {
   const { isPlay, inGame } = context;
   const btnContainer = document.createElement('div');

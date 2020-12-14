@@ -1,5 +1,6 @@
 import './style/main.css';
 import categoryCard from './categoryCard';
+// Function returns container to constract Main Page.
 
 export default function main(context) {
   const container = document.createElement('div');
