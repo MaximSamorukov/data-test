@@ -93,11 +93,13 @@ Views can be further split in Presentation and Container Views.
 Presentation views don’t connect to dispatcher or stores. They communicate only through their own properties.
 Container views are connected to stores and dispatcher. They listen for events from stores and provide the data for presentation components. They get the new data using the stores’ public getter methods and then pass that data down the views tree.
 Container views dispatch actions in response to user iteration.
+
 #### Actions
 An action is a plain object that contains all information necessary to do that action.
 Actions have a type property identifying the action type.
 As action objects move around the application, I suggest to make them immutable.
 Actions may come from different places. They may come from views as a result of user interaction. They may come from other places like the initialization code, where data may be taken from a Web API and actions are fired to update the views. Action may come from a timer that requires screen updates.
+
 #### Action Creators
 The practice is to encapsulate the code, creating actions in functions. These functions that create and dispatch actions are called action creators.
 
@@ -107,7 +109,7 @@ Web API calls are made in action creators. Also, we can extract out the code tha
 
 #### Unidirectional data flow
 Updating views flow in a single direction:
-
+![unidirectional data flow](./assets/flux_long_line.jpg)
 Views do not modify the data they received. They listen for changes of this data, create actions with new values, but do not update the data.
 Stores, views and any other action can’t change the state in (other) stores directly. They must send an action through the dispatcher
 The data flow is shorter in store reads than in writes.The data flow in store writes differs between asynchronous and synchronous actions.
