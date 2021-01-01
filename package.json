@@ -1,0 +1,28 @@
+{
+  "name": "presentation",
+  "version": "1.0.0",
+  "description": "State Management in React applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/maximsamorukov-JS2020Q3.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "state",
+    "flux"
+  ],
+  "author": "Maksim Samorukov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/maximsamorukov-JS2020Q3/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/maximsamorukov-JS2020Q3#readme",
+  "dependencies": {
+    "reveal.js": "^4.1.0"
+  }
+}
