@@ -117,9 +117,15 @@ Stores, views and any other action can’t change the state in (other) stores di
 The data flow is shorter in store reads than in writes.The data flow in store writes differs between asynchronous and synchronous actions.
 #### Store Reads
 
+![store reads](./assets/flux_short_line.jpg)
+
 #### Store Writes in synchronous actions
 
+![store writes sync](./assets/flux_sync.jpg)
+
 #### Store Writes in asynchronous actions
+
+![store writes async](./assets/flux_async.jpg)
 
 #### Pros
 Flux architecture is better in an application where views don’t map directly to domain stores. To put in a different way, when views can create actions that will update many stores and stores can trigger changes that will update many views.
@@ -135,6 +141,9 @@ Actions are plain objects.
 ### 3. Особенности управления состоянием в React – Redux приложении
 
 #### What is Redux?
+
+![redux state update](./assets/redux_state_update.jpg)
+
 Redux is an open-source library to improve the predictability of the state in a JavaScript application. It is an independent library. It is commonly used with other libraries like React and Angular for better state management of the application. Redux was created by Dan Abramov in 2015 to handle complex state management in an efficient way.
 When an application grows larger it becomes harder to manage the state and debug for issues. It becomes a challenge to track when and where the state is changed and where the changes need to be reflected. Sometimes a user input triggers some API call which updates some model. That model in turn updates some state or maybe the other model and so on.
 In such a situation it becomes grinding to track the state changes. It happens mainly because there is no defined rule to update a state and state can be changed from anywhere inside the application.
@@ -152,6 +161,8 @@ The ways you can interact with a state tree are:
 - Updating the state.
 
 A store is a single unit that holds the state tree and the methods to interact with the state tree. There is no other way to interact with a state inside the store except through these given methods.
+
+![redux the store](./assets/redux_store.jpg)
 
 Let’s talk about the methods a store gives us to interact with the state.
 - getState() — Returns the current state of the application.
@@ -176,6 +187,7 @@ Once we define our action we pass it to the dispatcher. store.dispatch() is a 
 This strict way of updating the state ensures that the state can not be changed directly either by view or any network callback. The only way to update a state is by defining the action and then dispatching it. Remember that actions are plain JavaScript objects. Actions can be logged, serialized, and replayed for debugging purposes.
 We now have a store, a state, and an action in our app to perform some tasks against the state. Now we need a way to use these actions to actually do the update. This can be done by using a pure function and this is rule #3.
 
+![redux three principles](./assets/redux_three_principles.jpg)
 
 #### Rule#3 — Changes are made with pure functions
 Magic happens here. We need a simple pure function, which, as a parameter, takes the current state of the application and an action to perform on the state, and then returns the updated state. These functions are called reducers.
