@@ -1,7 +1,10 @@
-Скрипт призентации «Управление состоянием компонентов в React - приложениях»
+## Presentation script «State management in React - applications»
 
-### 1. What is React.
+### 1. React library approach to component state management (Slide 1)
+
+#### What is React.
 React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.
+
 ```
 class Test extends React.Component {
     constructor() {
@@ -22,7 +25,7 @@ class Test extends React.Component {
 }
 ```
 
-### 2. What is state.
+#### What is state. (Slide 2)
 State is a special built-in object, which allows components to create and manage their own data. Components cannot pass data with state, but they can create and manage it internally.
 How do you update a component’s state?
 State should not be modified directly, but it can be modified with a special method called `setState()`.
@@ -48,7 +51,7 @@ updateState(event) {
 
 I’m destructuring event in the method signature to get a reference to event.target. Then I’m declaring that state should be set to a copy of this.state.user with the relevant property set to a new value. I like how terse this is. This is currently my favorite approach to writing change handlers.
 
-What happens when state changes?
+#### What happens when state changes? (Slide 3)
 OK, why must we use `setState()`? Why do we even need the state object itself?
 A change in the state happens based on user-input, triggering an event, and so on. Also, React components (with state) are rendered based on the data in the state. State holds the initial information.
 So when state changes, React gets informed and immediately re-renders the DOM – not the whole DOM, but only the component with the updated state. This is one of the reasons why React is fast.
@@ -66,16 +69,14 @@ If your project is not using React Hooks, then you can only use state in class c
 - State data can be modified by its own component, but is private (cannot be accessed from outside);
 - Modifying state should happen with the `setState()` method;
 
-
-
-### 3. Управление состоянием компонента в условиях архтектуры Flux
+### 2. Flux approach to component state management (Slide 4)
 Flux is an architectural pattern proposed by Facebook for building SPAs. It suggests to split the application into the following parts:
 - Stores;
 - Dispatcher;
 - Views;
 - Action / Action Creators.
 
-#### Store
+#### Store (Slide 5)
 Store manages the state. It can store both domain state and user interface state.
 According to FLUX store and state are different concepts. State is the data value. Store is a behavior object that manages state through methods.
 A store manages multiple objects. It is the single source of truth in regards to those specific objects. In an application there can be many stores. For example: BookStore, AuthorStore, UserStore.
@@ -83,7 +84,7 @@ There are no setter methods on the store. You can only request state change by p
 A store listens for all actions and decides on which of them to act. This usually means a switch statement. Once the store has made the state changes, it will emit a change event. The store is an event emitter.
 Stores don’t take other stores as dependencies.
 
-#### Dispatcher
+#### Dispatcher (Slide 6)
 Dispatcher is a single object that broadcasts actions/events to all registered stores. Stores need to register for events when the application starts.
 When an action comes in, it will pass that action to all registered stores.
 View
@@ -94,7 +95,7 @@ Presentation views don’t connect to dispatcher or stores. They communicate onl
 Container views are connected to stores and dispatcher. They listen for events from stores and provide the data for presentation components. They get the new data using the stores’ public getter methods and then pass that data down the views tree.
 Container views dispatch actions in response to user iteration.
 
-#### Actions
+#### Actions (Slide 7)
 An action is a plain object that contains all information necessary to do that action.
 Actions have a type property identifying the action type.
 As action objects move around the application, I suggest to make them immutable.
@@ -107,7 +108,7 @@ The practice is to encapsulate the code, creating actions in functions. These fu
 When doing Web API calls to update the user interface, the Web API call will be followed by an action to update the store. When the store is updated it will emit a change event and as result the view that listens for that event will re-render.
 Web API calls are made in action creators. Also, we can extract out the code that does the API call in Web API Utils functions.
 
-#### Unidirectional data flow
+#### Unidirectional data flow (Slide 8)
 Updating views flow in a single direction:
 
 ![unidirectional data flow](./assets/flux_long_line.jpg)
@@ -115,7 +116,7 @@ Updating views flow in a single direction:
 Views do not modify the data they received. They listen for changes of this data, create actions with new values, but do not update the data.
 Stores, views and any other action can’t change the state in (other) stores directly. They must send an action through the dispatcher
 The data flow is shorter in store reads than in writes.The data flow in store writes differs between asynchronous and synchronous actions.
-#### Store Reads
+#### Store Reads (Slide 9)
 
 ![store reads](./assets/flux_short_line.jpg)
 
@@ -127,7 +128,7 @@ The data flow is shorter in store reads than in writes.The data flow in store wr
 
 ![store writes async](./assets/flux_async.jpg)
 
-#### Pros
+#### Pros (Slide 10)
 Flux architecture is better in an application where views don’t map directly to domain stores. To put in a different way, when views can create actions that will update many stores and stores can trigger changes that will update many views.
 Actions can be persisted and then replayed.
 #### Cons
@@ -138,7 +139,7 @@ Views render the user interface and handle user interaction. Container views lis
 The dispatcher broadcasts actions to all registered stores.
 Actions are plain objects.
 
-### 3. Особенности управления состоянием в React – Redux приложении
+### 3. Redux library approach to component state management (Slide 11)
 
 #### What is Redux?
 
@@ -153,7 +154,7 @@ Redux tries to solve this issue by providing a few simple rules to update the st
 As we discussed earlier, the main purpose of Redux is to provide predictable state management in our applications. Redux achieves this by having a single source of truth, that is a single state tree. The state tree is a simple JavaScript object which holds the whole state of our application. There are only a few ways to interact with the state. And this makes it easy for us to debug or track our state.
 We now have only one main state which occupies the whole state of the application located at a single location. Any changes made into the state tree are reflected in the whole application because this is the only source of data for the app. And, this is the first fundamental principle of Redux.
 
-#### Rule #1 — Single source of truth
+#### Rule #1 — Single source of truth (Slide 12)
 The state of your whole application is stored in an object tree within a single store.
 The ways you can interact with a state tree are:
 - Getting the state;
@@ -171,7 +172,7 @@ Let’s talk about the methods a store gives us to interact with the state.
 - replaceReducer(nextReducer) — Replaces the reducer currently used by the store to calculate the state.
 
 Now when we have a store which contains a state tree and a few ways to interact with the state, how can we update application state?
-#### Updating state in the application:
+#### Updating state in the application: (Slide 13)
 The only way to update a state is to dispatch an action. This is the 2nd rule.
 
 #### Rule #2 — State is read-only
@@ -189,16 +190,16 @@ We now have a store, a state, and an action in our app to perform some tasks aga
 
 ![redux three principles](./assets/redux_three_principles.jpg)
 
-#### Rule#3 — Changes are made with pure functions
+#### Rule#3 — Changes are made with pure functions (Slide 14)
 Magic happens here. We need a simple pure function, which, as a parameter, takes the current state of the application and an action to perform on the state, and then returns the updated state. These functions are called reducers.
 These are called reducers because they take the collection of values, reduce it to an updated state and then return it. Since reducers are pure functions they do not mutate the original state. Instead, they return the updated state in a new object. Our application can have one or more than one reducer. Each reducer can have a relevant state to perform specific tasks.
 Since reducers are pure functions, they should have the following attributes:
 - Given the same input, it should return the same output every time — No mutation is allowed.
 - No side effects — No API call data change from an external source.
 
-#### The process.
+#### The process. (Slide 15)
 If we connect the dots, Redux is a library which has a store that contains a state tree and a few methods to interact with the state. The only way to update a state inside a store is to dispatch an action and define a reducer function to perform tasks based on the given actions. Once dispatched, the action goes inside the reducer functions which performs the tasks and return the updated state to the store. This is what Redux is all about.
 State update flow in Redux.
 
-### Conclusion:
+### Conclusion: (Slide 16)
 Was shown that…
