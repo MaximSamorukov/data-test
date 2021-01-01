@@ -109,7 +109,9 @@ Web API calls are made in action creators. Also, we can extract out the code tha
 
 #### Unidirectional data flow
 Updating views flow in a single direction:
+
 ![unidirectional data flow](./assets/flux_long_line.jpg)
+
 Views do not modify the data they received. They listen for changes of this data, create actions with new values, but do not update the data.
 Stores, views and any other action can’t change the state in (other) stores directly. They must send an action through the dispatcher
 The data flow is shorter in store reads than in writes.The data flow in store writes differs between asynchronous and synchronous actions.
