@@ -38,7 +38,183 @@ eval("\n\n__webpack_require__(/*! core-js/es6 */ \"./node_modules/core-js/es6/in
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_reveal_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/reveal.js */ \"./node_modules/reveal.js/dist/reveal.esm.js\");\n/* harmony import */ var _node_modules_reveal_js_plugin_markdown_markdown_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/reveal.js/plugin/markdown/markdown.esm.js */ \"./node_modules/reveal.js/plugin/markdown/markdown.esm.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ \"./style.css\");\n\n\n\nvar deck = new _node_modules_reveal_js__WEBPACK_IMPORTED_MODULE_0__.default({\n  plugins: [_node_modules_reveal_js_plugin_markdown_markdown_esm_js__WEBPACK_IMPORTED_MODULE_1__.default]\n});\ndeck.initialize();\n\n//# sourceURL=webpack://presentation/./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_reveal_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/reveal.js */ \"./node_modules/reveal.js/dist/reveal.esm.js\");\n/* harmony import */ var _node_modules_reveal_js_plugin_markdown_markdown_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/reveal.js/plugin/markdown/markdown.esm.js */ \"./node_modules/reveal.js/plugin/markdown/markdown.esm.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ \"./style.css\");\n/* harmony import */ var _slides_slide1__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slides/slide1 */ \"./slides/slide1.js\");\n/* harmony import */ var _slides_slide2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./slides/slide2 */ \"./slides/slide2.js\");\n/* harmony import */ var _slides_slide3__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./slides/slide3 */ \"./slides/slide3.js\");\n/* harmony import */ var _slides_slide4__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./slides/slide4 */ \"./slides/slide4.js\");\n/* harmony import */ var _slides_slide5__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./slides/slide5 */ \"./slides/slide5.js\");\n/* harmony import */ var _slides_slide6__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./slides/slide6 */ \"./slides/slide6.js\");\n/* harmony import */ var _slides_slide7__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./slides/slide7 */ \"./slides/slide7.js\");\n/* harmony import */ var _slides_slide8__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./slides/slide8 */ \"./slides/slide8.js\");\n/* harmony import */ var _slides_slide9__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./slides/slide9 */ \"./slides/slide9.js\");\n/* harmony import */ var _slides_slide10__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./slides/slide10 */ \"./slides/slide10.js\");\n/* harmony import */ var _slides_slide11__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./slides/slide11 */ \"./slides/slide11.js\");\n/* harmony import */ var _slides_slide12__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./slides/slide12 */ \"./slides/slide12.js\");\n/* harmony import */ var _slides_slide13__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./slides/slide13 */ \"./slides/slide13.js\");\n/* harmony import */ var _slides_slide14__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./slides/slide14 */ \"./slides/slide14.js\");\n/* harmony import */ var _slides_slide15__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./slides/slide15 */ \"./slides/slide15.js\");\n/* harmony import */ var _slides_slide16__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./slides/slide16 */ \"./slides/slide16.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar deck = new _node_modules_reveal_js__WEBPACK_IMPORTED_MODULE_0__.default({\n  plugins: [_node_modules_reveal_js_plugin_markdown_markdown_esm_js__WEBPACK_IMPORTED_MODULE_1__.default]\n});\ndeck.initialize();\nvar slidesContainer = document.querySelector('.slides');\nvar slides = slidesContainer.children;\nvar section1 = document.querySelector('.slide_1');\nvar section2 = document.querySelector('.slide_2');\nvar section3 = document.querySelector('.slide_3');\nvar section4 = document.querySelector('.slide_4');\nvar section5 = document.querySelector('.slide_5');\nvar section6 = document.querySelector('.slide_6');\nvar section7 = document.querySelector('.slide_7');\nvar section8 = document.querySelector('.slide_8');\nvar section9 = document.querySelector('.slide_9');\nvar section10 = document.querySelector('.slide_10');\nvar section11 = document.querySelector('.slide_11');\nvar section12 = document.querySelector('.slide_12');\nvar section13 = document.querySelector('.slide_13');\nvar section14 = document.querySelector('.slide_14');\nvar section15 = document.querySelector('.slide_15');\nvar section16 = document.querySelector('.slide_16');\nsection1.appendChild((0,_slides_slide1__WEBPACK_IMPORTED_MODULE_3__.default)(1));\nsection2.appendChild((0,_slides_slide2__WEBPACK_IMPORTED_MODULE_4__.default)(2));\nsection3.appendChild((0,_slides_slide3__WEBPACK_IMPORTED_MODULE_5__.default)(3));\nsection4.appendChild((0,_slides_slide4__WEBPACK_IMPORTED_MODULE_6__.default)(4));\nsection5.appendChild((0,_slides_slide5__WEBPACK_IMPORTED_MODULE_7__.default)(5));\nsection6.appendChild((0,_slides_slide6__WEBPACK_IMPORTED_MODULE_8__.default)(6));\nsection7.appendChild((0,_slides_slide7__WEBPACK_IMPORTED_MODULE_9__.default)(7));\nsection8.appendChild((0,_slides_slide8__WEBPACK_IMPORTED_MODULE_10__.default)(8));\nsection9.appendChild((0,_slides_slide9__WEBPACK_IMPORTED_MODULE_11__.default)(9));\nsection10.appendChild((0,_slides_slide10__WEBPACK_IMPORTED_MODULE_12__.default)(10));\nsection11.appendChild((0,_slides_slide11__WEBPACK_IMPORTED_MODULE_13__.default)(11));\nsection12.appendChild((0,_slides_slide12__WEBPACK_IMPORTED_MODULE_14__.default)(12));\nsection13.appendChild((0,_slides_slide13__WEBPACK_IMPORTED_MODULE_15__.default)(13));\nsection14.appendChild((0,_slides_slide14__WEBPACK_IMPORTED_MODULE_16__.default)(14));\nsection15.appendChild((0,_slides_slide15__WEBPACK_IMPORTED_MODULE_17__.default)(15));\nsection16.appendChild((0,_slides_slide16__WEBPACK_IMPORTED_MODULE_18__.default)(16));\n\n//# sourceURL=webpack://presentation/./index.js?");
+
+/***/ }),
+
+/***/ "./slides/slide1.js":
+/*!**************************!*\
+  !*** ./slides/slide1.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide1.js?");
+
+/***/ }),
+
+/***/ "./slides/slide10.js":
+/*!***************************!*\
+  !*** ./slides/slide10.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide10.js?");
+
+/***/ }),
+
+/***/ "./slides/slide11.js":
+/*!***************************!*\
+  !*** ./slides/slide11.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide11.js?");
+
+/***/ }),
+
+/***/ "./slides/slide12.js":
+/*!***************************!*\
+  !*** ./slides/slide12.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide12.js?");
+
+/***/ }),
+
+/***/ "./slides/slide13.js":
+/*!***************************!*\
+  !*** ./slides/slide13.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide13.js?");
+
+/***/ }),
+
+/***/ "./slides/slide14.js":
+/*!***************************!*\
+  !*** ./slides/slide14.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide14.js?");
+
+/***/ }),
+
+/***/ "./slides/slide15.js":
+/*!***************************!*\
+  !*** ./slides/slide15.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide15.js?");
+
+/***/ }),
+
+/***/ "./slides/slide16.js":
+/*!***************************!*\
+  !*** ./slides/slide16.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide16.js?");
+
+/***/ }),
+
+/***/ "./slides/slide2.js":
+/*!**************************!*\
+  !*** ./slides/slide2.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide2.js?");
+
+/***/ }),
+
+/***/ "./slides/slide3.js":
+/*!**************************!*\
+  !*** ./slides/slide3.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide3.js?");
+
+/***/ }),
+
+/***/ "./slides/slide4.js":
+/*!**************************!*\
+  !*** ./slides/slide4.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide4.js?");
+
+/***/ }),
+
+/***/ "./slides/slide5.js":
+/*!**************************!*\
+  !*** ./slides/slide5.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide5.js?");
+
+/***/ }),
+
+/***/ "./slides/slide6.js":
+/*!**************************!*\
+  !*** ./slides/slide6.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide6.js?");
+
+/***/ }),
+
+/***/ "./slides/slide7.js":
+/*!**************************!*\
+  !*** ./slides/slide7.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide7.js?");
+
+/***/ }),
+
+/***/ "./slides/slide8.js":
+/*!**************************!*\
+  !*** ./slides/slide8.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide8.js?");
+
+/***/ }),
+
+/***/ "./slides/slide9.js":
+/*!**************************!*\
+  !*** ./slides/slide9.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (number) {\n  var container = document.createElement('div');\n  container.className = 'slide-container';\n  var titleElement = document.createElement('div');\n  var bodyElement = document.createElement('div');\n  var footerElement = document.createElement('div');\n  titleElement.className = 'slide-title';\n  bodyElement.className = 'slide-body';\n  footerElement.className = 'slide-footer';\n  titleElement.textContent = \"Slide: \".concat(number);\n  container.appendChild(titleElement);\n  container.appendChild(bodyElement);\n  container.appendChild(footerElement);\n  return container;\n});\n\n//# sourceURL=webpack://presentation/./slides/slide9.js?");
 
 /***/ }),
 
@@ -3188,7 +3364,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_normalize_css_normalize_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! -!./node_modules/css-loader/dist/cjs.js!./node_modules/normalize.css/normalize.css */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/normalize.css/normalize.css\");\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_node_modules_normalize_css_normalize_css__WEBPACK_IMPORTED_MODULE_1__.default);\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"section {\\n  /* font-size: 80px; */\\n  /* color: brown; */\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://presentation/./style.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_normalize_css_normalize_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! -!./node_modules/css-loader/dist/cjs.js!./node_modules/normalize.css/normalize.css */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/normalize.css/normalize.css\");\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_node_modules_normalize_css_normalize_css__WEBPACK_IMPORTED_MODULE_1__.default);\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"section {\\n  margin: 0;\\n  padding: 1px;\\n  height: auto;\\n}\\n\\n.slide-container {\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: space-between;\\n  width: 100%;\\n  min-width: 100%;\\n  height: 100vh;\\n  min-height: 100vh;\\n  border: 1px solid red;\\n  padding: 0;\\n  margin: 0;\\n  box-sizing: border-box;\\n  /* background-color: cyan; */\\n}\\n\\n.slide-title {\\n  width: auto;\\n  height: 100px;\\n  border: 1px solid red;\\n  padding: 0;\\n  margin: 1px;\\n}\\n\\n.slide-body {\\n  width: auto;\\n  height: 100%;\\n  border: 1px solid red;\\n  padding: 0;\\n  margin: 1px;\\n}\\n\\n.slide-footer {\\n  width: auto;\\n  height: 100px;\\n  border: 1px solid red;\\n  padding: 0;\\n  margin: 1px;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://presentation/./style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
