@@ -24,6 +24,7 @@ export default (number) => {
   bodyElement.appendChild(bodyMiddle);
   bodyElement.appendChild(bodyFooter);
 
+  bodyTop.textContent = "RS School 2020 Q3";
   bodyMiddle.innerHTML = "<span>Presentation:</span><br><span>«State management in<br>React - applications»</span>"
   bodyFooter.textContent = "Samorukov M.L."
   container.appendChild(titleElement);
