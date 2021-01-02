@@ -35,6 +35,9 @@ section {
   border: 1px solid red;
   padding: 0;
   margin: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .slide-footer {
@@ -43,4 +46,35 @@ section {
   border: 1px solid red;
   padding: 0;
   margin: 1px;
+}
+
+.slide1-body-top {
+  width: auto;
+  height: 100px;
+  border: 1px solid forestgreen;
+  padding: 0;
+  margin: 1px;
+}
+
+.slide1-body-middle {
+  box-sizing: border-box;
+  width: auto;
+  height: 100%;
+  border: 1px solid forestgreen;
+  padding: 0;
+  padding-top: 50px;
+  margin: 1px;
+}
+
+.slide1-body-middle>span:nth-child(3) {
+  font-size: 60px;
+}
+
+.slide1-body-footer {
+  width: auto;
+  height: 100px;
+  border: 1px solid forestgreen;
+  padding: 0;
+  margin: 1px;
+  text-align: right;
 }
