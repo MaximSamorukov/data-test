@@ -29,10 +29,9 @@ export default (number) => {
   bodyElement.appendChild(bodyFooterFooter);
 
 
-  bodyTop.textContent = "State management in FLUX?";
+  bodyTop.textContent = "State management in FLUX.";
   bodyMiddle.textContent = "Flux is an architectural pattern proposed by Facebook for building SPAs. It suggests to split the application into the following parts:"
   bodyFooter.innerText = "- Stores;\n- Dispatcher;\n- Views;\n- Action / Action Creators.";
-  bodyFooterFooter.innerText = "...img of flux components...";
   container.appendChild(titleElement);
   container.appendChild(bodyElement);
   container.appendChild(footerElement);

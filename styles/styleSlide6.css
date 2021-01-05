@@ -9,7 +9,7 @@
 .slide6-body-top {
   width: auto;
   height: 7%;
-  border: 1px solid forestgreen;
+    /* border: 1px solid forestgreen; */
   padding: 0;
   margin: 1px;
   text-align: left;
@@ -19,7 +19,7 @@
   box-sizing: border-box;
   width: auto;
   height: 14%;
-  border: 1px solid forestgreen;
+    /* border: 1px solid forestgreen; */
   padding: 0;
   margin: 1px;
   text-align: left;
@@ -27,8 +27,8 @@
 
 .slide6-body-footer {
   width: auto;
-  height: 30%;
-  border: 1px solid forestgreen;
+  height: 25%;
+    /* border: 1px solid forestgreen; */
   padding: 0;
   margin: 1px;
   text-align: left;
@@ -36,9 +36,13 @@
 
 .slide6-body-footer-footer {
   width: auto;
-  height: 49%;
-  border: 1px solid forestgreen;
+  height: 54%;
+    /* border: 1px solid forestgreen; */
   padding: 0;
   margin: 1px;
-  text-align: left;
+
+  background-image: url("../assets/flux_architecture.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }

@@ -3,8 +3,8 @@
 }
 .slide3-body-top {
   width: auto;
-  height: 50px;
-  border: 1px solid forestgreen;
+  height: 7%;
+    /* border: 1px solid forestgreen; */
   padding: 0;
   margin: 1px;
   text-align: left;
@@ -13,8 +13,8 @@
 .slide3-body-middle {
   box-sizing: border-box;
   width: auto;
-  height: 10%;
-  border: 1px solid forestgreen;
+  height: 13%;
+    /* border: 1px solid forestgreen; */
   padding: 0;
   margin: 1px;
   text-align: left;
@@ -22,18 +22,14 @@
 
 .slide3-body-footer {
   width: auto;
-  height: 20%;
-  border: 1px solid forestgreen;
+  height: 80%;
+    /* border: 1px solid forestgreen; */
   padding: 0;
   margin: 1px;
-  text-align: left;
+
+  background-image: url("../assets/state_init_set.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
-.slide3-body-footer-footer {
-  width: auto;
-  height: 60%;
-  border: 1px solid forestgreen;
-  padding: 0;
-  margin: 1px;
-  text-align: left;
-}

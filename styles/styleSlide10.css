@@ -7,7 +7,7 @@
 .slide10-body-top {
   width: auto;
   height: 7%;
-  border: 1px solid forestgreen;
+    /* border: 1px solid forestgreen; */
   padding: 0;
   margin: 1px;
   text-align: left;
@@ -16,7 +16,7 @@
 .slide10-body-footer {
   width: auto;
   height: 93%;
-  border: 1px solid forestgreen;
+    /* border: 1px solid forestgreen; */
   padding: 0;
   margin: 1px;
   text-align: left;

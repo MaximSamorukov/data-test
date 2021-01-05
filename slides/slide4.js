@@ -25,7 +25,6 @@ export default (number) => {
   bodyElement.appendChild(bodyFooterFooter);
 
   titleElement.textContent = "What happens when state changes?"
-  bodyTop.textContent = "...img of how state change triggers local DOM rerender...";
   bodyFooter.textContent = "2 Important points in state management in pure React";
   bodyFooterFooter.innerText = "- State shouldn’t be modified directly – the `setState()` should be used;\n  - State affects the performance of the app, and therefore it shouldn’t be used unnecessarily.";
   container.appendChild(titleElement);

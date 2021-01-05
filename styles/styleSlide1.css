@@ -2,7 +2,7 @@
 .slide1-body-top {
   width: auto;
   height: 100px;
-  border: 1px solid forestgreen;
+  /* border: 1px solid forestgreen; */
   padding: 0;
   margin: 1px;
   text-align: center;
@@ -13,7 +13,7 @@
   box-sizing: border-box;
   width: auto;
   height: 100%;
-  border: 1px solid forestgreen;
+    /* border: 1px solid forestgreen; */
   padding: 0;
   padding-top: 50px;
   margin: 1px;
@@ -26,7 +26,7 @@
 .slide1-body-footer {
   width: auto;
   height: 100px;
-  border: 1px solid forestgreen;
+    /* border: 1px solid forestgreen; */
   padding: 0;
   margin: 1px;
   text-align: right;

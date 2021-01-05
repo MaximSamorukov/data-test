@@ -29,7 +29,6 @@ export default (number) => {
 
 
   bodyTop.textContent = "What type of components should use state?";
-  bodyMiddle.textContent = "...img of two types of components..."
   bodyFooter.textContent = "Conclusion:"
   bodyFooterFooter.innerText = "- Components can create and manage their own data with state;\n- state is for managing data;\n- State data can be modified by its own component, but is private (cannot be accessed from outside);\n- Modifying state should happen with the `setState()` method;";
   container.appendChild(titleElement);

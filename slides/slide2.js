@@ -32,7 +32,6 @@ export default (number) => {
   bodyTop.textContent = "React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called 'components'."
   bodyMiddle.textContent = "What is State?";
   bodyFooter.textContent = "State is a special built-in object, which allows components to create and manage their own data. Components cannot pass data with state, but they can create and manage it internally."
-  bodyFooterFooter.textContent = "class code img place here!!!!"
 
   container.appendChild(titleElement);
   container.appendChild(bodyElement);
