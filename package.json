@@ -25,7 +25,6 @@
   "homepage": "https://github.com/rolling-scopes-school/maximsamorukov-JS2020Q3#readme",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "normalize.css": "^8.0.1",
     "reveal.js": "^4.1.0"
   },
   "devDependencies": {
