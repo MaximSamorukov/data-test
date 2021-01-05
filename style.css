@@ -11,7 +11,8 @@
 @import "./styles/styleSlide10.css";
 @import "./styles/styleSlide11.css";
 @import "./styles/styleSlide12.css";
-
+@import "./node_modules/reveal.js/dist/reveal.css";
+@import "./node_modules/reveal.js/dist/theme/simple.css";
 
 section {
   margin: 0;
