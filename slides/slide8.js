@@ -10,8 +10,27 @@ export default (number) => {
   bodyElement.className = 'slide-body';
   footerElement.className = 'slide-footer';
 
-  titleElement.textContent = `Slide: ${number}`;
+  titleElement.textContent = "Types of dataflow in flux";
+  footerElement.textContent = `Slide: ${number}`;
 
+  const bodyTop = document.createElement('div');
+  const bodyMiddle = document.createElement('div');
+  const bodyFooter = document.createElement('div');
+  const bodyFooterFooter = document.createElement('div');
+
+  bodyTop.className = 'slide8-body-top';
+  bodyMiddle.className = 'slide8-body-middle';
+  bodyFooter.className = 'slide8-body-footer';
+  bodyFooterFooter.className = 'slide8-body-footer-footer';
+
+  bodyElement.appendChild(bodyTop);
+  bodyElement.appendChild(bodyMiddle);
+  bodyElement.appendChild(bodyFooter);
+  bodyElement.appendChild(bodyFooterFooter);
+
+
+  bodyTop.textContent = "Store Writes in synchronous actions.";
+  bodyFooter.textContent = "Store Writes in asynchronous actions.";
   container.appendChild(titleElement);
   container.appendChild(bodyElement);
   container.appendChild(footerElement);

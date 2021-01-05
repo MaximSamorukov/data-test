@@ -13,10 +13,6 @@ import slide9 from './slides/slide9';
 import slide10 from './slides/slide10';
 import slide11 from './slides/slide11';
 import slide12 from './slides/slide12';
-import slide13 from './slides/slide13';
-import slide14 from './slides/slide14';
-import slide15 from './slides/slide15';
-import slide16 from './slides/slide16';
 
 let deck = new Reveal({
   plugins: [Markdown]
@@ -38,10 +34,7 @@ const section9 = document.querySelector('.slide_9');
 const section10 = document.querySelector('.slide_10');
 const section11 = document.querySelector('.slide_11');
 const section12 = document.querySelector('.slide_12');
-const section13 = document.querySelector('.slide_13');
-const section14 = document.querySelector('.slide_14');
-const section15 = document.querySelector('.slide_15');
-const section16 = document.querySelector('.slide_16');
+
 
 section1.appendChild(slide1(1));
 section2.appendChild(slide2(2));
@@ -55,7 +48,4 @@ section9.appendChild(slide9(9));
 section10.appendChild(slide10(10));
 section11.appendChild(slide11(11));
 section12.appendChild(slide12(12));
-section13.appendChild(slide13(13));
-section14.appendChild(slide14(14));
-section15.appendChild(slide15(15));
-section16.appendChild(slide16(16));
+

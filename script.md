@@ -69,14 +69,14 @@ If your project is not using React Hooks, then you can only use state in class c
 - State data can be modified by its own component, but is private (cannot be accessed from outside);
 - Modifying state should happen with the `setState()` method;
 
-### 2. Flux approach to component state management (Slide 4)
+### 2. Flux approach to component state management (Slide 6)
 Flux is an architectural pattern proposed by Facebook for building SPAs. It suggests to split the application into the following parts:
 - Stores;
 - Dispatcher;
 - Views;
 - Action / Action Creators.
 
-#### Store (Slide 5)
+#### Store (Slide 6)
 Store manages the state. It can store both domain state and user interface state.
 According to FLUX store and state are different concepts. State is the data value. Store is a behavior object that manages state through methods.
 A store manages multiple objects. It is the single source of truth in regards to those specific objects. In an application there can be many stores. For example: BookStore, AuthorStore, UserStore.
@@ -95,7 +95,7 @@ Presentation views don’t connect to dispatcher or stores. They communicate onl
 Container views are connected to stores and dispatcher. They listen for events from stores and provide the data for presentation components. They get the new data using the stores’ public getter methods and then pass that data down the views tree.
 Container views dispatch actions in response to user iteration.
 
-#### Actions (Slide 7)
+#### Actions (Slide 6)
 An action is a plain object that contains all information necessary to do that action.
 Actions have a type property identifying the action type.
 As action objects move around the application, I suggest to make them immutable.
@@ -108,30 +108,30 @@ The practice is to encapsulate the code, creating actions in functions. These fu
 When doing Web API calls to update the user interface, the Web API call will be followed by an action to update the store. When the store is updated it will emit a change event and as result the view that listens for that event will re-render.
 Web API calls are made in action creators. Also, we can extract out the code that does the API call in Web API Utils functions.
 
-#### Unidirectional data flow (Slide 8)
+#### Unidirectional data flow (Slide 7)
 Updating views flow in a single direction:
 
 ![unidirectional data flow](./assets/flux_long_line.jpg)
 
 Views do not modify the data they received. They listen for changes of this data, create actions with new values, but do not update the data.
-Stores, views and any other action can’t change the state in (other) stores directly. They must send an action through the dispatcher
+Stores, views and any other action can’t change the state in (other) stores directly. They must send an action through the dispatcher.
 The data flow is shorter in store reads than in writes.The data flow in store writes differs between asynchronous and synchronous actions.
-#### Store Reads (Slide 9)
+#### Store Reads (Slide 8)
 
 ![store reads](./assets/flux_short_line.jpg)
 
-#### Store Writes in synchronous actions
+#### Store Writes in synchronous actions (Slide 8)
 
 ![store writes sync](./assets/flux_sync.jpg)
 
-#### Store Writes in asynchronous actions
+#### Store Writes in asynchronous actions (Slide 8)
 
 ![store writes async](./assets/flux_async.jpg)
 
-#### Pros (Slide 10)
+#### Pros (Slide 9)
 Flux architecture is better in an application where views don’t map directly to domain stores. To put in a different way, when views can create actions that will update many stores and stores can trigger changes that will update many views.
 Actions can be persisted and then replayed.
-#### Cons
+#### Cons (Slide 9)
 Flux can add unnecessary complexity to an application where each view maps to one store. In this kind of application a separation between view and store is enough.
 #### Conclusion
 Stores manage state. They change state only by listening for actions. Stores notify views to update.
@@ -139,7 +139,7 @@ Views render the user interface and handle user interaction. Container views lis
 The dispatcher broadcasts actions to all registered stores.
 Actions are plain objects.
 
-### 3. Redux library approach to component state management (Slide 11)
+### 3. Redux library approach to component state management (Slide 10)
 
 #### What is Redux?
 
@@ -154,7 +154,7 @@ Redux tries to solve this issue by providing a few simple rules to update the st
 As we discussed earlier, the main purpose of Redux is to provide predictable state management in our applications. Redux achieves this by having a single source of truth, that is a single state tree. The state tree is a simple JavaScript object which holds the whole state of our application. There are only a few ways to interact with the state. And this makes it easy for us to debug or track our state.
 We now have only one main state which occupies the whole state of the application located at a single location. Any changes made into the state tree are reflected in the whole application because this is the only source of data for the app. And, this is the first fundamental principle of Redux.
 
-#### Rule #1 — Single source of truth (Slide 12)
+#### Rule #1 — Single source of truth
 The state of your whole application is stored in an object tree within a single store.
 The ways you can interact with a state tree are:
 - Getting the state;
@@ -172,7 +172,7 @@ Let’s talk about the methods a store gives us to interact with the state.
 - replaceReducer(nextReducer) — Replaces the reducer currently used by the store to calculate the state.
 
 Now when we have a store which contains a state tree and a few ways to interact with the state, how can we update application state?
-#### Updating state in the application: (Slide 13)
+#### Updating state in the application:
 The only way to update a state is to dispatch an action. This is the 2nd rule.
 
 #### Rule #2 — State is read-only
@@ -187,19 +187,19 @@ Actions can have as much information as you want. It is a good practice to provi
 Once we define our action we pass it to the dispatcher. store.dispatch() is a function provided by the library which accepts an action to perform an action against the state. Redux restricts updating the state to this method only.
 This strict way of updating the state ensures that the state can not be changed directly either by view or any network callback. The only way to update a state is by defining the action and then dispatching it. Remember that actions are plain JavaScript objects. Actions can be logged, serialized, and replayed for debugging purposes.
 We now have a store, a state, and an action in our app to perform some tasks against the state. Now we need a way to use these actions to actually do the update. This can be done by using a pure function and this is rule #3.
-
+#### Redux 3 rules  (Slide 11)
 ![redux three principles](./assets/redux_three_principles.jpg)
 
-#### Rule#3 — Changes are made with pure functions (Slide 14)
+#### Rule#3 — Changes are made with pure functions
 Magic happens here. We need a simple pure function, which, as a parameter, takes the current state of the application and an action to perform on the state, and then returns the updated state. These functions are called reducers.
 These are called reducers because they take the collection of values, reduce it to an updated state and then return it. Since reducers are pure functions they do not mutate the original state. Instead, they return the updated state in a new object. Our application can have one or more than one reducer. Each reducer can have a relevant state to perform specific tasks.
 Since reducers are pure functions, they should have the following attributes:
 - Given the same input, it should return the same output every time — No mutation is allowed.
 - No side effects — No API call data change from an external source.
 
-#### The process. (Slide 15)
+#### The process. (Slide 12)
 If we connect the dots, Redux is a library which has a store that contains a state tree and a few methods to interact with the state. The only way to update a state inside a store is to dispatch an action and define a reducer function to perform tasks based on the given actions. Once dispatched, the action goes inside the reducer functions which performs the tasks and return the updated state to the store. This is what Redux is all about.
 State update flow in Redux.
 
-### Conclusion: (Slide 16)
+### Conclusion: (Slide 18)
 Was shown that…

@@ -1,37 +1,42 @@
 .slide-body {
   font-size: 25px;
 }
-.slide3-body-top {
+
+.slide9-title {
+  font-size: 42px;
+}
+
+.slide9-body-top {
   width: auto;
-  height: 50px;
+  height: 7%;
   border: 1px solid forestgreen;
   padding: 0;
   margin: 1px;
   text-align: left;
 }
 
-.slide3-body-middle {
+.slide9-body-middle {
   box-sizing: border-box;
   width: auto;
-  height: 10%;
+  height: 43%;
   border: 1px solid forestgreen;
   padding: 0;
   margin: 1px;
   text-align: left;
 }
 
-.slide3-body-footer {
+.slide9-body-footer {
   width: auto;
-  height: 20%;
+  height: 7%;
   border: 1px solid forestgreen;
   padding: 0;
   margin: 1px;
   text-align: left;
 }
 
-.slide3-body-footer-footer {
+.slide9-body-footer-footer {
   width: auto;
-  height: 60%;
+  height: 43%;
   border: 1px solid forestgreen;
   padding: 0;
   margin: 1px;

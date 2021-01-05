@@ -10,7 +10,7 @@ export default (number) => {
   bodyElement.className = 'slide-body';
   footerElement.className = 'slide-footer';
 
-  titleElement.textContent = `Slide: ${number}`;
+  footerElement.textContent = `Slide: ${number}`;
 
   const bodyTop = document.createElement('div');
   const bodyMiddle = document.createElement('div');
@@ -24,7 +24,7 @@ export default (number) => {
   bodyElement.appendChild(bodyMiddle);
   bodyElement.appendChild(bodyFooter);
 
-  bodyTop.textContent = "RS School 2020 Q3";
+  titleElement.textContent = "RS School 2020 Q3";
   bodyMiddle.innerHTML = "<span>Presentation:</span><br><span>«State management in<br>React - applications»</span>"
   bodyFooter.textContent = "Samorukov M.L."
   container.appendChild(titleElement);

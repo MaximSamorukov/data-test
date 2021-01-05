@@ -1,31 +1,39 @@
-
 .slide2-body-top {
   width: auto;
-  height: 100px;
+  height: auto;
   border: 1px solid forestgreen;
   padding: 0;
   margin: 1px;
   text-align: left;
+  font-size: 25px;
+}
+
+.slide2-title {
+height: 50px;
+max-height: 50px;
+text-align: left;
+font-size: 25px;
 }
 
 .slide2-body-middle {
   box-sizing: border-box;
   width: auto;
-  height: 50%;
+  height: 10%;
   border: 1px solid forestgreen;
   padding: 0;
-  padding-top: 50px;
   margin: 1px;
   text-align: left;
+  font-size: 25px;
 }
 
 .slide2-body-footer {
   width: auto;
-  height: 100px;
+  height: auto;
   border: 1px solid forestgreen;
   padding: 0;
   margin: 1px;
   text-align: left;
+  font-size: 25px;
 }
 
 .slide2-body-footer-footer {

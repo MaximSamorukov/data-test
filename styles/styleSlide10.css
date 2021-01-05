@@ -1,0 +1,27 @@
+
+.slide10-title {
+  height: 50px;
+  max-height: 50px;
+}
+
+.slide10-body-top {
+  width: auto;
+  height: 7%;
+  border: 1px solid forestgreen;
+  padding: 0;
+  margin: 1px;
+  text-align: left;
+}
+
+.slide10-body-footer {
+  width: auto;
+  height: 93%;
+  border: 1px solid forestgreen;
+  padding: 0;
+  margin: 1px;
+  text-align: left;
+  background-image: url("../assets/redux_state_update.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

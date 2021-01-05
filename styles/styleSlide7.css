@@ -1,0 +1,40 @@
+.slide-body {
+  font-size: 25px;
+}
+
+.slide7-title {
+  font-size: 42px;
+}
+
+.slide7-body-top {
+  width: auto;
+  height: 7%;
+  border: 1px solid forestgreen;
+  padding: 0;
+  margin: 1px;
+  text-align: left;
+}
+
+.slide7-body-middle {
+  box-sizing: border-box;
+  width: auto;
+  height: 30%;
+  border: 1px solid forestgreen;
+  padding: 0;
+  margin: 1px;
+  text-align: left;
+  background-image: url("../assets/flux_long_line.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-origin: content-box;
+  background-size: contain;
+}
+
+.slide7-body-footer-footer {
+  width: auto;
+  height: 63%;
+  border: 1px solid forestgreen;
+  padding: 0;
+  margin: 1px;
+  text-align: left;
+}
